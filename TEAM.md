@@ -45,7 +45,7 @@
 | 7 | [`SOURCES.md`](./SOURCES.md) | где учиться по своему направлению | по надобности |
 | 8 | `board/OPEN.md` · `board/DONE.md` | подробности открытой и закрытой работы | по нужной строке |
 
-**Только для тимлида:** [`LEAD-PROCEDURES.md`](./roles/LEAD-PROCEDURES.md) — пятнадцать ситуаций по шагам,
+**Только для тимлида:** [`LEAD-PROCEDURES.md`](./roles/LEAD-PROCEDURES.md) — шестнадцать ситуаций по шагам,
 от начала смены до заведения новой роли.
 
 **Правила контента живут отдельно и сильнее всего перечисленного:**
@@ -58,7 +58,7 @@
 
 | Роль | Документ |
 |---|---|
-| тимлид | [`LEAD.md`](./roles/LEAD.md) — что и почему · [`LEAD-PROCEDURES.md`](./roles/LEAD-PROCEDURES.md) — как, по шагам, на пятнадцать ситуаций |
+| тимлид | [`LEAD.md`](./roles/LEAD.md) — что и почему · [`LEAD-PROCEDURES.md`](./roles/LEAD-PROCEDURES.md) — как, по шагам, на шестнадцать ситуаций |
 | аналитик | [`ANALYST.md`](./roles/ANALYST.md) |
 | дизайнер | [`DESIGNER.md`](./roles/DESIGNER.md) |
 | исполнитель | [`EXECUTOR.md`](./roles/EXECUTOR.md) |
