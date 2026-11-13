@@ -119,6 +119,18 @@
 
 ---
 
+## 8. Игровая разработка (Godot 4 Mono / C# / 3D) и Фулстак / Бэкенд
+
+| Вопрос | Источник |
+|---|---|
+| устройство сцен, ресурсов (`uid://`), сигналов, жизненный цикл узлов и отличия C# API в Godot 4 | **Godot Engine 4 Official Documentation (C# / .NET)**, `docs.godotengine.org/en/stable/tutorials/scripting/c_sharp/` |
+| оптимизация 3D-рендера, уровни детализации (Mesh LOD), освещение и импорт 3D-сцен в Godot 4 | **Godot 3D Performance & Import**, `docs.godotengine.org/en/stable/tutorials/performance/` · `tutorials/assets_pipeline/` |
+| спецификация формата `.glb` / `.gltf` (материалы, PBR-текстуры, скелетная анимация, узлы) | **Khronos glTF 2.0 Specification**, `registry.khronos.org/glTF/specs/2.0/glTF-2.0.html` |
+| безопасность API, проверка прав доступа к объектам (BOLA/IDOR) и валидация на сервере | **OWASP API Security Top 10**, `owasp.org/API-Security/` |
+| политики построчного доступа к данным (Row-Level Security) и разделение `anon` / `service_role` ключей | **Supabase Row Level Security & Auth Docs**, `supabase.com/docs/guides/database/postgres/row-level-security` |
+
+---
+
 ## 9. Наши собственные документы — читать раньше внешних
 
 Внешний источник говорит, **как принято вообще**. Документы проекта говорят, **что уже решено
