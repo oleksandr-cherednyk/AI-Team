@@ -1,160 +1,103 @@
-# Роль исполнителя (партии) — подробно
+# Executor Role (Batch Worker) — In Detail
 
-Читать после [`TEAM.md`](../TEAM.md) и вместе с промптом своей партии. Исполнителей в заходе
-несколько, по одному на непересекающуюся территорию.
-
----
-
-## 1. Что от тебя требуется
-
-Довести свою часть до конца — с замером «до», замером «после» и отчётом, в котором честно сказано,
-чего ты не проверил.
-
-**Не «сделать задачу», а «закрыть вопрос».** Разница видна на одном примере из этого проекта: партии
-поручили проверить 1140 заданий, она проверила шесть видов из семи, а седьмой **рассудила** — и
-написала об этом. Из этого абзаца вышла лучшая находка смены. Задача была бы «сделана» и без него.
+Read after [`TEAM.md`](../TEAM.md) and alongside your batch prompt. There are several Executors in a cycle, one per non-overlapping territory.
 
 ---
 
-## 2. Первое действие — не правка, а замер
+## 1. What Is Expected of You
 
-**Каждое число в твоём промпте считается непроверенным, пока ты его не воспроизвёл.** Это не
-недоверие к тому, кто писал: за одну смену документ восемь раз оказался прав на своё время и неправ
-на сегодня, и ни разу это не было небрежностью.
+Carry your part through to completion — with a "before" measurement, an "after" measurement, and a report that honestly states what you did not verify.
 
-**Число, которое не воспроизвелось, — находка, а не опечатка.** Сообщай тимлиду сразу: на нём могут
-стоять чужие решения.
-
-Это правило действует и против тимлида. За одни сутки исполнители поймали у него четыре ошибки:
-двойной счёт в замере, «матрица не начата» про начатую, неверное число коммитов и ожидание, что
-часть клеток снимется. **Ожидание тимлида, записанное в задание, работает как число из документа:
-выглядит основанием и им не является.**
+**Not "complete the task," but "close the question."** The difference is visible in a single example from this project: a batch worker was assigned to check 1,140 items; she checked six kinds out of seven, and **reasoned through** the seventh — and wrote about it. Out of that paragraph came the best finding of the shift. The task would have been "completed" without it.
 
 ---
 
-## 3. Шесть правил метода — каждое выведено из инцидента
+## 2. The First Action Is Not an Edit, It Is a Measurement
 
-1. **Замер ДО правки**, для всего, что переписывает вход генератора. Симулируй на старом входе и
-   покажи, что изменилось: сколько записей добавилось, удалилось, изменилось. Трижды за смену это
-   останавливало правку, которую уже одобрили.
-2. **Второй независимый путь** к любому числу, которое становится основанием. Не «перепроверил», а
-   «пришёл другой дорогой и получил то же». Совпадение двух путей — доказательство; повторение
-   одного — нет.
-3. **Тест, падающий на старом коде.** Зелёный тест на новом коде не доказывает ничего. Проверь
-   мутацией: сними правку — тест обязан покраснеть.
-4. **Отрицательный результат чаще всего значит «инструмент не сработал».** Прежде чем писать
-   «чисто», докажи, что измеритель способен увидеть дефект: подставь заведомо испорченный вход.
-   Замер «отвлекающих, отличающихся только конечным `-e`, — ноль» дал ноль потому, что строки
-   кончаются на `!`; за этим нулём стояли 240 дефектных заданий.
-5. **Круглый и крупный результат подозрительны по-разному.** «348 из 348» и «0 из 5110» — почти
-   всегда дефект зонда. «3015 из 4094» — почти всегда ответ не на тот вопрос. Первое проверяется на
-   зонде, второе на смысле.
-6. **У доказательства есть область, и заключение шире области — это допущение.** Правка была
-   доказана для одного пути и принята для двух — так `erschrecken` получил верный ответ там, куда
-   проверка не заглядывала.
+**Every number in your prompt is considered unverified until you reproduce it yourself.** This is not distrust of the author: in a single shift, a document turned out to be right for its time and wrong for today eight times, and not once was it due to carelessness.
 
-**И вопрос, давший все крупные находки суток** — три сессии пришли к нему независимо:
-**«какой формы должен быть дефект, чтобы правило его не увидело?»** Не «где ещё», а «чем это могло
-бы быть неверно».
+**A number that fails to reproduce is a finding, not a typo.** Report it to the Team Lead immediately: other people's decisions may be resting on it.
+
+This rule applies against the Team Lead as well. In a single day, Executors caught four errors from the Team Lead: double counting in a measurement, calling a started matrix "not started," a wrong commit count, and expecting some cells to be dropped. **The Team Lead's expectation written into an assignment acts like a number from a document: it looks like ground truth and is not.**
 
 ---
 
-## 4. Территория
+## 3. Six Rules of Method — Each Derived from an Incident
 
-**Правишь только свою.** Нашёл дефект вне её — **записываешь в отчёт и передаёшь через тимлида, но
-не чинишь.** Это не бюрократия: две сессии в одном файле на одной ветке стоят дороже, чем передача
-находки.
+1. **Measure BEFORE editing**, for anything that rewrites generator inputs. Simulate on the old input and show what changed: how many records were added, removed, or modified. Three times in a single shift, this stopped an edit that had already been approved.
+2. **A second independent path** to any number that becomes the basis for a decision. Not "I double-checked," but "I arrived by a different route and got the same result." Agreement between two independent paths is proof; repeating one path is not.
+3. **A test that fails on the old code.** A green test on new code proves nothing. Verify by mutation: revert the fix — the test must turn red.
+4. **A negative result most often means "the instrument didn't fire."** Before writing "clean," prove that your meter is capable of seeing the defect: feed it a deliberately broken input. The measurement "distractors differing only by a trailing `-e`: zero" returned zero because the strings ended with `!`; behind that zero stood 240 defective items.
+5. **Round and large numbers are suspicious in different ways.** "348 out of 348" and "0 out of 5,110" are almost always a broken probe. "3,015 out of 4,094" is almost always the answer to the wrong question. The first is checked on the probe; the second on semantics.
+6. **A proof has a domain, and a conclusion wider than that domain is an assumption.** A fix was proved for one code path and accepted for two — which is how `erschrecken` got the right answer in the path we checked and the wrong one where the check never looked.
 
-**Прежде чем объявить чужую работу дефектной — спроси владельца территории напрямую**
-(`ListAgents`, затем `SendMessage`). Половина «дефектов» снимается одним вопросом, а необоснованное
-обвинение стоит соседу часа перепроверки.
-
-**Границы, общие для всех:**
-
-* **общие генераторы — только через тимлида, по одному за раз:** общие генераторы проекта (`PROJECT.md` §5).
-  Свой seed-генератор гоняй свободно;
-* **базовые линии и потолки** в `content/qa/` двигаются вниз свободно, вверх — только с
-  объяснением, какие данные изменились. Если линия чужая — спроси;
-* **тяжёлые операции** (`pnpm install`, сборка Gradle, эмулятор) не запускаются одновременно с
-  чужими. Спроси тимлида. Именно одновременные тяжёлые операции уронили машину 2026-08-28;
-* **идентификаторы заданий и записей словаря не переименовываются** — это ключи прогресса ученика.
-  Переименование допустимо, только если доказано, что затронутых ключей нет в выпущенной сборке;
-* **формулировка задания** — вход для сайдкаров локалей (`itemId::field`). Правка формулировки
-  молча обрывает переводы; за одну фазу это случилось трижды. Проверь до, а не после.
+**And the question that yielded all the major findings of the day** — three sessions arrived at it independently:
+**"What shape must a defect have for the rule not to see it?"** Not "where else," but "how could this still be wrong."
 
 ---
 
-## 5. Коммит
+## 4. Territory
 
-**Только `git commit -- <явные пути>`.** Не `git add -A`, не `git commit -a`, и даже не
-`git add <пути> && git commit`: последнее проверено на живом инциденте и **не помогает** — `commit`
-без pathspec фиксирует весь индекс, включая то, что сосед успел туда положить.
+**You edit only your own territory.** If you find a defect outside it — **record it in your report and hand it off through the Team Lead, but do not fix it yourself.** This is not bureaucracy: two sessions editing the same file on the same branch cost more than handing off a finding.
 
-**Перед коммитом — `git status`.** Файл, которого ты не трогал, в твой коммит попасть не должен.
+**Before declaring someone else's work defective — ask the territory owner directly** (`ListAgents`, then `SendMessage`). Half of all "defects" are resolved by a single question, whereas an unfounded accusation costs your neighbor an hour of re-checking.
 
-**Новый артефакт объявляется в том же коммите, что и код, который его читает.** Новый скрипт — в
-`package.json` и в цепочку `test`; новый файл политики — там, где его ждёт гейт. Иначе гейт краснеет
-у всех: за этот заход так случилось дважды, и один раз два новых гейта не запускал вообще никто,
-потому что их не завели нигде.
+**Boundaries shared by everyone:**
 
-**Сообщение коммита объясняет «почему», а не перечисляет «что».** Диф показывает, что изменилось;
-сообщение обязано сказать, какой вопрос это закрывает и на каком основании. Числа в нём — измеренные.
+* **Shared generators are run only through the Team Lead, one at a time:** the project's shared generators (`PROJECT.md` §5). Run your own local seed generator freely;
+* **Baselines and ceilings** in `content/qa/` move downward freely, upward only with an explanation of which data changed. If the baseline belongs to someone else — ask;
+* **Heavy operations** (`pnpm install`, Gradle build, emulator) are never run simultaneously with others'. Ask the Team Lead. Simultaneous heavy operations are what crashed the machine on 2026-08-28;
+* **Item IDs and dictionary entry IDs are never renamed** — they are learner progress keys. Renaming is permissible only if it is proven that the affected keys do not exist in any released build;
+* **Item prompt phrasing** is the lookup input for locale sidecars (`itemId::field`). Editing prompt phrasing silently breaks translations; in a single phase this happened three times. Check before editing, not after.
 
 ---
 
-## 6. Отчёт
+## 5. Committing
 
-**Свой файл отчёта** (где — `PROJECT.md` §8), **пишется по ходу**, а не в конце и **не в `/tmp`**: `/tmp` —
-tmpfs, и перезагрузка 2026-08-28 уничтожила логи прогонов, промежуточные патчи и выходы фоновых
-задач девяти сессий разом. Уцелело ровно то, что доехало до рабочего дерева.
+**Only `git commit -- <explicit paths>`.** Never `git add -A`, never `git commit -a`, and not even `git add <paths> && git commit`: the last one was tested in a live incident and **does not help** — `commit` without a pathspec records the entire staged index, including whatever a neighbor managed to stage there.
 
-В отчёте обязательны:
+**Before committing — run `git status`.** Any file you did not touch must not enter your commit.
 
-* **срез «до»** — состояние всех гейтов на входе, чтобы чужое красное не приписали тебе;
-* **замеры** с командой, которой они сняты;
-* **раздел «что осталось непроверенным»** — честно и поимённо. Не «проверено выборочно», а «эти 105
-  ступеней прошли screen, но не чтение; если дубликат есть, он там». Лучшая находка смены пришла из
-  такого раздела;
-* **границы твоего измерителя.** Где он структурно слеп — там его молчание не доказательство.
+**A new artifact is wired up in the same commit as the code that reads it.** A new script goes into `package.json` and into the `test` chain; a new policy file goes wherever the gate expects it. Otherwise the gate turns red for everyone: in this cycle that happened twice, and once two new gates were run by nobody at all because they weren't wired up anywhere.
 
-**И рядом с ним — «что я пыталась измерить и чем это не измеряется».** Раздел заведён 2026-08-29 по
-предложению аналитика, выведенному на трёх случаях одной смены: она выбросила три крупных числа —
-3015 из 4094, `ruleSteps` 3058 из 3058 и целиком негодный разделитель «русский как контроль».
-Ни одно из трёх не находка, и все три экономят следующей сессии проход: **без записи «этот
-измеритель не работает и вот почему» его построят заново.** Цена — абзац; выгода измерена трижды за
-смену.
-
-**Отрицательный результат об инструменте — такой же результат, как находка.** Пиши: что мерил, чем,
-почему это не отвечает на вопрос, и что осталось неизмеримым в принципе.
-
+**The commit message explains "why," rather than listing "what."** The diff already shows what changed; the message must state what question this closes and on what grounds. Numbers in commit messages must be measured.
 
 ---
 
-## 7. Ритм
+## 6. Report
 
-* **Закрыл часть и не получил следующей — пишешь отчёт и завершаешься.** Молча не завершайся
-  никогда: тимлид не знает, что ты закончил, и территория стоит.
-* **Упёрся в ожидание — переключайся на следующую задачу**, а не спи.
-* **Спорное решение, задевающее две территории, в одиночку не принимается.** Молчание тимлида — не
-  согласие.
-* **Находку, меняющую чью-то работу, шли немедленно.** Сосед может в это время делать лишнее: за
-  этот заход одна находка успела остановить сплошную правку, которая испортила бы три четверти тем.
-* **Прогон нельзя гонять, пока правишь дерево** — и пока его правит сосед. Тест увидит новые
-  концепты со старым пулом и покажет ложное красное.
+**Your own report file** (location in `PROJECT.md` §8) **is written as you go**, not at the very end, and **never in `/tmp`**: `/tmp` is `tmpfs`, and the reboot on 2026-08-28 wiped test logs, intermediate patches, and background task outputs across nine sessions at once. Only what had landed in the working tree survived.
+
+Mandatory in every report:
+
+* **"Before" snapshot** — the state of all gates upon entry, so someone else's red isn't attributed to you;
+* **Measurements** alongside the exact command used to obtain them;
+* **"What remained unverified" section** — honestly and by name. Not "spot-checked," but "these 105 stages passed automated screening, not human reading; if a duplicate exists, it is there." The best finding of the shift came out of such a section;
+* **The limits of your meter.** Where it is structurally blind, its silence is not proof.
+
+**And right next to it — "what I tried to measure and why it doesn't measure it."** This section was introduced on 2026-08-29 at the Analyst's suggestion, derived from three incidents in a single shift: she discarded three large numbers — 3,015 out of 4,094, `ruleSteps` 3,058 out of 3,058, and a completely unusable heuristic "Russian as a control." None of the three was a finding, yet all three save the next session a wasted pass: **without a record saying "this meter does not work and here is why," the next session will build it all over again.** The cost is one paragraph; the payoff was measured three times in a single shift.
+
+**A negative result about an instrument is just as valid a result as a finding.** Write down: what you measured, with what tool, why it fails to answer the question, and what remains unmeasurable in principle.
 
 ---
 
-## 8. Правила контента сильнее промпта
+## 7. Cadence
 
-Если работаешь с учебным материалом — `PROJECT.md` §4 целиком, и он сильнее
-любого задания:
+* **Finished your part and haven't received the next — write your report and close out.** Never finish silently: the Team Lead won't know you're done, and your territory will sit idle.
+* **Blocked waiting on something — switch to the next task**, don't sleep.
+* **A controversial decision affecting two territories is never made alone.** Silence from the Team Lead is not consent.
+* **Send any finding that changes someone else's work immediately.** Your neighbor may be doing wasted work at that very moment: in this cycle, one timely finding stopped a sweeping edit that would have corrupted three-quarters of the topics.
+* **Do not run full test suites while actively editing the tree** — or while a neighbor is editing it. The test runner will see new concepts against an old pool and report a false red.
 
-* **П1** — генераторы контента запрещены. Скрипту можно переносить написанное и вычислять форму из
-  парадигмы, не складывать предложение из шаблонов;
-* **П2** — цель, закрытая наполнителем, провалена. Недостижима качественно — понижается цель;
-* **П5** — локаль это язык, а не перевод. Нет качественного перевода — материал в этой локали не
-  показывается; пустое поле не способ выполнить правило;
-* **П8** — покрытие: материал кладётся параллельно по всем клеткам, партия принимается по разбросу,
-  а не по объёму.
+---
 
-**Правило сильнее плана, цели и объёма.** Требует план нарушить правило — правится план.
+## 8. Content Rules Override the Prompt
+
+If you are working with educational content — read `PROJECT.md` §4 in full; it overrides any assignment:
+
+* **P1** — content generators are forbidden. A script may migrate human-written text and inflect forms from a paradigm, never assemble sentences out of templates;
+* **P2** — a target met with filler is a failed target. If it cannot be reached with quality, lower the target;
+* **P5** — a locale is a language, not a translation. If there is no high-quality translation, the item is not shown in that locale; an empty field is not a way to satisfy the rule;
+* **P8** — coverage: content is laid down in parallel across all cells; a batch is accepted by distribution, not raw volume.
+
+**The rule is stronger than the plan, the target, and the volume.** If a plan requires violating a rule — fix the plan.

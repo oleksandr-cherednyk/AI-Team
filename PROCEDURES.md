@@ -1,369 +1,399 @@
-# Общие процедуры — для всех участников
+# General Procedures — For All Participants
 
-**Учреждено владельцем 2026-08-29.** Спутник [`TEAM.md`](./TEAM.md): там **что и почему**, здесь
-**как, по шагам**.
+**Established by the Owner on 2026-08-29.** Companion to [`TEAM.md`](./TEAM.md): `TEAM.md` explains
+**what and why**; this document explains **how, step by step**.
 
-> «Инструкции можно вести и для других, для всех участников; может, некоторые общие будут
-> инструкции.» — владелец, 2026-08-29
+> "Instructions can also be maintained for others, for all participants; perhaps some instructions
+> will be general." — Owner, 2026-08-29
 
-**Это общее для всех ролей.** У тимлида сверх этого свои пятнадцать —
-[`LEAD-PROCEDURES.md`](./roles/LEAD-PROCEDURES.md). Процедуры **меняются и улучшаются** по правилам
-`TEAM.md` §6 и §8.
+**This applies to all roles.** On top of these, the Team Lead has fifteen role-specific procedures in
+[`LEAD-PROCEDURES.md`](./roles/LEAD-PROCEDURES.md). Procedures **evolve and improve** under the rules
+of `TEAM.md` §6 and §8.
 
-**Оглавление**
+**Table of Contents**
 
-| | ситуация |
+| | Situation |
 |---|---|
-| **О-1** | [Вход в работу](#о-1-вход-в-работу) |
-| **О-2** | [Первое действие: замер, а не правка](#о-2-первое-действие-замер-а-не-правка) |
-| **О-3** | [Нашёл что-то — как оформить](#о-3-нашёл-что-то--как-оформить) |
-| **О-4** | [Нашёл дефект вне своей территории](#о-4-нашёл-дефект-вне-своей-территории) |
-| **О-5** | [Красное в прогоне](#о-5-красное-в-прогоне) |
-| **О-6** | [Нужен общий ресурс](#о-6-нужен-общий-ресурс) |
-| **О-7** | [Коммит](#о-7-коммит) |
-| **О-8** | [Отчёт](#о-8-отчёт) |
-| **О-9** | [Отзыв собственной находки](#о-9-отзыв-собственной-находки) |
-| **О-10** | [Предложить улучшение своей работы](#о-10-предложить-улучшение-своей-работы) |
-| **О-11** | [Нашёл источник или закономерность](#о-11-нашёл-источник-или-закономерность) |
-| **О-12** | [Закончил часть · пауза · завершение](#о-12-закончил-часть--пауза--завершение) |
-| **О-13** | [Нашёл ошибку или улучшение в самой документации](#о-13-нашёл-ошибку-или-улучшение-в-самой-документации) |
+| **GP-1** | [Starting Work](#gp-1-starting-work) |
+| **GP-2** | [First Action: Measure, Do Not Edit](#gp-2-first-action-measure-do-not-edit) |
+| **GP-3** | [Found Something: How to Format a Finding](#gp-3-found-something-how-to-format-a-finding) |
+| **GP-4** | [Found a Defect Outside Your Territory](#gp-4-found-a-defect-outside-your-territory) |
+| **GP-5** | [Red in a Test Run](#gp-5-red-in-a-test-run) |
+| **GP-6** | [Need a Shared Resource](#gp-6-need-a-shared-resource) |
+| **GP-7** | [Committing](#gp-7-committing) |
+| **GP-8** | [Writing a Report](#gp-8-writing-a-report) |
+| **GP-9** | [Retracting Your Own Finding](#gp-9-retracting-your-own-finding) |
+| **GP-10** | [Proposing an Improvement to Your Own Work](#gp-10-proposing-an-improvement-to-your-own-work) |
+| **GP-11** | [Found a Source or a Pattern](#gp-11-found-a-source-or-a-pattern) |
+| **GP-12** | [Finished a Part, Pausing, or Wrapping Up](#gp-12-finished-a-part-pausing-or-wrapping-up) |
+| **GP-13** | [Found an Error or Improvement in the Documentation Itself](#gp-13-found-an-error-or-improvement-in-the-documentation-itself) |
 
 ---
 
-## О-1. Вход в работу
+## GP-1. Starting Work
 
-1. **`board/00-START.md`.** `✅` — открытой работы нет. Иначе — что уже
-   найдено и не сделано, **по нужным строкам**, а не целиком.
-2. **[`PLAYBOOK.md`](./PLAYBOOK.md)** — десять минут, чтобы не начинать сырым.
-3. **[`TEAM.md`](./TEAM.md)** §2 — общий список чтения.
-4. **Свой документ роли** целиком.
-5. **Своя память** — `memory/<роль>/`: `project.md`, `craft.md`, `decisions.md`.
-6. **[`SOURCES.md`](./SOURCES.md)** — свой раздел, если направление требует внешнего знания.
-7. `PROJECT.md` и `PROJECT.md` §4, если работаешь с материалом.
+1. **`board/00-START.md`.** `✅` means there is no open work. Otherwise, read what has already been
+   found and remains undone — **by the relevant lines**, not the entire file.
+2. **[`PLAYBOOK.md`](./PLAYBOOK.md)** — ten minutes so you do not start cold.
+3. **[`TEAM.md`](./TEAM.md)** §2 — general reading list.
+4. **Your own role document** in full.
+5. **Your own memory** — `memory/<role>/`: `project.md`, `craft.md`, `decisions.md`.
+6. **[`SOURCES.md`](./SOURCES.md)** — your section, if the task requires external domain knowledge.
+7. `PROJECT.md` and `PROJECT.md` §4, if you are working with project material.
 
-**Только после этого — первое действие.**
-
----
-
-## О-2. Первое действие: замер, а не правка
-
-**Каждое число в задании считается непроверенным, пока ты его не воспроизвёл.** Включая числа
-тимлида: за одни сутки исполнители поймали у него шесть неверных.
-
-* **число не воспроизвелось — это находка, а не опечатка.** Сообщи сразу: на нём могут стоять чужие
-  решения;
-* **ожидание в задании — не основание.** «Часть клеток снимется» проверяется, а не исполняется;
-* **замер называет, против какого состояния снят** — ветка и коммит, а не «сегодня». Деревьев
-  девять.
+**Only after completing these steps should you take your first action.**
 
 ---
 
-## О-3. Нашёл что-то — как оформить
+## GP-2. First Action: Measure, Do Not Edit
 
-**Четыре части, ни одна не пропускается:**
+**Every number in a task assignment is considered unverified until you reproduce it yourself.** That
+includes the Team Lead's numbers: in a single day, Executors caught six inaccurate numbers from the
+Team Lead.
 
-1. **что наблюдается** — воспроизводимо командой, экраном или кадром;
-2. **чем измерено** — команда, число, файл. «Выглядит неправильно» — не замер;
-3. **что это значит** — ученику или работе. **Если ничего — так и написать**: находка без
-   последствия тоже бывает верной, но её цена другая;
-4. **чья территория и что предлагается.**
-
-**Перед отправкой — три проверки, каждая ловила ошибку сегодня:**
-
-* **прочитай сами случаи, а не только число.** Ложная находка опаснее пропущенной: пропуск лежит
-  тихо, ложная находка тратит чужое время и уходит наверх как факт;
-* **проверь достижимость входа.** Ветка кода, в которую не попадает живой сценарий, — не дефект;
-* **круглое проверь на зонде, крупное — на смысле.** «348 из 348» — почти всегда дефект измерителя;
-  «3015 из 4094» — почти всегда ответ не на тот вопрос.
-
-**Находку, меняющую чужую работу, шли немедленно** — до всего остального.
+* **A number that fails to reproduce is a finding, not a typo.** Report it immediately: other
+  people's decisions may depend on it;
+* **An expectation in the assignment is not a fact.** "Some cells will drop off" is something to be
+  verified, not executed blindly;
+* **Every measurement must state what state it was taken against** — branch and commit, not "today".
+  There are nine working trees.
 
 ---
 
-## О-4. Нашёл дефект вне своей территории
+## GP-3. Found Something: How to Format a Finding
 
-1. **Не чини.** Две сессии в одном файле стоят дороже, чем передача находки.
-2. **Спроси владельца территории напрямую** (`ListAgents` → `SendMessage`) **прежде, чем назвать его
-   работу дефектной.** Половина «дефектов» снимается одним вопросом.
-3. **Автора чужой работы спрашивай у тимлида.** `git log --author` участников **не различает** —
-   все коммитят под одним именем; отличают только ветка и префикс сообщения. И субагентов не видно
-   в `ListAgents`.
-4. **Передавай замер, а не объяснение причины.** Число и его объяснение имеют разную надёжность;
-   отправив их одним куском, ты придаёшь объяснению вес числа.
-5. **Вместе с числом передавай границы своего зонда** — где он слеп. «74» без слова «нижняя
-   граница» через месяц читается как «дефект закрыт».
+**Four parts, none optional:**
 
----
+1. **What is observed** — reproducible by command, screen, or frame;
+2. **How it was measured** — command, number, file. "Looks wrong" is not a measurement;
+3. **What it means** — for the learner/user or the work. **If nothing, say so explicitly**: a
+   finding without user impact can still be valid, but its weight is different;
+4. **Whose territory it belongs to and what is proposed.**
 
-## О-5. Красное в прогоне
+**Before sending — three checks, each of which caught an error today:**
 
-1. **Перепрогнать.** Один прогон в общем дереве ничего не доказывает.
-2. **Чьё это красное** — `git status`, `git diff`, а лучше: **убрать свои правки в `git stash` и
-   прогнать на чистом HEAD.** Так доказывают непричастность, а не заявляют её.
-3. **`pnpm test` идёт `pnpm -r` и на падении пакета останавливается.** Красное в `lang-en` значит,
-   что `apps/mobile` **не запускался вовсе**, и по логу это не выглядит как пропуск. **Зелёный
-   `pnpm test` доказывает мобильное приложение только если в логе есть его строки.**
-4. **Прогон нельзя гонять, пока правишь дерево** — своё или соседа. Тест увидит новый код со
-   старыми данными.
-5. **`pnpm test` не типизирует** — jest идёт через babel. Перед коммитом гоняются оба.
-6. **Чужое красное — передай владельцу**, не чини вслепую.
+* **Read the actual cases, not just the count.** A false finding is more dangerous than a missed
+  one: a miss sits quietly, whereas a false finding wastes other people's time and travels upward as
+  fact;
+* **Verify input reachability.** A code branch that no live scenario can reach is not a defect;
+* **Test round numbers against the probe, and large numbers against meaning.** "348 out of 348" is
+  almost always a defect in the probe; "3015 out of 4094" is almost always the answer to the wrong
+  question.
+
+**If a finding changes someone else's work, send it immediately** — before doing anything else.
 
 ---
 
-## О-6. Нужен общий ресурс
+## GP-4. Found a Defect Outside Your Territory
 
-**Спрашивать тимлида, а не занимать.**
-
-* **общие генераторы** (список — `PROJECT.md` §5) — только через него, по одному за раз: два
-  одновременных прогона дают гонку, которую не покажет ни один инструмент;
-* **полный прогон** — один в единицу времени: девять деревьев дают 28 процессов jest и память в
-  ноль. Остальным — адресный прогон по своей поверхности;
-* **эмулятор и сборка Gradle** — по одному, и не одновременно с чужим `pnpm install`. **«Эмулятор
-  свободен» — это чьё-то намерение, а не состояние устройства**;
-* **чужая базовая линия** — спросить владельца. Вниз двигается свободно, вверх — только с
-  объяснением, какие данные изменились.
-
----
-
-## О-7. Коммит
-
-* **только `git commit -- <явные пути>`.** Не `git add -A`, не `git commit -a`, и **даже не
-  `git add <пути> && git commit`** — последнее проверено на инциденте и не помогает: `commit` без
-  pathspec фиксирует весь индекс, включая чужое;
-* **`git status` перед коммитом.** Файл, которого ты не трогал, попасть не должен;
-* **новый артефакт объявляется в том же коммите**, что и код, который его читает: скрипт — в
-  `package.json` и в цепочку `test`, политика — там, где её ждёт гейт;
-* **сообщение объясняет «почему», а не перечисляет «что».** Числа в нём — измеренные;
-* **коммить готовое, а не копить.** Половинчатая правка в дереве по дифу неотличима от законченной —
-  это уже стоило нам разбирательства. **Уцелевает только то, что доехало до дерева.**
+1. **Do not fix it yourself.** Two sessions editing the same file cost more than handing off the
+   finding.
+2. **Ask the territory owner directly** (`ListAgents` → `SendMessage`) **before calling their work
+   defective.** Half of all "defects" are resolved with a single question.
+3. **Ask the Team Lead who authored someone else's work.** `git log --author` **does not distinguish**
+   participants — everyone commits under the same user name; only the branch and commit message
+   prefix distinguish them. And subagents do not appear in `ListAgents`.
+4. **Hand over the measurement, not your explanation of the cause.** A number and its explanation
+   have different reliability; bundling them together lends the explanation the weight of the number.
+5. **Along with the number, state the boundaries of your probe** — where it is blind. "74" without
+   the words "lower bound" will be read a month later as "defect closed".
 
 ---
 
-## О-8. Отчёт
+## GP-5. Red in a Test Run
 
-**Свой файл отчёта** (где — `PROJECT.md` §8), **пишется по ходу**, не в конце и **не во временном
-каталоге** — он очищается при перезагрузке, и
-перезагрузка уничтожила скретч девяти сессий разом.
-
-Обязательны:
-
-* **срез «до»** — состояние гейтов на входе, чтобы чужое красное не приписали тебе;
-* **замеры с командой**, которой сняты;
-* **«что осталось непроверенным»** — поимённо, а не «проверено выборочно»;
-* **«что я пытался измерить и чем это не измеряется»** — негодный измеритель экономит следующему
-  проход; без записи его построят заново;
-* **границы твоего измерителя** — где он структурно слеп;
-* **«дефектов нет» записывается так же подробно, как находка.** Названное «здесь чисто и вот
-  почему» экономит следующей смене тот же час.
+1. **Re-run it.** A single run in a shared tree proves nothing.
+2. **Determine whose red it is** — `git status`, `git diff`, or better yet: **stash your changes
+   with `git stash` and run on a clean HEAD.** That is how you prove non-involvement rather than
+   merely claiming it.
+3. **`pnpm test` runs `pnpm -r` and stops on the first package failure.** A failure in `lang-en`
+   means `apps/mobile` **never ran at all**, and the log will not make that look like a skip. **A
+   green `pnpm test` proves the mobile app passed only if its lines actually appear in the log.**
+4. **Do not run tests while editing the tree** — yours or a neighbor's. The test runner will see new
+   code paired with stale data.
+5. **`pnpm test` does not type-check** — Jest runs through Babel. Run both before committing.
+6. **If the red belongs to someone else, hand it to the owner** — do not fix it blindly.
 
 ---
 
-## О-9. Отзыв собственной находки
+## GP-6. Need a Shared Resource
 
-**Отзыв шлётся так же немедленно, как находка.**
+**Ask the Team Lead; do not just grab it.**
 
-1. проверь отзыв так же, как проверял находку;
-2. **напиши всем, кому находка ушла** — и тимлиду в первую очередь, он мог понести её дальше;
-3. **раздели, что снято, а что осталось.** Обычно снимается объяснение, а число остаётся верным;
-4. **если правило подкреплялось этим случаем — скажи об этом.** Правило может остаться верным
-   вообще, но подпирать его снятым случаем нельзя;
-5. **запиши форму ошибки** в `decisions.md`, а не факт отзыва.
-
-**Отзыв — это работа, а не признание.** За смену их было пять, и каждый сэкономил чужое время.
-
----
-
-## О-10. Предложить улучшение своей работы
-
-**Это твоё право и ожидание от тебя** (`TEAM.md` §6). Основание: **сессия, исполняющая роль, знает
-о ней больше, чем тот, кто её описал.**
-
-Предлагать можно: своё ТЗ · инструкцию своей роли · порядок взаимодействия · новую роль.
-
-**Как:** тимлиду, с тем же требованием, что к находке — **чем измерено или на каком случае
-выведено.** «Было бы удобнее» — не предложение; «правило дало ложное красное вот здесь, и вот
-почему» — предложение.
-
-**Отклонение от указания допустимо, если обстоятельство под ним изменилось** — но говорится **сразу
-и прямо**, а не задним числом. Тимлид пишет задания по состоянию на момент написания.
+* **Shared generators** (listed in `PROJECT.md` §5) — coordinate strictly through the Team Lead, one
+  at a time: two simultaneous runs create a race condition that no tool will diagnose;
+* **Full test suite run** — one at a time: nine trees spawn 28 Jest processes and exhaust memory to
+  zero. Everyone else should run targeted tests on their own surface;
+* **Emulator and Gradle build** — one at a time, and never concurrently with someone else's
+  `pnpm install`. **"The emulator is free" expresses someone's intention, not the state of the
+  device**;
+* **Someone else's ratchet baseline** — ask the owner. Moving it down is always allowed; moving it
+  up requires an explanation of which underlying data changed.
 
 ---
 
-## О-11. Нашёл источник или закономерность
+## GP-7. Committing
 
-| что нашёл | куда |
+* **Always use `git commit -- <explicit paths>`.** Never `git add -A`, never `git commit -a`, and
+  **not even `git add <paths> && git commit`** — the latter was tested during an incident and does
+  not protect you: `commit` without a pathspec commits the entire staged index, including someone
+  else's staged files;
+* **Run `git status` before committing.** Any file you did not touch must not be included;
+* **Declare any new artifact in the same commit** as the code that reads it: a script goes into
+  `package.json` and the `test` chain; a policy goes wherever the gate expects it;
+* **The commit message explains "why", rather than listing "what".** Numbers in the message must be
+  measured;
+* **Commit finished work promptly instead of stockpiling it.** In a diff, a half-finished edit in
+  the working tree is indistinguishable from a finished one — that has already cost us an
+  investigation. **Only what reaches the git tree survives.**
+
+---
+
+## GP-8. Writing a Report
+
+**Maintain your own report file** (location specified in `PROJECT.md` §8), **written as you go** —
+not at the very end, and **never in a temporary directory**, which gets wiped on reboot (a reboot
+once wiped the scratch files of nine sessions at once).
+
+Required elements:
+
+* **"Before" snapshot** — the state of the gates upon entry, so someone else's red is not attributed
+  to you;
+* **Measurements with the exact command** used to capture them;
+* **"What remained unchecked"** — listed by name, never "spot-checked";
+* **"What I tried to measure and why this metric fails to measure it"** — documenting a flawed probe
+  saves the next session a wasted pass; without a record, they will build it again;
+* **Boundaries of your probe** — where it is structurally blind;
+* **"No defects found" must be recorded in the same detail as a finding.** Stating "this area is
+  clean and here is why" saves the next shift the exact same hour.
+
+---
+
+## GP-9. Retracting Your Own Finding
+
+**Send a retraction just as immediately as a finding.**
+
+1. Verify the retraction with the same rigor as the original finding;
+2. **Notify everyone who received the finding** — starting with the Team Lead, who may have already
+   propagated it further;
+3. **Separate what is retracted from what still holds.** Usually the explanation is retracted while
+   the underlying number remains valid;
+4. **If a rule was supported by this case, say so.** The rule itself may still hold in general, but
+   it must not remain propped up by a retracted case;
+5. **Record the shape of the error** in `decisions.md`, not merely the fact of the retraction.
+
+**A retraction is real work, not a confession.** Five retractions occurred in a single shift, and
+each one saved someone else's time.
+
+---
+
+## GP-10. Proposing an Improvement to Your Own Work
+
+**This is both your right and what is expected of you** (`TEAM.md` §6). Rationale: **the session
+executing a role knows more about it than the person who wrote its description.**
+
+You may propose changes to: your task specification · your role instructions · coordination
+procedures · a new role.
+
+**How:** send it to the Team Lead with the exact same standard required of a finding — **how it was
+measured or which specific case it was derived from.** "It would be more convenient" is not a
+proposal; "this rule produced a false red right here, and here is why" is a proposal.
+
+**Deviating from an instruction is permissible when the underlying circumstances have changed** —
+but state it **immediately and directly**, not after the fact. The Team Lead writes task assignments
+based on the state known at the time of writing.
+
+---
+
+## GP-11. Found a Source or a Pattern
+
+| What you found | Where it goes |
 |---|---|
-| качественный **источник** | тимлиду → [`SOURCES.md`](./SOURCES.md). Только первичный: спецификация, официальная документация. Блог-пересказы и подборки трендов — не источник |
-| **закономерность**, полезную всем ролям | тимлиду → [`PLAYBOOK.md`](./PLAYBOOK.md) |
-| знание **своей роли** | сам → `memory/<роль>/craft.md` или `project.md` |
-| **решение**, оказавшееся верным или неверным | сам → `memory/<роль>/decisions.md`, **порог высокий**: неочевидное · неверное · нестандартное · изменившее чужую работу. **Исход обязателен** |
-| **работа**: находка, вопрос, план | сам → `board/OPEN.md` |
+| A high-quality **source** | To the Team Lead → [`SOURCES.md`](./SOURCES.md). Primary sources only: specifications, official documentation. Blog summaries and trend roundups are not sources |
+| A **pattern** useful to all roles | To the Team Lead → [`PLAYBOOK.md`](./PLAYBOOK.md) |
+| Knowledge specific to **your role** | Yourself → `memory/<role>/craft.md` or `project.md` |
+| A **decision** that proved right or wrong | Yourself → `memory/<role>/decisions.md`, **high bar**: non-obvious · wrong · non-standard · changed someone else's work. **Outcome is mandatory** |
+| **Work item**: finding, question, plan | Yourself → `board/OPEN.md` |
 
-**Правило без случая не вносится никуда** — его нечем проверить и нечем отменить.
-
----
-
-## О-12. Закончил часть · пауза · завершение
-
-**Закончил часть и не получил следующей** — пишешь отчёт и завершаешься. **Молча не завершайся
-никогда:** тимлид не узнает, что ты закончил, и территория будет стоять.
-
-**Упёрся в ожидание** — переключайся на следующую задачу, а не спи.
-
-**Пауза значит паузу, включая дешёвое.** Формулировка приёмщика, 2026-08-29, принята дословно:
-
-> «Проверка дешёвая, но это работа по той же задаче, и **дешевизна не делает её другой работой**.
-> Если бы я решала за тимлида, что „вот это можно“, пауза перестала бы быть паузой — и в следующий
-> раз я решила бы так же про что-нибудь подороже.»
-
-**Пауза называет, что ПРОДОЛЖАЕТСЯ, а не только что останавливается.** Прогон, правка, коммит имеют
-команду — их видно, их легко не начать. **Переписка, разбор и самопроверка команды не имеют, поэтому
-в момент решения их не с чем сопоставить, и они идут дальше сами собой.** Формулировка исполнителя,
-2026-08-29: *остановиться легко, когда работа выглядит работой, и трудно, когда она выглядит
-разговором.*
-
-> **Проверка:** попало бы это в отчёт строкой «сделано»? Да — значит работа, и на паузе не идёт.
-
-По этому тесту разбор чужой ошибки — работа; короткий доклад о состоянии — нет. Случай, из которого
-правило выведено: две сессии отказались от минутной сверки и следом провели разбор на несколько
-писем, который стоил больше отвергнутого.
-
-**Дисциплина ломается не на дорогом, а на дешёвом:** дешёвое всегда выглядит исключением. Видишь
-работу, которую надо сделать, — **предложи варианты в порядке убывания**, а не спрашивай разрешения:
-ведущему будет из чего выбрать за пять секунд.
-
-**Граница правила:** оно действует **под явным указанием остановиться**, а не вообще. Это не запрет
-на дешёвые проверки и не повод спрашивать санкцию на каждую мелочь — иначе получится обратная
-крайность, где исполнитель не делает ничего без разрешения.
-
-**Пауза или завершение — по порядку:**
-
-1. **безопасная точка.** Половинчатая правка в дереве — худшее, что можно оставить: по дифу она
-   неотличима от законченной;
-2. **закоммить готовое** явными путями;
-3. **дописать отчёт** до текущего состояния;
-4. **дописать память** — `project.md`, `craft.md`, `decisions.md`. Не «что сделал» (это отчёт), а
-   **что теперь знаю и не знал утром**;
-5. **доложить тимлиду:** что закрыто · что в середине и в каком состоянии · **что незакоммичено и
-   почему** · чем заблокирован.
+**A rule without a concrete case is never recorded anywhere** — there is nothing to verify it with
+and nothing to repeal it by.
 
 ---
 
-## О-13. Нашёл ошибку или улучшение в самой документации
+## GP-12. Finished a Part, Pausing, or Wrapping Up
 
-> **Требование владельца, 2026-08-29:** «самоисправление неточности или проблем допускается, если
-> есть проверенная проблема в документации. Самоулучшение документации допускается, если это
-> проверено и надёжно. Если это всё надёжно, то даже хорошо — ведь в процессе работы можно заметить
-> ошибки, проблемы или что можно улучшить в работе команды.»
+**If you finished a part and have not received the next one** — write your report and wrap up.
+**Never exit silently:** the Team Lead will not know you finished, and your territory will sit idle.
 
-**Документация — рабочий инструмент, а не памятник.** Она пишется теми же сессиями, что и код, и
-ошибается так же. Молча обойти неточность хуже, чем поправить: обойдёт ещё десять человек, и каждый
-потратит своё время заново.
+**If you are blocked waiting on something** — switch to your next task rather than sleeping.
 
-### Два случая, и порог у них разный
+**A pause means a pause, including cheap checks.** Formulation by Device / Runtime QA, 2026-08-29,
+adopted verbatim:
 
-**А. Самоисправление — неточность.** Правишь **сам и сразу**, тимлиду сообщаешь тем же сообщением,
-в котором докладываешь остальное.
+> "The check is cheap, but it is still work on the same task, and **its cheapness does not make it
+> different work**. If I decided on the Team Lead's behalf that 'this little bit is fine,' a pause
+> would cease to be a pause — and next time I would make the same call about something more
+> expensive."
 
-Что сюда входит:
+**A pause must state what CONTINUES, not just what stops.** A test run, an edit, or a commit has an
+explicit command — they are visible and easy not to start. **Correspondence, root-cause analysis,
+and self-checks have no command, so at the moment of decision there is nothing to weigh them
+against, and they continue on their own momentum.** Executor's formulation, 2026-08-29: *it is easy
+to stop when work looks like work, and hard when it looks like a conversation.*
 
-* **число не воспроизводится** — перемерил, получил другое;
-* **названный файл, флаг или команда не существуют** или переименованы;
-* **битая ссылка**, неверная нумерация раздела, дубль;
-* **правило противоречит другому правилу** в той же документации;
-* **пример снят** — случай, которым правило подкреплялось, оказался неверным. Тогда **правило может
-  остаться**, а иллюстрация снимается, и это говорится прямо.
+> **Test:** would this appear in the report as a "completed" line item? If yes, it is work, and it
+> does not happen during a pause.
 
-**Б. Самоулучшение — новое или изменённое правило.** Тоже **допускается**, если **проверено и
-надёжно**: выведено из случая, который ты можешь назвать, и не ослабляет то, что тебя же
-ограничивает. Тимлиду — **до записи или одновременно с ней**, чтобы он мог возразить, а не узнать
-через неделю.
+By this test, investigating someone else's bug is work; a brief status report is not. The case from
+which this rule was derived: two sessions declined a one-minute verification check and immediately
+spent several messages conducting an analysis that cost more than the declined check.
 
-### Как править — четыре обязательных шага
+**Discipline breaks down not on expensive tasks, but on cheap ones:** a cheap task always looks like
+an exception. When you see work that needs doing, **propose options in descending order** instead of
+asking permission: the lead will be able to pick one in five seconds.
 
-1. **Назови случай.** Правило без случая не вносится и не отменяется — его нечем проверить.
-2. **Прежнюю редакцию помечай рядом, а не стирай.** Она была верной для своего времени, и
-   следующий должен это видеть, иначе решит, что здесь ошиблись. Формат — как у устаревшей памяти:
-   `**Было:** … · **Исправлено <дата>, потому что …**`
-3. **Поставь дату.** Утверждение с числом без даты замера через месяц врёт.
-4. **Скажи тимлиду** — одной строкой: что поправил и на каком основании.
+**Boundary of this rule:** it applies **under an explicit instruction to pause**, not during normal
+work. It is neither a ban on cheap checks nor a reason to ask permission for every minor step —
+otherwise we get the opposite extreme, where an Executor does nothing without clearance.
 
-### Это заметка на полях, а не работа
+**Pausing or wrapping up — in order:**
 
-**Требование владельца, 2026-08-29:** *самоисправление и самоулучшение не должны быть постоянной
-работой. Не должно быть так, что команда работает только над этим. Это лишь заметка: если будет
-проблема или несходство — поправить, скорректировать на будущее. Но надёжно и перепроверено.*
+1. **Reach a safe point.** A half-finished edit in the working tree is the worst thing you can leave
+   behind: in a diff, it is indistinguishable from a finished one;
+2. **Commit finished work** using explicit paths;
+3. **Update your report** to reflect the current state;
+4. **Update your memory** — `project.md`, `craft.md`, `decisions.md`. Not "what I did" (that belongs
+   in the report), but **what I know now that I did not know this morning**;
+5. **Report to the Team Lead:** what is closed · what is mid-flight and in what state · **what is
+   uncommitted and why** · what is blocking you.
 
-**Правило поэтому такое: правится то, обо что споткнулся по дороге к своей задаче.** Не то, что
-нашёл, пойдя искать.
+---
 
-| так — да | так — нет |
+## GP-13. Found an Error or Improvement in the Documentation Itself
+
+> **Owner's requirement, 2026-08-29:** "Self-correction of inaccuracies or problems is permitted if
+> there is a verified issue in the documentation. Self-improvement of the documentation is permitted
+> if it is verified and reliable. If it is all reliable, that is actually a good thing — because
+> during work you can spot errors, problems, or ways to improve how the team operates."
+
+**Documentation is a working tool, not a monument.** It is written by the same sessions that write
+the code, and it errs in the same ways. Silently stepping around an inaccuracy is worse than fixing
+it: ten more people will step around it, and each will waste their time all over again.
+
+### Two Cases with Different Thresholds
+
+**A. Self-correction — an inaccuracy.** Fix it **yourself and immediately**, and inform the Team
+Lead in the same message where you report the rest of your work.
+
+What counts as self-correction:
+
+* **A number fails to reproduce** — you re-measured and got a different value;
+* **A named file, flag, or command does not exist** or has been renamed;
+* **A broken link**, wrong section numbering, or duplicate entry;
+* **A rule contradicts another rule** within the same documentation;
+* **An example was retracted** — the case supporting a rule turned out to be invalid. In that event,
+  **the rule itself may remain**, while the illustration is removed and stated explicitly.
+
+**B. Self-improvement — a new or modified rule.** Also **permitted**, provided it is **verified and
+reliable**: derived from a concrete case you can name, and it does not weaken a constraint that
+restricts you. Notify the Team Lead **before or at the time of writing**, so they can object immediately
+rather than finding out a week later.
+
+### How to Edit — Four Mandatory Steps
+
+1. **Name the case.** A rule without a case is neither added nor repealed — there is nothing to
+   verify it with.
+2. **Mark the previous wording alongside the new one; do not erase it.** It was valid for its time,
+   and the next person must be able to see that, otherwise they will think a mistake was made. Use
+   the same format as superseded memory entries:
+   `**Previously:** … · **Updated <date> because …**`
+3. **Date-stamp it.** A statement containing a number without a measurement date becomes a lie
+   within a month.
+4. **Tell the Team Lead** — in a single line: what you updated and on what grounds.
+
+### This Is a Margin Note, Not Your Main Job
+
+**Owner's requirement, 2026-08-29:** *Self-correction and self-improvement must not become full-time
+work. The team must never spend its time working only on documentation. It is merely a margin note:
+if an issue or discrepancy comes up, fix it and adjust it for the future — reliably and
+double-checked.*
+
+**Therefore the rule is: you only fix what you tripped over on the way to your actual task.** Never
+what you went looking for.
+
+| Do this (Yes) | Not this (No) |
 |---|---|
-| открыл документ по делу, число не сошлось — поправил, пошёл дальше | **открыл смену с ревизии документации** |
-| правило подвело на живой задаче — записал случай | завёл задачу «вычитать документы команды» |
-| наткнулся на битую ссылку — починил в том же коммите | **пошёл искать, где ещё может быть неточно** |
-| две правки за смену | десять правок за смену — это уже другая работа, и она не заказана |
+| Opened a document for your task, a number did not match — fixed it and moved on | **Started the shift by auditing the documentation** |
+| A rule failed on a live task — recorded the case | Created a task to "proofread team documents" |
+| Tripped over a broken link — fixed it in the same commit | **Went searching for what else might be inaccurate** |
+| Two edits in a shift | Ten edits in a shift — that is a different job, and nobody ordered it |
 
-**Три признака, что правка документации подменила работу:**
+**Three signs that documentation editing has displaced real work:**
 
-* **в отчёте смены документация занимает больше места, чем предмет задачи**;
-* правки пошли **пачкой** — их искали, а не встретили;
-* **ни одной не предшествовал случай** из настоящей работы: «читал и заметил» — это ревизия.
+* **In the shift report, documentation takes up more space than the subject of the task**;
+* Edits came **in a batch** — they were hunted down, not encountered;
+* **None of them was preceded by a case** from real work: "I was reading and noticed" is an audit.
 
-**Ревизия документации — отдельная работа, и она заказывается отдельно.** Тимлид может её назначить,
-владелец может её попросить; **сама собой она не начинается**. Участник, увидевший, что накопилось
-много мелкого, **говорит об этом одной строкой** и продолжает свою задачу — не берётся вычищать.
+**A documentation audit is separate work and must be ordered separately.** The Team Lead can assign
+it, or the Owner can request it; **it never starts on its own**. A participant who sees that many
+small discrepancies have accumulated **mentions it in a single line** and continues their task —
+they do not take it upon themselves to clean it up.
 
-**Порог надёжности от этого не понижается, а повышается.** Правка на бегу — не повод не проверить:
-неточность **воспроизведена**, а улучшение **выведено из случая**. Сомневаешься — это не исправление,
-а предложение тимлиду, и оно стоит одной строки в докладе, а не правки файла.
+**This raises the reliability bar rather than lowering it.** Fixing something on the fly is no
+excuse to skip verification: an inaccuracy must be **reproduced**, and an improvement must be
+**derived from a case**. If in doubt, it is not a fix — it is a proposal to the Team Lead, worth one
+line in your report rather than an edit to the file.
 
-### По умолчанию за собой не следят
+### By Default, Do Not Monitor Yourself
 
-**Уточнение владельца, 2026-08-29:** *по умолчанию не отслеживать, как себя исправить и улучшить.
-Всплывать должно только в процессе работы — когда наткнулись, или когда появилась явно чёткая идея
-улучшить работу. Если проблема системная — можно зафиксировать.*
+**Owner's clarification, 2026-08-29:** *By default, do not track how to correct or improve yourself.
+It should surface only in the course of work — when you stumble across an issue, or when a crystal-clear
+idea to improve the workflow emerges. If a problem is systemic, record it.*
 
-**Это ближе всего к логу.** Лог не ходят читать «на всякий случай» — в него **пишут, когда событие
-случилось**, и открывают, когда что-то не сходится. Так же и здесь: рефлексии по расписанию нет,
-самопроверки «а не устарел ли документ» нет, отдельного времени на это не выделяется.
+**Think of it like an error log.** Nobody goes reading a log "just in case" — you **write to it when
+an event occurs**, and open it when something does not add up. The same applies here: there is no
+scheduled reflection, no self-check asking "has this document gone stale?", and no dedicated time
+allocated to it.
 
-**Три состояния, и по умолчанию — первое:**
+**Three states — and the first is the default:**
 
-| | когда | что делаешь |
+| State | When | What you do |
 |---|---|---|
-| **молчание** — по умолчанию | ничего не случилось | **ничего.** Не ищешь, не сверяешь, не перечитываешь |
-| **наткнулся** | неточность попалась на пути к задаче | правишь на месте, строка в докладе |
-| **явная идея** | сформулированное улучшение, выведенное из случая | **записываешь, а не внедряешь** |
+| **Silence** — default | Nothing happened | **Nothing.** Do not search, cross-check, or re-read |
+| **Stumbled across** | Hit an inaccuracy on the way to your task | Fix it on the spot, add one line in your report |
+| **Clear idea** | A concrete improvement derived from a case | **Record it; do not implement it** |
 
-**Записать — не значит сделать.** Идея уходит **одной строкой на доску**, статус `будущее`, и там
-лежит. Работу по ней **заказывает тимлид или владелец**, и заказывает отдельно от текущей задачи.
-Это и есть та самая фиксация: событие записано, время на него не потрачено.
+**Recording does not mean executing.** An idea goes **as a single line onto the board** with status
+`future`, and stays there. Work on it **is ordered by the Team Lead or Owner**, separately from the
+current task. That is what recording means: the event is captured, and zero time is spent executing
+it now.
 
-**Системная проблема — та, что встретилась не в первый раз.** Первый случай — правишь и идёшь
-дальше. Повторился — вот тогда карточка, потому что теперь известно, что это не совпадение. Заводить
-карточку на единичное — способ засорить доску тем, что никогда не возьмут.
+**A systemic problem is one encountered more than once.** The first time it happens, fix it and move
+on. If it recurs, create a card — because now you know it is not a coincidence. Creating a card for
+a one-off occurrence only clutters the board with items nobody will ever pick up.
 
-**Признак, что мера потеряна:** ты открыл документ **не по делу**, а чтобы проверить, всё ли в нём
-верно. Это ревизия, и она заказывается, а не начинается сама.
+**Sign that proportion has been lost:** you opened a document **not for your task**, but to check
+whether everything in it is still accurate. That is an audit, and audits are ordered, never
+self-started.
 
-### Чего исправлять НЕЛЬЗЯ самому
+### What You Must NEVER Fix Yourself
 
-* **решения владельца и продуктовые инварианты** (`PROJECT.md` §1) — расхождение показывается
-  замером, а не переголосовывается;
-* **правило, которое ограничивает именно тебя.** Тот же принцип, что «правку измерителя не делает
-  тот, кого этот измеритель проверяет»: если правило тебе мешает, ты — сторона. Предлагай, но правь
-  чужими руками;
-* **чужую память** (`memory/<роль>/`) — читать можно, править нет. Исключение одно: тимлид может
-  **пометить** запись устаревшей, не стирая;
-* **что-то в чужом документе роли**, если это меняет её границы. Опечатку — можно.
+* **Owner decisions and product invariants** (`PROJECT.md` §1) — a discrepancy is demonstrated with
+  a measurement, never overruled;
+* **A rule that restricts you specifically.** Same principle as "the person checked by a probe does
+  not edit the probe": if a rule gets in your way, you are an interested party. Propose the change,
+  but let someone else's hands make the edit;
+* **Someone else's memory** (`memory/<role>/`) — you may read it, never edit it. There is only one
+  exception: the Team Lead may **mark** an entry as superseded without erasing it;
+* **Anything in another role's document** that alters its boundaries. Fixing a typo is fine.
 
-### Признак, что правка не улучшение, а порча
+### Signs That an Edit Is Damage, Not Improvement
 
-* **документ стал длиннее, а поводов открыть его не прибавилось**;
-* **правило смягчено ровно там, где оно мешало тебе на этой задаче**;
-* **исчез случай**, из которого правило выведено, — осталась голая формулировка;
-* **прежняя редакция стёрта**, и по документу не видно, что он менялся.
+* **The document grew longer, without adding any new reason to open it**;
+* **A rule was softened in the exact spot where it inconvenienced you on this task**;
+* **The concrete case** from which the rule was derived disappeared, leaving only a bare assertion;
+* **The previous wording was erased**, making it impossible to tell from the document that it
+  changed.
 
-**Проверка одной фразой:** *смог бы я объяснить эту правку тому, кого она ограничивает?* Нет —
-значит это предложение, а не исправление.
+**One-sentence test:** *Could I justify this edit to the person it restricts?* If not, it is a
+proposal, not a self-correction.

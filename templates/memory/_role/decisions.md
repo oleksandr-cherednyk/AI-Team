@@ -1,37 +1,34 @@
-# Память роли: <роль> — решения
+# Role Memory: `<role>` — Decisions
 
-> **Шаблон.** Разворачивается в `<проект>/memory/<роль>/decisions.md`.
-> Формат и правила — `memory/README.md` §3а.
+> **Template.** Deploys to `<project>/memory/<role>/decisions.md`.
+> Format and rules — `memory/README.md` §3a.
 
-**Какое решение в какой ситуации оказалось верным или нет, и почему.**
+**Which decision in which situation turned out right or wrong, and why.**
 
-**Порог входа высокий — запись заводится, только если выполнено хотя бы одно из четырёх:**
+**The bar for entry is high — record an entry only if at least one of these four conditions holds:**
 
-1. решение было **неочевидным** — были два разумных пути;
-2. решение **оказалось неверным** — это дороже верного: неверное объясняет, чем обманулись;
-3. приём **нестандартный** — сделали не как принято, и сработало;
-4. находка **изменила чужую работу** или отменила уже принятое.
+1. the decision was **non-obvious** — there were two reasonable paths;
+2. the decision **turned out wrong** — this is more valuable than a right one, because a wrong decision explains how we fooled ourselves;
+3. the technique was **non-standard** — we did something unconventional and it worked;
+4. a finding **changed someone else's workstream** or overturned a previously settled decision.
 
-**Не заводится:** решение, вытекающее из правила; «сделал и получилось»; всё, что относится к одной
-задаче и не повторится.
+**Never record:** a routine decision that follows directly from an existing rule; "tried X and it worked"; or anything tied to a single task that will never recur.
 
 ---
 
-<!-- ─── ОБРАЗЕЦ ──────────────────────────────────────────────────────────
+<!-- ─── EXAMPLE ──────────────────────────────────────────────────────────
 
-### Ситуация одной строкой
-**Статус:** живо · <дата>
-**Развилка:** какие были варианты, включая «не делать».
-**Выбрано:** что и на каком основании.
-**Исход:** сработало / не сработало / оказалось не тем вопросом — **и чем это выяснилось**.
-**Что бы сделал иначе:** одна строка. Если ничего — так и написать.
+### Situation in one line
+**Status:** active · <date>
+**Fork in the road:** what the options were, including "do nothing."
+**Chosen:** what was chosen and on what grounds.
+**Outcome:** worked / failed / turned out to be the wrong question — **and how that was discovered**.
+**What I would do differently:** one line. If nothing — state so explicitly.
 
 ─────────────────────────────────────────────────────────────────────────── -->
 
-**Исход обязателен.** Запись без исхода — это план, а не опыт, и она вводит в заблуждение сильнее,
-чем её отсутствие: следующий примет непроверенный выбор за проверенный.
+**The outcome is mandatory.** An entry without an outcome is a plan, not experience, and misleads future sessions worse than having no entry at all: the next session will mistake an unverified choice for a proven one.
 
-**Неверное решение не удаляется**, когда выяснилось, что оно неверно, — у него меняется `Исход`.
-В этом вся ценность файла.
+**A wrong decision is never deleted** when it turns out to be wrong — its `Outcome` field is updated instead. That is where the entire value of this file lies.
 
-*Пока пусто.*
+*Empty so far.*

@@ -1,139 +1,118 @@
-# <ИМЯ ПРОЕКТА> — что команда обязана знать об этом проекте
+# <PROJECT NAME> — What the Team Must Know About This Project
 
-> **Шаблон.** Заполняется тимлидом при разворачивании (процедура П-0) и живёт **в репозитории
-> проекта**, а не в репозитории регламента. Пустой раздел лучше выдуманного: он говорит «не
-> выяснено», а выдуманный врёт.
+> **Template.** Filled out by the Team Lead during project deployment (procedure P-0) and lives **in the project repository**, not in the governance repository. An empty section is better than an invented one: an empty section says "not yet determined," whereas an invented one lies.
 >
-> **Это единственное место, где регламент касается конкретного проекта.** Всё остальное — рамка.
-> Роль, встретившая в документе регламента слово «гейт» или «правило контента», ищет их **здесь**.
+> **This is the single place where the governance framework touches a specific project.** Everything else is a reusable frame. Any role that encounters the term "gate" or "content rule" in a governance document looks it up **here**.
 
-**Заполнено:** <дата> · **обновлял:** <роль> · **проверено на актуальность:** <дата>
-
----
-
-## 1. Что это за продукт, в четырёх строках
-
-* **тип и профиль архитектуры проекта** (выбрать один или несколько — от этого зависит, какие разделы ролей `ARCHITECT.md`, `SECURITY.md`, `DESIGNER.md` и `DEVICE.md` включаются):
-  - `[ ]` **Пр-1: Локальное / Offline-First приложение** (без бэкенда и сети в рантайме)
-  - `[ ]` **Пр-2: Веб / Фулстак с бэкендом, API и БД** (клиент ↔ сервер ↔ база данных)
-  - `[ ]` **Пр-3: Мобильное приложение** (Android / iOS / эмулятор)
-  - `[ ]` **Пр-4: Десктопная игра / 3D-приложение** (Godot 4 Mono C# / Three.js / 3D-ассеты)
-* **что он делает и для кого:**
-* **чем меряется его качество** (не «хорошо работает», а что именно проверяют):
-* **решения, которые нельзя пересматривать без владельца** — продуктовые инварианты:
-
-> Пример из проекта, откуда взялся регламент: «приложение полностью локальное — ни аккаунтов, ни
-> бэкенда, ни аналитики; это продуктовое решение, а не текущее состояние». Такой инвариант роль
-> может **показать замером как расходящийся с реальностью**, но не переголосовать.
+**Filled on:** `<date>` · **updated by:** `<role>` · **verified current on:** `<date>`
 
 ---
 
-## 2. Раскладка репозитория
+## 1. What This Product Is, in Four Lines
 
-| каталог | что там | чья территория по умолчанию |
+* **Application type and architectural profile** (check one or more — this determines which sections of `ARCHITECT.md`, `SECURITY.md`, `DESIGNER.md`, and `DEVICE.md` apply):
+  - `[ ]` **Prof-1: Local / Offline-First Application** (no backend or runtime network calls)
+  - `[ ]` **Prof-2: Web / Fullstack with Backend, API, and DB** (`client ↔ server ↔ database`)
+  - `[ ]` **Prof-3: Mobile Application** (Android / iOS / emulator)
+  - `[ ]` **Prof-4: Desktop Game / 3D Application** (Godot 4 Mono C# / Three.js / 3D assets)
+* **What it does and for whom:**
+* **How its quality is measured** (not "works well," but what specifically is verified):
+* **Decisions that cannot be revised without the owner** — product invariants:
+
+> Example from the project where this framework originated: "the application is completely local — no accounts, no backend, no analytics; this is a product decision, not a temporary state." A role may **show by measurement that such an invariant diverges from reality**, but may never overrule it.
+
+---
+
+## 2. Repository Layout
+
+| Directory | Contents | Default Territory Owner |
 |---|---|---|
 | | | |
 
-**Правило:** территории обязаны **не пересекаться**. Две сессии в одном файле стоят дороже, чем
-передача находки.
+**Rule:** territories **must not overlap**. Two sessions editing the same file cost far more than handing off a finding.
 
 ---
 
-## 3. Проверки: чем доказывается, что ничего не сломано
+## 3. Verification: How We Prove Nothing Is Broken
 
-| команда | что доказывает | входит в цепочку? | стоит в CI? |
+| Command | What It Proves | Part of Default Chain? | Runs in CI? |
 |---|---|---|---|
 | | | | |
 
-**Обязательно заполнить три строки отдельно:**
+**Three rows must be filled out explicitly:**
 
-* **полный прогон** — команда целиком, сколько идёт, и **как понять, что он дошёл до конца**
-  (у нас был случай: прогон останавливался на первом упавшем пакете, и следующий пакет не
-  запускался вовсе, а по логу это не выглядело пропуском);
-* **что НЕ входит в полный прогон** — гейты, которые надо звать руками. Это первое место, где
-  копится незамеченное;
-* **что типы проверяют, а тесты нет, и наоборот.**
+* **full suite run** — the exact command, how long it takes, and **how to tell it actually ran to completion** (we had a case where the run stopped at the first failing package and never executed subsequent packages, yet the log did not look like an early abort);
+* **what is NOT included in the full run** — gates that must be invoked manually. This is the primary place where unnoticed regressions accumulate;
+* **what static types check that unit tests do not, and vice versa.**
 
 ---
 
-## 4. Правила материала и качества
+## 4. Content and Quality Rules
 
-Если проект производит контент (тексты, задания, данные для пользователя) — **правила живут здесь**
-и они **сильнее любого задания и любого решения тимлида**.
+If the project produces content (texts, exercises, user-facing data) — **the rules live here** and **supersede any task description and any Team Lead decision**.
 
-| правило | что запрещает или требует | как проверяется |
+| Rule | What It Forbids or Requires | How It Is Verified |
 |---|---|---|
 | | | |
 
-> В проекте-прародителе таких было восемь, и два стоит назвать как образец формы:
-> **«качество, а не количество»** — цель, закрытая наполнителем, провалена; недостижима качественно
-> — **понижается цель**. И **«локаль — это язык, а не перевод»** — нет качественного перевода,
-> материал в этой локали **не показывается**, а пустое поле не способ выполнить правило.
+> In the ancestor project there were eight such rules, and two are worth citing as structural examples:
+> **"Quality over quantity"** — a numeric target met with filler is a failed target; if it cannot be met with high quality, **the target is lowered**. And **"A locale is a language, not a translation"** — if no high-quality translation exists, the item **is not shown** in that locale, and leaving an empty string is not a valid way to satisfy the rule.
 
 ---
 
-## 5. Общие артефакты и генераторы
+## 5. Shared Artifacts and Generators
 
-**Что пересобирается скриптом и потому не правится руками**, и в каком порядке.
+**What is rebuilt by a script and therefore never edited by hand**, and in what order.
 
-| генератор | что собирает | из чего | кто запускает |
+| Generator | What It Builds | From What Source | Who Runs It |
 |---|---|---|---|
-| | | | тимлид |
+| | | | Team Lead |
 
-**Порядок обязателен, а не удобен:** артефакт пересобирается **после** того, как в дереве лежит
-материал, из которого он выводится. Иначе он молча соберётся из старого.
+**The order is mandatory, not a convenience:** an artifact is rebuilt **after** the source material from which it derives is committed to the working tree. Otherwise it silently rebuilds from stale input.
 
-**Признак, который здесь надо назвать:** какая витрина или сводка **расходится с источником**, если
-генератор не запустить. У нас это стоило половины смены дважды: карточка обещала одно число,
-материал давал другое, и это дважды приняли за дефект приложения.
+**Symptom to document here:** which storefront or summary view **diverges from its source** if the generator is not run. In our ancestor project, this cost half a shift twice: a card promised one number while the actual content delivered another, and twice it was mistaken for an application bug.
 
 ---
 
-## 6. Базовые линии и храповики
+## 6. Baselines and Ratchets
 
-| файл | что держит | куда двигается свободно |
+| File | What It Guards | Direction It May Move Freely |
 |---|---|---|
-| | | вниз |
+| | | downward |
 
-**Правило:** вниз — свободно, вверх — **только с записанным объяснением, какие данные изменились**.
-Линия, поднятая без объяснения, через месяц читается как норма.
-
----
-
-## 7. Стенд и устройства
-
-* **чем проверяется живой продукт** (эмулятор, устройство, браузер), как поднимается;
-* **необратимый сценарий** — тот, который нельзя переделать (у нас это установка новой сборки
-  поверх старой без очистки данных);
-* **ловушки среды** — то, что уже стоило времени. Заводить сразу, не «когда накопится».
+**Rule:** downward — freely; upward — **only with a recorded explanation of which underlying data changed**. A baseline raised without an explanation is read a month later as the intended norm.
 
 ---
 
-## 8. Ветки и деревья
+## 7. Testbench and Devices
 
-* **основная ветка захода:**
-* **как разводятся параллельные сессии** (отдельные рабочие деревья / ветки / оба):
-* **кто сводит:** тимлид;
-* **правило коммита:** только явными путями.
-
----
-
-## 9. Вопросы, на которые отвечает только владелец
-
-Три класса, и они не меняются от проекта:
-
-1. **что продукт обещает пользователю** — состав, объём, вид интерфейса, способ оценки;
-2. **уже принятое владельцем** — расхождение с реальностью показывается замером, а не
-   переголосовывается;
-3. **необратимое** — удаление материала, переименование ключей, всё, что не откатывается правкой
-   строки.
-
-**Проектная специфика — сюда:**
+* **how the live product is verified** (emulator, physical device, browser, desktop window) and how to spin it up;
+* **the irreversible scenario** — the one that cannot be casually redone (for us, installing a new build on top of an older build without clearing user data);
+* **environment traps** — pitfalls that have already cost time. Record them immediately, not "once enough pile up."
 
 ---
 
-## 10. Что уже известно про этот проект и стоило времени
+## 8. Branches and Working Trees
 
-Раздел растёт по ходу. Сюда идёт то, что **повторится** и **стоило времени** — не «полезно знать».
-Общие закономерности живут в [`PLAYBOOK.md`](../PLAYBOOK.md); здесь только то, что верно **для
-этого проекта**.
+* **primary branch for the cycle:**
+* **how parallel sessions are isolated** (separate git worktrees / branches / both):
+* **who merges:** Team Lead;
+* **commit rule:** explicit file paths only (`git commit -- <paths>`, never `git add -A`).
+
+---
+
+## 9. Questions Only the Owner Can Answer
+
+Three classes that never change across projects:
+
+1. **what the product promises the user** — scope, volume, interface appearance, grading/scoring model;
+2. **decisions already made by the owner** — divergence from reality is demonstrated by measurement, never overruled by vote;
+3. **irreversible actions** — deleting content, renaming storage keys, anything that cannot be reverted with a one-line fix.
+
+**Project-specific owner questions go here:**
+
+---
+
+## 10. What Is Already Known About This Project and Cost Us Time
+
+This section grows as we work. Record only what **will recur** and **cost real time** — not generic "good to know" trivia. Universal patterns across projects live in [`PLAYBOOK.md`](../PLAYBOOK.md); this section holds only what is specific **to this project**.

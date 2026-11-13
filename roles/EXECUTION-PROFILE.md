@@ -1,115 +1,95 @@
-# Профиль исполнения: какой моделью и с какой нагрузкой делать задание
+# Execution Profile: Which Model and Effort Level to Use for an Assignment
 
-**Тимлид обязан называть профиль в каждом задании; исполнитель вправе его оспорить.**
+**The Team Lead must specify the execution profile in every assignment; the Executor has the right to challenge it.**
 
-**Зачем.** По умолчанию берётся самая сильная модель со средней нагрузкой, и для части работ это
-трата: готовый план не нуждается в том же, что его составление. Верно подобранный профиль экономит
-время и стоимость, **не жертвуя качеством для этой работы**.
+**Why.** By default, the strongest model at medium effort is used, and for part of the work that is waste: executing a settled plan does not require the same capacity as drafting it. A properly matched profile saves time and cost **without sacrificing quality for that specific task**.
 
 ---
 
-## 1. Правило, из которого всё следует
+## 1. The Rule Everything Follows From
 
-> **Профиль выбирается по РЕЗУЛЬТАТУ, который требуется, а не по объёму правки.**
+> **The profile is chosen by the KIND OF OUTPUT required, not by the volume of edits.**
 
-Не по числу файлов, не по числу строк, не по «выглядит просто». Пять мест, правленных одинаково, —
-механика. Семь имён, про которые надо **решить**, нужны ли они, — суждение.
+Not by file count, not by line count, not by "looks simple." Five places edited identically is mechanics. Seven identifiers where you must **decide** whether they are needed is judgment.
 
-| результат задания | профиль |
+| Assignment output | Profile |
 |---|---|
-| применить решённое к N местам · собрать числа готовой командой · локализовать строку | **лёгкий** |
-| **решить, верно ли X** · **выяснить, почему** · план · архитектура · разбор противоречий | **сильный** |
-| ревью | **по предмету:** сверка со списком — лёгкий; «что здесь не так» — сильный |
+| Apply a settled decision to N places · collect numbers with an existing command · localize a string | **light** |
+| **Decide whether X is true** · **figure out why** · plan · architecture · resolving contradictions | **strong** |
+| Review | **by subject:** checking against a fixed list — light; "what is wrong here" — strong |
 
 ---
 
-## 2. Оговорка, без которой правило вредит
+## 2. The Caveat Without Which the Rule Causes Harm
 
-**Работа, которая выглядит механической, регулярно оказывается суждением.** У «подключить готовое
-поле» обнаруживается, что поле привязано не к тому объекту; у «убрать неиспользуемое» — что оно
-записанное решение; у «посчитать числа» — что числа вскрывают противоречие правил.
+**Work that looks mechanical regularly turns out to require judgment.** While "wiring up an existing field," you discover the field is attached to the wrong object; while "removing unused code," that it represents a recorded architectural decision; while "counting numbers," that the numbers expose a contradiction in the rules.
 
-**Два следствия, обязательные:**
+**Two mandatory corollaries:**
 
-1. **Понижать профиль можно только там, где решение уже принято.** «Разберись и сделай» лёгким не
-   бывает, даже если правка выйдет в одну строку;
-2. **Повышение профиля исполнителем — бесплатно и ожидаемо.** Сказать «здесь нужно больше, чем
-   назначено» — **работа, а не провал**. А **тихое исполнение сильной задачи лёгким профилем
-   опаснее медленной работы**: получится уверенный неверный ответ, и его никто не поймает.
+1. **You may lower the profile only where the decision has already been made.** "Investigate and fix" is never light, even if the resulting edit is a single line;
+2. **Escalating the profile by the Executor is free and expected.** Saying "this requires more than assigned" is **work, not failure**. Conversely, **silently executing a judgment task on a light profile is more dangerous than slow work**: it produces a confident wrong answer that nobody will catch.
 
-**Признак заниженного профиля:** исполнитель отвечает быстро и **не приносит ни одной оговорки**.
+**Sign of an under-provisioned profile:** the Executor replies quickly and **brings back zero caveats**.
 
 ---
 
-## 3. Что тимлид пишет в задании
+## 3. What the Team Lead Writes in the Assignment
 
 ```
-Профиль: лёгкий · механика, решение принято, отступать от него не нужно
-Профиль: сильный · требуется вердикт, а не правка
-Профиль: сильный, нагрузка выше средней · план и разбор противоречий
+Profile: light · mechanical application, decision is settled, no deviation needed
+Profile: strong · requires a verdict, not an edit
+Profile: strong, high effort · planning and resolving contradictions
 ```
 
-**И право оспорить, дословно:** «окажется суждением — **остановись и скажи**, а не тяни лёгким
-профилем».
+**And the explicit right to challenge, verbatim:** "if it turns out to require judgment — **stop and say so**, do not push through on a light profile."
 
-**Профиль пересматривается.** Выяснилось, что выбран неверно, — меняется, и это нормальный ход.
-Ошибка — оставить заниженный профиль, **узнав**, что он занижен.
+**Profiles are revisable.** If it turns out the profile was chosen wrongly, change it — that is normal course of work. The mistake is leaving an under-provisioned profile in place **after learning** it is too light.
 
 ---
 
-## 4. Профиль — свойство СЕССИИ, а не задания
+## 4. The Profile Is a Property of the SESSION, Not the Task
 
-**Не потому, что модель нельзя переключить — можно.** А по двум причинам сильнее технической:
+**Not because a model cannot be switched mid-session — it can.** Rather, for two reasons stronger than technical ones:
 
-1. **Переключение ломает происхождение вывода.** Метод стоит на вопросе «кто померил и чем». Если
-   модель менялась посреди работы, по отчёту **не сказать, каким рассуждением получен какой вывод**.
-   **Число можно перемерить; суждение перемерить нельзя** — его можно только повторить заново;
-2. **Переключение вниз даёт худшее из двух:** лёгкая модель наследует **весь накопленный контекст**
-   и платит за объём там, где слабее всего.
+1. **Switching breaks the provenance of conclusions.** Our method rests on the question "who measured this and with what." If the model changed mid-flight, you **cannot tell from the report which reasoning produced which conclusion**. **A number can be re-measured; a judgment cannot be re-measured** — it can only be redone from scratch;
+2. **Switching downward gives the worst of both worlds:** the light model inherits **the entire accumulated context** and pays for token volume right where it is weakest.
 
-**Опасна ровно одна сторона смешения.** Сильная сессия на механике — переплата, и только. **Лёгкая
-на суждении — уверенный неверный ответ**, и он стоит дороже всей экономии.
+**Only one direction of mismatch is dangerous.** A strong session doing mechanical work is overpayment, nothing more. **A light session doing judgment work produces a confident wrong answer**, costing far more than everything saved.
 
-### Гибрид — да, но одной формой
+### Hybrid Execution — Yes, Through One Specific Shape
 
-**Не «переключить модель сессии», а «сильная сессия отдаёт ограниченную механику лёгкому
-подагенту».**
+**Not "switch the session's model," but "a strong session delegates bounded mechanics to a light subagent."**
 
-| | переключение модели | подагент |
+| | Switching session model | Subagent delegation |
 |---|---|---|
-| кто отвечает за результат | **непонятно** | **сильная сессия, целиком** |
-| граница работы | размыта | **объявлена явно** |
-| происхождение вывода | **теряется** | сохраняется |
-| контекст | наследуется весь | **передаётся ровно нужный** |
+| Who is accountable for the result | **Unclear** | **The strong session, in full** |
+| Task boundary | Blurred | **Declared explicitly** |
+| Provenance of conclusions | **Lost** | Preserved |
+| Context | Inherited in full | **Only what is needed is passed** |
 
-**Условия передачи:** границу назвать и обосновать · спорную границу нести тимлиду ·
-**ответственность за результат остаётся на передавшем**.
-
----
-
-## 5. Мелкая работа вне планов — своя очередь
-
-Такая работа есть всегда, и она не попадает ни в один план: подписи, версии, подключение готового
-поля, приведение документа в соответствие с прогоном, снятие того, по чему есть вердикт.
-
-**Признак, что очереди не хватает: тимлид делает мелочь сам**, потому что ни одна сессия под неё не
-подходит.
-
-**Очередь — метка на карточке доски**, а не пятый список открытой работы:
-
-```
-Статус: P3 · открыт · профиль: ЛЁГКИЙ — решение принято, осталось применить
-```
-
-**Непомеченная карточка считается требующей суждения** — безопасная сторона по умолчанию.
-**Тимлид собирает помеченные в заход** и просит профиль под них.
+**Conditions for delegation:** name and justify the boundary · escalate any ambiguous boundary to the Team Lead · **accountability for the result remains with the delegating session**.
 
 ---
 
-## 6. Чего этот документ НЕ обещает
+## 5. Small Off-Plan Tasks — A Dedicated Queue
 
-* **не заменяет суждения тимлида** — таблица §1 покрывает частые случаи, не все;
-* **не экономит на приёмке.** Лёгкий профиль удешевляет исполнение, но **мутация, замер «до» и
-  раздел «что не проверено» обязательны в любом профиле**;
-* **не про «джун хуже».** Механическая работа, сделанная точно и полно, — полноценный результат, и
-  её мера та же: **ноль пропущенных мест**, а не число правок.
+Such work always exists, and it never fits neatly into a major plan: captions, version bumps, wiring up a ready field, syncing a document with a live test run, removing items once a verdict is reached.
+
+**Sign that this queue is missing: the Team Lead does small chores personally** because no active session fits them.
+
+**The queue is a tag on a board card**, not a fifth list of open work:
+
+```
+Status: P3 · open · profile: LIGHT — decision settled, only application remains
+```
+
+**An untagged card is treated as requiring judgment** — defaulting to the safe side.
+**The Team Lead batches tagged cards into a run** and requests a light-profile session for them.
+
+---
+
+## 6. What This Document Does NOT Promise
+
+* **It does not replace the Team Lead's judgment** — the table in §1 covers common cases, not every case;
+* **It does not cut corners on acceptance.** A light profile makes execution cheaper, but **mutation testing, "before" measurements, and the "what remained unverified" section are mandatory under every profile**;
+* **It is not about "Junior is worse."** Mechanical work done accurately and completely is a first-class deliverable, and its metric is the same: **zero missed places**, not the raw number of edits.

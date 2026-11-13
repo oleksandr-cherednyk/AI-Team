@@ -1,25 +1,22 @@
-# Память роли: <роль> — ремесло
+# Role Memory: `<role>` — Craft
 
-> **Шаблон.** Разворачивается в `<проект>/memory/<роль>/craft.md`.
-> Формат и правила — `memory/README.md`.
+> **Template.** Deploys to `<project>/memory/<role>/craft.md`.
+> Format and rules — `memory/README.md`.
 
-**Ремесло, переживающее проект.** Принципы, приёмы, проблемы и способы решения, которые сработают и
-в другом проекте.
+**Craft that outlives the project.** Principles, techniques, pitfalls, and solutions that will work just as well on the next project.
 
-**Проверка перед записью:** «останется ли это верным в другом проекте?» **Нет** — значит в
-`project.md`. **Полезно всем ролям, а не только моей** — предложить тимлиду в `PLAYBOOK.md`, а у
-себя оставить строку-указатель.
+**Check before writing:** "Will this remain true in another project?" **No** — then it belongs in `project.md`. **Useful to every role, not just mine** — propose it to the Team Lead for `PLAYBOOK.md`, and leave a one-line pointer here.
 
 ---
 
-<!-- ─── ОБРАЗЕЦ ──────────────────────────────────────────────────────────
+<!-- ─── EXAMPLE ──────────────────────────────────────────────────────────
 
-### Короткое имя-ориентир
-**Статус:** живо · <дата>
-**Что:** сам приём или принцип, одной строкой.
-**Почему:** случай, на котором он выведен. Без случая правило не проверяется и не отменяется.
-**Как применять:** конкретно.
+### Short landmark title
+**Status:** active · <date>
+**What:** the technique or principle itself, in one line.
+**Why:** the concrete incident from which it was derived. Without an incident, a rule can neither be verified nor retired.
+**How to apply:** specific enough to execute without guessing.
 
 ─────────────────────────────────────────────────────────────────────────── -->
 
-*Пока пусто.*
+*Empty so far.*

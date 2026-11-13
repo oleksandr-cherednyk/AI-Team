@@ -1,163 +1,135 @@
-# Память участников — как устроена и как ведётся
+# Role Memory — How It Is Structured and Maintained
 
-**Учреждено владельцем 2026-08-29.**
+**Established by the owner on 2026-08-29.**
 
-> «Для участников команды — для каждого в своей директории добавить директорию, которая будет его
-> память. Отдельная память относительно проекта, с каким работает, и отдельно память, которая будет
-> фиксировать полезные решения, паттерны, проверенные решения… не код, а название, чтобы
-> сориентироваться, или правило, или текст с пояснением… вести свой опыт независимо от проекта.
-> Может, ещё и проблемы какие-то и способы их решения, принципы. То, что устарело, — удалять или
-> помечать, что устарело, так как…»
-> — владелец, 2026-08-29
+> "For team members — add a dedicated directory for each role that serves as its memory. Separate memory regarding the specific project it is working on, and separate memory that records useful solutions, patterns, verified techniques... not raw code, but a name to orient yourself, or a rule, or explanatory text... maintaining its own experience independent of the project. Including problems encountered, how they were solved, and core principles. And whatever goes stale — delete it or mark it as obsolete, because..."
+> — Owner, 2026-08-29
 
 ---
 
-## 1. Зачем это, если уже есть PLAYBOOK
+## 1. Why Have Role Memory When PLAYBOOK Already Exists?
 
-**Три разных вида знания, и они не заменяют друг друга:**
+**Three distinct kinds of knowledge that do not replace one another:**
 
-| | что там | кто ведёт | переживает |
+| File | Contents | Maintained By | Outlives |
 |---|---|---|---|
-| [`../PLAYBOOK.md`](../../PLAYBOOK.md) | **общее для всех**: формы дефекта, как ошибаются наши измерители, ориентация вне проекта | тимлид, по предложениям всех | заходы |
-| `memory/<роль>/project.md` | **эта роль про этот проект**: где что лежит, какие места опасны, что уже проверено и с каким результатом | сама роль | заходы |
-| `memory/<роль>/craft.md` | **ремесло роли вообще**: принципы, паттерны, проблемы и способы решения, которые сработают и в другом проекте | сама роль | **проект** |
-| `memory/<роль>/decisions.md` | **какое решение в какой ситуации оказалось верным или нет** — и почему | сама роль | **проект** |
+| [`../PLAYBOOK.md`](../../PLAYBOOK.md) | **universal for all roles**: defect shapes, how our meters fail, cross-project orientation | Team Lead, from proposals by all roles | cycles |
+| `memory/<role>/project.md` | **this role on this project**: where things live, which areas are fragile, what has already been verified and with what result | the role itself | cycles |
+| `memory/<role>/craft.md` | **the role's craft in general**: principles, patterns, problems, and solutions that work on the next project too | the role itself | **the project** |
+| `memory/<role>/decisions.md` | **which decision in which situation turned out right or wrong** — and why | the role itself | **the project** |
 
-**Проверка, в какой файл писать** — один вопрос: **«останется ли это верным в другом проекте?»**
-Да → `craft.md`. Нет → `project.md`. Полезно **всем ролям, а не только моей** → предложить тимлиду
-в `PLAYBOOK.md`, а у себя оставить строку-указатель.
+**How to decide which file an entry belongs in** — ask one question: **"Will this remain true in another project?"**
+Yes → `craft.md`. No → `project.md`. Useful **to every role, not just mine** → propose it to the Team Lead for `PLAYBOOK.md`, and leave a one-line pointer in your own memory.
 
-**Дублировать не надо.** Запись, переехавшая в `PLAYBOOK`, из памяти роли удаляется, и вместо неё
-остаётся одна строка: «см. PLAYBOOK §N».
+**Never duplicate.** Once an entry is promoted to `PLAYBOOK.md`, delete the body from role memory and leave a single pointer line: `See PLAYBOOK §N`.
 
 ---
 
-## 2. Первое действие роли в новой сессии
+## 2. First Action of a Role in a New Session
 
-После `TEAM.md` и своего документа роли — **прочитать свою память целиком**. Это её накопленный
-опыт, и он короче любого отчёта.
+Right after reading `TEAM.md` and your own role document — **read your role memory in full**. It holds your accumulated experience and is shorter than any cycle report.
 
-**Последнее действие перед завершением** — дописать то, что узнала. Не «что сделала» (это отчёт), а
-**что теперь знает и не знала утром**.
+**Last action before finishing a session** — append what you learned. Not "what I did today" (that belongs in the cycle report), but **what you know now that you did not know this morning**.
 
 ---
 
-## 3. Формат записи — обязательный
+## 3. Mandatory Entry Format
 
-Одна запись — **одна вещь**. Заголовок это **ориентир**, по которому её находят через месяц, а не
-пересказ содержания.
+One entry = **one insight**. The heading is a **landmark** by which you can find it a month later, not a summary of the paragraph.
 
 ```markdown
-### Короткое имя-ориентир
-**Статус:** живо · 2026-08-29
-**Что:** одна строка — само правило или решение.
-**Почему:** случай или замер, из которого оно выведено. Без него запись недействительна.
-**Как применять:** конкретно, чтобы можно было исполнить не думая.
+### Short landmark title
+**Status:** active · 2026-08-29
+**What:** one line — the rule or solution itself.
+**Why:** the concrete incident or measurement from which it was derived. Without this, the entry is invalid.
+**How to apply:** specific enough to execute without guessing.
 ```
 
-**Чего в записи не бывает:**
+**What never belongs in an entry:**
 
-* **кода.** Ни фрагментов, ни диффов. Имя функции или файла — можно, как ориентир; реализация —
-  нет: она устареет раньше правила;
-* **правила без случая.** «Так лучше» не проверяется и не отменяется;
-* **имён сессий.** Случай опознаётся **ценой, а не автором**: через месяц «партия 3» не значит
-  ничего, а «отправила следствие дальше как находку, цена — чужая смена» опознаёт ситуацию, в
-  которой запись пригодится. Роль называть можно, имя сессии — нет;
-* **пересказа документации.** Если это есть в роли или в `PLAYBOOK` — там и читают;
-* **того, что относится к одной задаче.** Такое живёт в отчёте захода.
+* **code blocks.** No snippets, no diffs. Naming a function or file as a landmark is fine; pasting its implementation is not — code goes stale faster than the rule;
+* **a rule without an incident.** "It's better this way" can neither be verified nor retired when conditions change;
+* **session IDs.** An incident is remembered **by its cost, not by its author**: a month later "workstream 3" means nothing, whereas "forwarded a symptom as a root-cause finding, costing another session a full shift" immediately identifies the situation where the rule applies. Naming the role is fine; naming the session ID is not;
+* **retelling existing documentation.** If it is already in the role file or `PLAYBOOK.md`, read it there;
+* **anything specific to a single one-off task.** That belongs in the cycle report.
 
 ---
 
-## 3а. `decisions.md` — журнал решений, и порог входа в него высокий
+## 3a. `decisions.md` — The Decision Log, with a High Bar for Entry
 
-**Требование владельца, 2026-08-29:** «вести опыт, какое решение в той или иной ситуации было
-правильным или нет, что помогло или нет и почему — **но не всё подряд, чтобы не засорять**, а
-действительно сложные, важные или интересные решения, нестандартные тоже, находки».
+**Owner's requirement, 2026-08-29:** "maintain experience on which decision in a given situation turned out right or wrong, what helped or failed and why — **but not everything indiscriminately, so as not to clutter it**; record only genuinely complex, high-impact, or non-standard decisions and findings."
 
-**Порог: запись заводится, только если выполнено хотя бы одно из четырёх.**
+**Threshold: create an entry only if at least one of these four conditions holds:**
 
-1. **решение было неочевидным** — были два разумных пути, и выбор пришлось обосновывать;
-2. **решение оказалось неверным** — и это дороже верного: неверное объясняет, чем обманулись;
-3. **приём нестандартный** — сделали не так, как принято, и это сработало;
-4. **находка изменила чужую работу** или отменила уже принятое.
+1. **the decision was non-obvious** — there were two reasonable paths, and choosing between them required real justification;
+2. **the decision turned out wrong** — which is even more valuable than a right one, because a wrong decision explains how we fooled ourselves;
+3. **the technique was non-standard** — we did something unconventional and it worked;
+4. **a finding changed someone else's workstream** or overturned a previously settled decision.
 
-**Не заводится:** решение, вытекающее из правила (оно уже в правиле); «сделал и получилось»;
-всё, что относится к одной задаче и не повторится.
+**Never record:** a routine decision that follows directly from an existing rule (it is already in the rule); "tried X and it worked"; or anything tied to a single task that will never recur.
 
-**Формат — тот же, плюс исход:**
+**Format — the same, plus the outcome:**
 
 ```markdown
-### Ситуация одной строкой
-**Статус:** живо · 2026-08-29
-**Развилка:** какие были варианты, включая «не делать».
-**Выбрано:** что и на каком основании.
-**Исход:** сработало / не сработало / оказалось не тем вопросом — **и чем это выяснилось**.
-**Что бы сделал иначе:** одна строка. Если ничего — так и написать.
+### Situation in one line
+**Status:** active · 2026-08-29
+**Fork in the road:** what the options were, including "do nothing."
+**Chosen:** what was chosen and on what grounds.
+**Outcome:** worked / failed / turned out to be the wrong question — **and how that was discovered**.
+**What I would do differently:** one line. If nothing — state so explicitly.
 ```
 
-**Исход обязателен.** Запись без исхода — это план, а не опыт, и она вводит в заблуждение сильнее,
-чем её отсутствие: следующий примет непроверенный выбор за проверенный.
+**The outcome is mandatory.** An entry without an outcome is a plan, not experience, and misleads future sessions worse than having no entry at all: the next session will mistake an unverified choice for a proven one.
 
-**Неверное решение не удаляется, когда выяснилось, что оно неверно** — у него меняется `Исход`.
-В этом вся ценность файла.
+**A wrong decision is never deleted when it turns out to be wrong** — its `Outcome` field is updated instead. That is where the entire value of this file lies.
 
 ---
 
-## 4. Устаревшее
+## 4. Obsolete Entries
 
-**Помечается, а не стирается молча** — по прямому указанию владельца.
+**Marked as obsolete, never erased silently** — per the owner's explicit instruction.
 
 ```markdown
-### Имя-ориентир
-**Статус:** УСТАРЕЛО с <дата> — <что изменилось и по какому решению>.
-**Что было:** …
+### Landmark title
+**Status:** OBSOLETE since <date> — <what changed and by which decision>.
+**What it used to be:** …
 ```
 
-**Удаляется** только то, что оказалось **неверным с самого начала** (а не устарело), и удаляется с
-одной строкой в журнале захода: почему было неверно. Разница существенная: устаревшее правило было
-верным для своего времени, и следующий должен это видеть, иначе он решит, что здесь ошиблись.
+**Deleted outright** only when an entry turned out to be **false from the very beginning** (rather than becoming obsolete over time), and even then its removal is noted with a single line in the cycle log explaining why it was false. The distinction matters: an obsolete rule was valid in its own time, and the next session needs to see that so they do not think it was simply a mistake.
 
-**Признаки, что запись пора пересмотреть:** дважды помешала и ни разу не помогла; число в ней
-перестало воспроизводиться; названный в ней файл или флаг больше не существует.
+**Signs an entry needs review:** it got in the way twice and never helped once; the number it cites no longer reproduces; the file or flag it names no longer exists.
 
-**Проверять `Статус` — часть чтения памяти**, а не отдельная работа: увидел устаревшее — пометил.
+**Checking `Status` is part of reading memory**, not a separate chore: if you spot an outdated entry while reading, mark it on the spot.
 
 ---
 
-## 5. Кто пишет в чью память
+## 5. Who Writes to Whose Memory
 
-**Только сама роль в свою.** Чужую память можно читать (и это полезно: аналитик, читающий память
-дизайнера, увидит, что уже проверено), но не править.
+**Only the role itself writes to its own memory.** Reading another role's memory is encouraged (an Analyst reading the Designer's memory sees what has already been verified), but editing someone else's memory is forbidden.
 
-**Исключение одно:** тимлид может пометить чужую запись устаревшей, если она противоречит принятому
-решению, — с датой и основанием, не стирая.
+**The single exception:** the Team Lead may mark another role's entry as obsolete if it contradicts an adopted owner/project decision — recording the date and reason, without deleting the text.
 
 ---
 
-## 6. Раскладка
+## 6. Directory Layout
 
 ```
 memory/
-  README.md          этот файл
-  lead/              тимлид
-  analyst/           аналитик
-  designer/          дизайнер
-  architect/         архитектор
-  executor/          исполнитель — ОБЩАЯ на всех: территории меняются, ремесло нет
-  tester/            тестировщик
-  security/          безопасность
-  device/            приёмщик на устройстве
+  README.md          this file
+  lead/              Team Lead
+  analyst/           Analyst
+  designer/          Designer
+  architect/         Architect
+  executor/          Executor — SHARED across all executors: territories change, the craft does not
+  tester/            Tester
+  security/          Security
+  device/            Device / Runtime QA
 ```
 
-У каждой — `project.md` и `craft.md`. Пустой файл лучше отсутствующего: он говорит, что роль
-работала и знания пока не накопила, а не что каталог забыли завести.
+Each role directory contains `project.md`, `craft.md`, and `decisions.md`. An initialized empty template file is better than a missing file: it shows the role was deployed and has not accumulated entries yet, rather than making sessions wonder whether the directory was forgotten.
 
-**Про общую память исполнителей.** В `executor/` пишут несколько сессий сразу, и это единственное
-место, где записи двоих встречаются в одном файле. Правило простое и проверено слиянием:
+**On the shared Executor memory.** Multiple sessions write to `executor/` in parallel, making it the only place where two sessions' edits meet in the same file. The rule is simple and proven across merges:
 
-* **писать добавлением в конец своего раздела**, не переписывая соседние;
-* **конфликт слияния здесь разрешается ОБЪЕДИНЕНИЕМ**, а не выбором стороны: обе записи верны, обе
-  выведены из своего случая. Выбор стороны потеряет чужой опыт;
-* **дубли не страшны** — две формулировки одного правила из разных случаев ценнее одной: они
-  показывают, что правило воспроизводится. Сводит их тимлид, когда файл вырастет, и **сводит
-  объединением примеров, а не сокращением до одного**.
+* **always append to the end of your section**, never rewriting neighboring entries;
+* **merge conflicts here are resolved by UNION**, never by picking one side: both entries are valid and each was derived from its own real incident. Picking one side throws away someone else's hard-won experience;
+* **near-duplicates are fine** — two phrasings of the same rule derived from different incidents are more valuable than one, because they prove the pattern recurs. The Team Lead consolidates them when the file grows large, **combining the concrete examples rather than collapsing them into one**.

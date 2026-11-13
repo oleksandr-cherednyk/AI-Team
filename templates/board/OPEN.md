@@ -1,45 +1,43 @@
-# Открытое — читать первым при входе в работу
+# Open Work — Read First When Starting Work
 
-> **Шаблон.** Разворачивается в `<проект>/board/OPEN.md`. Правила — `board/README.md`.
-> **Это единственный источник правды о работе.** `00-START.md` сводится ИЗ него; разошлись числа —
-> неверен `00-START.md`.
+> **Template.** Deploys to `<project>/board/OPEN.md`. Rules — `board/README.md`.
+> **This is the single source of truth for open work.** `00-START.md` is derived FROM this file; if the counts diverge, `00-START.md` is wrong.
 
-**Обновлено: <дата>.**
+**Updated: `<date>`.**
 
-Сводка: **требует внимания 0 · в работе 0 · ждёт владельца 0 · открыт 0 · будущее 0 · не решено 0**
-
----
-
-**Пусто на <дата>.**
+Summary: **needs attention 0 · in progress 0 · waiting on owner 0 · open 0 · future 0 · unresolved 0**
 
 ---
 
-<!-- ─── ОБРАЗЕЦ КАРТОЧКИ. Копировать, заполнять, лишнее не оставлять ───────
+**Empty as of `<date>`.**
 
-## Требует внимания — видно пользователю сейчас
+---
 
-### <ID>. Короткий заголовок — что именно не так
-**Статус:** P0 · требует внимания · <дата> · нашла <роль>, ведёт <роль>
-**План:** <какая партия или план> → <чья работа>
-**Что:** одна-две строки, без пересказа истории.
-**Чем доказано:** команда, число, файл. Без этого запись — не находка, а мнение.
-**Что значит:** пользователю или работе. Если ничего — так и написать.
-**Что дальше:** конкретное следующее действие и чья территория.
+<!-- ─── CARD TEMPLATE. Copy, fill out, and strip unused placeholders ───────
 
-## Ждёт владельца — собрано в один список
+## Needs Attention — Visible to the User Right Now
+
+### <ID>. Short title — what specifically is wrong
+**Status:** P0 · needs attention · <date> · found by <role>, owned by <role>
+**Plan:** <which workstream or plan> → <whose work>
+**What:** one or two lines, without retelling the history.
+**How proven:** command, number, file. Without this, the entry is an opinion, not a finding.
+**Impact:** what it means for the user or the team's work. If nothing — state so explicitly.
+**Next step:** concrete next action and whose territory it belongs to.
+
+## Waiting on Owner — Consolidated into a Single List
 
 ### <ID>. …
-**Оговорки, без которых вопрос читается неверно:** …
+**Caveats without which the question will be misread:** …
 
-## Открыто — есть работа, нет владельца
+## Open — Work Exists, No Owner Assigned Yet
 
-## Будущее — принято, не в этом заходе
+## Future — Accepted, Not in This Cycle
 
-## Не решено
+## Unresolved
 
 ──────────────────────────────────────────────────────────────────────────── -->
 
-**Разделы заводятся по мере надобности.** Пустой раздел не держат — он создаёт впечатление, что
-туда смотрели.
+**Sections are created only as needed.** Never keep an empty section header — it creates the false impression that someone checked it.
 
-**ID сквозной и не переиспользуется** даже после закрытия: на него ссылаются отчёты и коммиты.
+**IDs are sequential and never reused**, even after closure: reports and commit messages reference them permanently.

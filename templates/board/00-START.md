@@ -1,71 +1,66 @@
-# Старт — первый файл, который открывают
+# Start — The First File You Open
 
-> **Шаблон.** Разворачивается в `<проект>/board/00-START.md`. Правила ведения — `board/README.md`.
-> Заполняет и обновляет **тимлид**: в начале смены, при каждой смене статуса карточки, в конце смены.
+> **Template.** Deploys to `<project>/board/00-START.md`. Operating rules — `board/README.md`.
+> Filled out and updated by the **Team Lead**: at the start of a shift, upon every card status change, and at the end of a shift.
 
-**Обновлено: <дата> · обновил: <роль>.**
+**Updated: `<date>` · updated by: `<role>`.**
 
-> Этот файл отвечает на один вопрос за десять секунд: **есть ли открытая работа и где она.**
-> Если ответ «нет» — дальше можно не читать.
-
----
-
-## ✅ ОТКРЫТОЙ РАБОТЫ НЕТ
-
-*(состояние по умолчанию при разворачивании — заменить блоком ниже, когда работа появится)*
-
-Ниже — только таблица планов. **Перечислять закрытые задачи здесь запрещено:** для этого `DONE.md`,
-и он чистится. Иначе файл превратится в свалку, и его перестанут открывать — а это единственное,
-ради чего он существует.
+> This file answers a single question in ten seconds: **is there open work, and where is it?**
+> If the answer is "no" — you do not need to read any further.
 
 ---
 
-<!-- ─── ЗАМЕНИТЬ ВЕРХНИЙ БЛОК НА ЭТОТ, КОГДА РАБОТА ЕСТЬ ────────────────────
+## ✅ NO OPEN WORK
 
-## ⛔ ЕСТЬ ОТКРЫТАЯ РАБОТА
+*(default state upon initial deployment — replace with the block below as soon as open work appears)*
+
+Below is only the table of plans. **Listing closed tasks here is forbidden:** that is what `DONE.md` is for, and `DONE.md` gets pruned regularly. Otherwise this file turns into a graveyard and people stop opening it — defeating the sole reason it exists.
+
+---
+
+<!-- ─── REPLACE THE TOP BLOCK WITH THIS ONE WHEN THERE IS OPEN WORK ────────
+## ⛔ OPEN WORK EXISTS
 
 ```
-P0  требует внимания   N     видно пользователю сейчас
-P1  блокирует          N     чужая работа стоит
-P2  обычное            N
-P3  будущее            N
+P0  needs attention    N     visible to the user right now
+P1  blocking           N     someone else's work is stalled
+P2  normal             N
+P3  future             N
 ──────────────────────────
-    ждёт владельца     N     работать нельзя, решение не наше
-    не решено          N     не знаем, что с этим делать
+    waiting on owner   N     cannot proceed, decision is not ours
+    unresolved         N     we do not know what to do with this yet
 ```
 
-**Числа обязаны совпадать со счётом карточек в `OPEN.md`.** Разошлись — неверен ЭТОТ файл.
+**These numbers must match the exact count of cards in `OPEN.md`.** If they diverge — THIS file is wrong.
 
-## Что брать первым
+## What to Tackle First
 
-| | ID | что | кому |
+| | ID | What | Assigned To |
 |---|---|---|---|
 | **P0** | | | |
 | **P1** | | | |
 
 ──────────────────────────────────────────────────────────────────────────── -->
 
-## По планам — а не по задачам
+## By Plans — Not by Individual Tasks
 
-| план / партия | состояние | где остаток |
+| Plan / Workstream | Status | Remaining Scope |
 |---|---|---|
-| | 🟢 закрыт · 🟡 в работе · 🔴 не начата | |
+| | 🟢 closed · 🟡 in progress · 🔴 not started | |
 
-**Закрытый план — одна строка.** По ней сразу видно, что читать его отчёт незачем.
+**A closed plan is a single row.** It tells you at a glance that there is no need to read its report.
 
 ---
 
-## Приоритеты
+## Priorities
 
-| | что значит | признак |
+| | Meaning | Criterion |
 |---|---|---|
-| **P0** | **видно пользователю сейчас** | человек, открывший продукт сегодня, столкнётся |
-| **P1** | **блокирует чужую работу** или ломает проверку | кто-то стоит или получит ложный сигнал |
-| **P2** | обычная работа | ни первое, ни второе |
-| **P3** | будущее | принято как верное, но не в этом заходе |
+| **P0** | **visible to the user right now** | a person opening the product today will hit it |
+| **P1** | **blocks someone else's work** or breaks a verification check | a session is stalled or receiving a false signal |
+| **P2** | normal work | neither P0 nor P1 |
+| **P3** | future | accepted as valid, but not for the current cycle |
 
-**Меняет только тимлид, и всегда с датой** — по ней сессия после обрыва видит, насколько оценка
-свежая. Приоритет без даты недействителен.
+**Changed only by the Team Lead, and always with a date** — so a session resuming after an interruption can tell how fresh the assessment is. A priority without a date is invalid.
 
-**P0 не копится.** Больше трёх одновременно означает, что либо приоритет ставится щедро, либо работа
-встала, — и то и другое тимлид обязан назвать **вслух владельцу**, а не держать в файле.
+**P0 never piles up.** More than three P0 items at once means either priorities are being inflated or work has stalled — and in either case the Team Lead must raise it **out loud with the owner**, rather than leaving it sitting in a file.

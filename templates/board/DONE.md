@@ -1,21 +1,18 @@
-# Закрытое — кем и когда
+# Done — Closed by Whom and When
 
-> **Шаблон.** Разворачивается в `<проект>/board/DONE.md`.
-> **Чистится через два цикла сессий.** Запись уходит целиком: знание из неё к этому моменту уже в
-> `PLAYBOOK.md` или в памяти роли, и удаление ничего не теряет.
+> **Template.** Deploys to `<project>/board/DONE.md`.
+> **Pruned after two session cycles.** Entries are removed in full: any lasting knowledge from them has already been distilled into `PLAYBOOK.md` or role memory by then, so deleting them loses nothing.
 
 ---
 
-## <дата>
+## `<date>`
 
-| ID | Что закрыто | Кем | Чем подтверждено |
+| ID | What Was Closed | Closed By | How Verified |
 |---|---|---|---|
 | | | | |
 
 ---
 
-**Зачем этот файл вообще нужен, если он чистится.** Чтобы в течение ближайших смен можно было
-ответить на два вопроса: **кто это делал** (у него спрашивают, а не разбираются заново) и **чем
-доказано** (иначе «закрыто» значит «кто-то так сказал»).
+**Why this file exists at all if it gets pruned.** So that during the next couple of shifts anyone can quickly answer two questions: **who did this work** (ask them directly instead of reverse-engineering from scratch) and **how it was proven** (otherwise "closed" just means "someone said so").
 
-**Чего здесь не бывает:** пересказа отчёта, задач без подтверждения, и записей старше двух циклов.
+**What never belongs here:** report summaries, unverified tasks, or entries older than two cycles.

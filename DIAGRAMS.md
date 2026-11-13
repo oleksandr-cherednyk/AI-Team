@@ -1,550 +1,554 @@
-# Схемы — последовательности, ветвления и связи
+# Diagrams — Sequences, Branches, and Relationships
 
-**Схема заводится только там, где предмет — последовательность или ветвление.** Список ролей —
-таблица, а не схема; выбор «моё решение или владельца» — дерево, потому что в тексте он читается
-абзацем, а деревом за три секунды.
+**A diagram is created only where the subject is a sequence or a branch.** A list of roles belongs in
+a table, not a diagram; the choice "my decision or the Owner's" belongs in a decision tree, because
+in prose it takes a paragraph to read, whereas as a tree it takes three seconds.
 
-**Схема — источник, а не копия.** Для того, что она показывает, она главная; текст рядом поясняет.
-Две правды устаревают порознь, и одна из них начинает врать увереннее другой.
+**A diagram is the source of truth, not a copy.** For whatever it depicts, it is authoritative; the
+adjacent text merely explains it. Two truths go stale independently, and one of them starts lying
+more confidently than the other.
 
-**Правило поддержки.** У каждой схемы стоит, **что она сводит** и **когда сверялась**. Правишь тот
-документ — открываешь схему. Это записано в трёх местах, и все три обязательны: **П-8 шаг 5**
-«проверить обратные ссылки» · **П-7 шаг 3**, где схемы стоят отдельной строкой таблицы «куда вписать
-роль» · **П-12-бис проверка 4**, которой конец смены спрашивает, не появилась ли форма, которой на
-схемах нет. **Схема гниёт быстрее текста**, потому что поправить строку легко, а перерисовать
-дерево — работа.
+**Maintenance rule.** Every diagram states **what it consolidates** and **when it was last
+verified**. If you edit that source document, you open the corresponding diagram. This requirement is
+recorded in three places, and all three are mandatory: **P-8 step 5** ("verify backlinks") · **P-7
+step 3**, where diagrams appear as a dedicated row in the "where to register a role" table ·
+**P-12-bis check 4**, where the end-of-shift checklist asks whether a new workflow shape emerged that
+is missing from the diagrams. **Diagrams rot faster than prose** because fixing a line of text is
+easy, whereas redrawing a tree takes effort.
 
-> **Прежняя редакция (до 2026-09-03):** «это записано отдельным шагом в процедуре П-8 „изменить
-> документацию“». Отдельного шага про схемы в П-8 нет — правило указывало на процедуру, где его не
-> было, и по букве схемы не обновлялись никогда. Случай: сверка 2026-09-03 нашла в этом же файле
-> два устаревших числа в С-1, и правило поддержки не поймало ни одного.
+> **Previous wording (prior to 2026-09-03):** "this is recorded as a dedicated step in procedure P-8
+> 'update documentation'". There was no dedicated step about diagrams in P-8 — the rule pointed to a
+> procedure where no such step existed, so by the letter of the law, diagrams were never updated.
+> Case: the 2026-09-03 audit found two stale numbers in D-1 within this very file, and the
+> maintenance rule caught neither of them.
 
 ---
 
-## С-1. Карта документов: что откуда читается
+## D-1. Document Map: What Is Read from Where
 
-*Сводит: `TEAM.md` §1. Сверялось: 2026-08-29.*
+*Consolidates: `TEAM.md` §1. Last verified: 2026-08-29.*
 
 ```
                        ┌─────────────────────────────┐
-   ВСЕГДА И ПЕРВЫМ ───►│  board/00-START.md          │  есть ли работа?
-                       │  «✅ нет» или P0/P1/P2/P3   │  10 секунд
+   ALWAYS FIRST ──────►│  board/00-START.md          │  Is there open work?
+                       │  "✅ none" or P0/P1/P2/P3   │  10 seconds
                        └──────────────┬──────────────┘
-                                      │ есть работа
+                                      │ work exists
                                       ▼
                        ┌─────────────────────────────┐
-   ОДИН РАЗ ──────────►│  PLAYBOOK.md                │  как здесь думают
-   при входе           │  формы дефекта · как врут    │  10 минут
-                       │  свои измерители             │
+   ONCE ──────────────►│  PLAYBOOK.md                │  How we think here:
+   upon entry          │  defect shapes · how our    │  10 minutes
+                       │  own probes lie             │
                        └──────────────┬──────────────┘
                                       ▼
                        ┌─────────────────────────────┐
-                       │  TEAM.md                    │  кто есть кто, связь, обрыв
+                       │  TEAM.md                    │  Who is who, comms, recovery
                        └──────────────┬──────────────┘
                                       ▼
         ┌───────────────┬─────────────┴───────┬──────────────────┐
         ▼               ▼                     ▼                  ▼
  ┌────────────┐  ┌─────────────┐     ┌───────────────┐   ┌──────────────┐
- │ roles/<я>  │  │ PROCEDURES  │     │ memory/<я>/   │   │ PROJECT.md   │
- │ что и      │  │ как, по     │     │ что я уже     │   │ гейты, прави-│
- │ почему     │  │ шагам       │     │ знаю          │   │ ла, террито- │
- │            │  │ в момент    │     │ project ·     │   │ рии — ЕДИН-  │
- │ целиком,   │  │ ситуации    │     │ craft ·       │   │ СТВЕННОЕ    │
- │ до первого │  │             │     │ decisions     │   │ проектное   │
- │ действия   │  │             │     │               │   │ место       │
+ │ roles/<me> │  │ PROCEDURES  │     │ memory/<me>/  │   │ PROJECT.md   │
+ │ what & why │  │ how, step   │     │ what I        │   │ gates, rules,│
+ │            │  │ by step,    │     │ already know: │   │ territories  │
+ │ read in    │  │ when a      │     │ project ·     │   │ — THE SINGLE │
+ │ full before│  │ situation   │     │ craft ·       │   │ project-wide │
+ │ 1st action │  │ arises      │     │ decisions     │   │ source       │
  └────────────┘  └─────────────┘     └───────────────┘   └──────────────┘
         │                                                        ▲
-        │ тимлид дополнительно                                   │
-        ▼                                                 сюда ходят за
- ┌──────────────────────┐        ┌─────────────┐          «а как здесь?»
- │ roles/LEAD-PROCEDURES│        │ SOURCES.md  │◄── по надобности,
- │ 19 ситуаций          │        │ где учиться │    свой раздел
- └──────────────────────┘        └─────────────┘
+        │ Team Lead additionally                                 │
+        ▼                                                 come here for
+ ┌──────────────────────┐        ┌─────────────┐          "how does it
+ │ roles/LEAD-PROCEDURES│        │ SOURCES.md  │◄── as needed, work here?"
+ │ 19 situations        │        │ where to    │    your section
+ └──────────────────────┘        │ learn       │
+                                 └─────────────┘
 ```
 
-**Читается сверху вниз ровно один раз.** Дальше открывают по надобности: процедуру — в момент
-ситуации, доску — по нужной строке, источники — когда нужен внешний ответ.
+**Read top to bottom exactly once.** After that, open files on demand: a procedure when a situation
+arises, the board by the relevant line, and sources when an external answer is needed.
 
-**Тимлиду — не первым делом.** Эта карта отвечает «что откуда читается», а не «с чего начать
-смену»: у тимлида первый час **исполняется**, и порядок обратный — прогон, потом чтение (П-1,
-часть А). Войдя в смену по этой схеме, он придёт к командам с ожиданием и будет его подтверждать.
+**For the Team Lead — not the very first step.** This map answers "what is read from where", not
+"how to start a shift": the Team Lead's first hour is **executed**, and the order is reversed — run
+the suite first, then read (P-1, Part A). Entering a shift by following this diagram would bring the
+Team Lead to the commands with pre-formed expectations, priming them to confirm those expectations.
 
-> **Сверено 2026-09-03:** «15 ситуаций» исправлено на 19. В оглавлении `LEAD-PROCEDURES.md`
-> перечислены П-0…П-15, в самом файле к ним добавлены П-3-бис, П-12-бис и П-16, причём П-16 в
-> оглавление не внесён. Число на схеме отстало на четыре и выглядело проверенным — ровно то, чем
-> схема опаснее текста.
+> **Verified 2026-09-03:** "15 situations" updated to 19. The table of contents in
+> `LEAD-PROCEDURES.md` lists P-0…P-15, while the file body also includes P-3-bis, P-12-bis, and
+> P-16 (with P-16 missing from the table of contents). The number in the diagram lagged by four while
+> looking authoritative — the exact reason a stale diagram is more dangerous than stale prose.
 
 ---
 
-## С-2. Жизнь находки: от наблюдения до закрытия
+## D-2. Lifecycle of a Finding: From Observation to Closure
 
-*Сводит: `PROCEDURES.md` О-3, О-4, О-9. Сверялось: 2026-08-29.*
+*Consolidates: `PROCEDURES.md` GP-3, GP-4, GP-9. Last verified: 2026-08-29.*
 
 ```
-   наблюдение
+   observation
        │
        ▼
-  ┌─────────────────────────┐   нет   ┌──────────────────────────────┐
-  │ достижим ли этот код    ├────────►│ НЕ ДЕФЕКТ. Записать так же   │
-  │ живым сценарием?        │         │ подробно, как находку        │
+  ┌─────────────────────────┐   no    ┌──────────────────────────────┐
+  │ Is this code reachable  ├────────►│ NOT A DEFECT. Record in the  │
+  │ by a live scenario?     │         │ same detail as a finding     │
   └───────────┬─────────────┘         └──────────────────────────────┘
-              │ да
+              │ yes
               ▼
-  ┌─────────────────────────┐   нет   ┌──────────────────────────────┐
-  │ прочитаны САМИ СЛУЧАИ,  ├────────►│ читать. Ложная находка       │
-  │ а не только число?      │         │ опаснее пропущенной          │
+  ┌─────────────────────────┐   no    ┌──────────────────────────────┐
+  │ Did you read THE ACTUAL ├────────►│ Read them. A false finding   │
+  │ CASES, not just a count?│         │ is worse than a missed one   │
   └───────────┬─────────────┘         └──────────────────────────────┘
-              │ да
+              │ yes
               ▼
   ┌─────────────────────────┐
-  │ круглое → проверь зонд  │   «348 из 348» — почти всегда дефект измерителя
-  │ крупное → проверь смысл │   «3015 из 4094» — почти всегда не тот вопрос
+  │ Round # → check probe   │   "348 of 348" — almost always a probe bug
+  │ Huge #  → check meaning │   "3015 of 4094" — almost always the wrong question
   └───────────┬─────────────┘
               ▼
-  ┌─────────────────────────┐   моя   ┌──────────────────────────────┐
-  │ чья территория?         ├────────►│ чиню сам, замер до правки    │
+  ┌─────────────────────────┐  mine   ┌──────────────────────────────┐
+  │ Whose territory?        ├────────►│ Fix it myself; measure first │
   └───────────┬─────────────┘         └──────────────┬───────────────┘
-              │ чужая                                │
+              │ someone else's                       │
               ▼                                      │
   ┌─────────────────────────────────────┐            │
-  │ СПРОСИТЬ владельца территории       │            │
-  │ прежде, чем звать дефектом          │            │
-  │ (половина снимается одним вопросом) │            │
+  │ ASK the territory owner             │            │
+  │ before calling it a defect          │            │
+  │ (half are resolved by one question) │            │
   └───────────┬─────────────────────────┘            │
-              │ подтвердилось                        │
+              │ confirmed                            │
               ▼                                      │
   ┌─────────────────────────────────────┐            │
-  │ передать: ЗАМЕР, а не объяснение    │            │
-  │ + границы зонда («74 — нижняя»)     │            │
+  │ Hand over: MEASUREMENT, not theory  │            │
+  │ + probe boundaries ("74 — lower")   │            │
   └───────────┬─────────────────────────┘            │
               ▼                                      ▼
   ┌───────────────────────────────────────────────────────────┐
-  │ board/OPEN.md — карточка: что · чем доказано · что значит  │
-  │ · что дальше · ПЛАН · приоритет с датой                    │
+  │ board/OPEN.md — card: what · how proven · what it means   │
+  │ · next step · PLAN · dated priority                       │
   └───────────┬───────────────────────────────────────────────┘
               ▼
-       ┌──────────────┐  меняет видимое   ┌────────────────────┐
-       │ кто решает?  ├──────────────────►│ ждёт владельца     │
-       └──────┬───────┘   пользователю    │ (в ОДИН список)    │
-              │ статус-кво                └────────────────────┘
+       ┌──────────────┐  changes user-     ┌────────────────────┐
+       │ Who decides? ├───────────────────►│ awaiting Owner     │
+       └──────┬───────┘  visible behavior  │ (into ONE list)    │
+              │ preserves status quo       └────────────────────┘
               ▼
        ┌──────────────┐        ┌──────────────────────────────┐
-       │ в работе     ├───────►│ выполнено → DONE.md          │
-       └──────┬───────┘        │ (чистится через 2 цикла)     │
+       │ in progress  ├───────►│ done → DONE.md               │
+       └──────┬───────┘        │ (pruned after 2 cycles)      │
               │                └──────────────────────────────┘
-              │ выяснилось, что находка неверна
+              │ finding turns out to be wrong
               ▼
        ┌──────────────────────────────────────────────────────┐
-       │ ОТЗЫВ — так же немедленно, как находка.              │
-       │ Написать всем, кому ушла. Разделить: что снято,      │
-       │ что осталось верным. Форма ошибки → decisions.md     │
+       │ RETRACTION — just as immediately as a finding.       │
+       │ Notify everyone who received it. Separate what is    │
+       │ retracted from what still holds. Shape → decisions.md│
        └──────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## С-3. Дерево: моё решение или владельца
+## D-3. Decision Tree: My Decision or the Owner's
 
-*Сводит: `roles/LEAD-PROCEDURES.md` П-4. Сверялось: 2026-08-29.*
+*Consolidates: `roles/LEAD-PROCEDURES.md` P-4. Last verified: 2026-08-29.*
 
 ```
-                        решение принято?
+                        Is a decision needed?
                               │
               ┌───────────────┴───────────────┐
               ▼                               ▼
-   меняет то, что видит                сохраняет статус-кво
-   пользователь?                              │
+   Changes what the user               Preserves the status quo
+   sees or experiences?                       │
               │                               ▼
       ┌───────┴────────┐              ┌────────────────────┐
-      ▼                ▼              │ МОЁ.               │
-     ДА               НЕТ             │ Записать основание │
-      │                │              │ — без «почему»     │
-      │                └──────────────► решение            │
-      ▼                                 недействительно    │
- ┌─────────────────┐                   └────────────────────┘
- │ ВЛАДЕЛЬЦА       │
- └────────┬────────┘                   Три класса, всегда владельца:
-          │                            ─────────────────────────────
-          ▼                            1. что продукт ОБЕЩАЕТ
- ┌────────────────────────────┐           (состав, объём, оценка ответа)
- │ вопрос обязан нести:       │        2. УЖЕ ПРИНЯТОЕ им
- │ · числа с датой замера     │           (расхождение → показать замер,
- │ · что меняется для         │            а не переголосовать)
- │   пользователя             │        3. НЕОБРАТИМОЕ
- │ · варианты, включая        │           (удаление, переименование ключей)
- │   «оставить как есть»      │
- │ · оговорки, без которых    │        Правила материала мандату
- │   вопрос читается неверно  │        НЕ ПОДЧИНЯЮТСЯ — они сильнее
- └────────┬───────────────────┘        решения тимлида.
+      ▼                ▼              │ MINE.              │
+     YES              NO              │ Record the grounds │
+      │                │              │ — without a "why", │
+      │                └──────────────► the decision is    │
+      ▼                                 invalid            │
+ ┌─────────────────┐                  └────────────────────┘
+ │ THE OWNER'S     │
+ └────────┬────────┘                   Three classes, always the Owner's:
+          │                            ──────────────────────────────────
+          ▼                            1. What the product PROMISES
+ ┌────────────────────────────┐           (scope, volume, answer grading)
+ │ The question must carry:   │        2. ALREADY DECIDED by the Owner
+ │ · numbers with measurement │           (discrepancy → show measurement,
+ │   dates                    │            never overrule)
+ │ · what changes for the user│        3. IRREVERSIBLE actions
+ │ · options, including       │           (deletion, renaming keys)
+ │   "leave as is"            │
+ │ · caveats without which    │        Material rules ARE NOT SUBJECT
+ │   the question misleads    │        to mandate — they outrank the
+ └────────┬───────────────────┘        Team Lead's authority.
           ▼
-   копить в ОДИН список,
-   задавать разом
+   Batch into ONE list,
+   ask all at once
 ```
 
-**Проверка на себе:** если из вопроса нельзя выбрать, не спросив «а что вы имели в виду», — вопрос
-не готов.
+**Self-test:** if the Owner cannot choose an option from your question without asking "what did you
+mean by this?", the question is not ready.
 
 ---
 
-## С-4. Дерево: красное в прогоне
+## D-4. Decision Tree: Red in a Test Run
 
-*Сводит: `PROCEDURES.md` О-5, `roles/LEAD-PROCEDURES.md` П-6. Сверялось: 2026-08-29.*
+*Consolidates: `PROCEDURES.md` GP-5, `roles/LEAD-PROCEDURES.md` P-6. Last verified: 2026-08-29.*
 
 ```
-                            прогон красный
+                            test run is red
                                   │
                                   ▼
                        ┌──────────────────────┐
-                       │ ПЕРЕПРОГНАТЬ         │  один прогон в общем дереве
-                       └──────────┬───────────┘  не доказывает ничего
+                       │ RE-RUN IT            │  A single run in a shared tree
+                       └──────────┬───────────┘  proves nothing
                                   ▼
                        ┌──────────────────────────────────────┐
-                       │ ЧЬЁ? — не «у меня чисто», а:         │
-                       │ убрать свои правки в stash и         │
-                       │ прогнать на чистом HEAD              │
+                       │ WHOSE IS IT? — not "mine looks clean"│
+                       │ but: git stash your edits and        │
+                       │ run on a clean HEAD                  │
                        └──────────┬───────────────────────────┘
-                        чужое ◄───┴───► моё
+                someone else's ◄──┴───► mine
                           │              │
                           ▼              ▼
-                 передать владельцу   разобрать РОД — их четыре:
-                 территории
+                 hand to territory    classify the KIND — there are four:
+                 owner
                                  ┌───────────────────────────────────────┐
-                                 │ 1. материал нарушил правило           │
-                                 │    → чинить материал, потолок не      │
-                                 │      трогать                          │
+                                 │ 1. Material violated a rule           │
+                                 │    → fix the material, do not touch   │
+                                 │      the ceiling                      │
                                  ├───────────────────────────────────────┤
-                                 │ 2. материал ОБОГНАЛ линию (лучше)     │
-                                 │    → ОПУСТИТЬ линию, свободно         │
+                                 │ 2. Material BEAT the baseline (better)│
+                                 │    → LOWER the ratchet baseline freely│
                                  ├───────────────────────────────────────┤
-                                 │ 3. артефакт не пересобран             │
-                                 │    → прогнать генератор               │
+                                 │ 3. Artifact not rebuilt               │
+                                 │    → run the generator                │
                                  ├───────────────────────────────────────┤
-                                 │ 4. дефект самого гейта                │
-                                 │    → чинить ГЕЙТ, а не подгонять      │
-                                 │      под него материал                │
+                                 │ 4. Defect in the gate itself          │
+                                 │    → fix THE GATE, do not degrade     │
+                                 │      the material to appease it       │
                                  └───────────────────────────────────────┘
 
-  Признак четвёртого рода — самый важный и самый пропускаемый:
+  Hallmark of the fourth kind — the most important and most frequently missed:
   ┌──────────────────────────────────────────────────────────────────────┐
-  │ «Чтобы гейт позеленел, надо сделать материал ХУЖЕ» —                 │
-  │ это дефект гейта, а не материала.                                    │
-  │ Пример: метрика повторяемости выросла оттого, что один вопрос        │
-  │ разбили на четыре; выполнить её значило вернуть один вопрос.         │
+  │ "To make the gate green, we would have to make the material WORSE" — │
+  │ that is a defect in the gate, not in the material.                   │
+  │ Example: a repetition metric rose because one question was split     │
+  │ into four; satisfying the metric meant collapsing them back to one.  │
   └──────────────────────────────────────────────────────────────────────┘
 
-  Поднимаешь линию → обязан записать, КАКИЕ ДАННЫЕ изменились.
-  Красный «пока не сделаем» ЗАПРЕЩЁН: его перестают читать за день.
+  Raising a ratchet baseline → mandatory record of WHICH DATA changed.
+  Leaving a gate red "until we get to it" is FORBIDDEN: people stop reading
+  a red gate within a day.
 ```
 
 ---
 
-## С-5. Маршрут знания: что куда сохраняется
+## D-5. Knowledge Routing: What Gets Saved Where
 
-*Сводит: `PROCEDURES.md` О-11, `memory/README.md`. Сверялось: 2026-08-29.*
+*Consolidates: `PROCEDURES.md` GP-11, `memory/README.md`. Last verified: 2026-08-29.*
 
 ```
-                        я что-то узнал
+                        I learned something
                               │
           ┌───────────────────┼────────────────────┬─────────────────┐
           ▼                   ▼                    ▼                 ▼
-   это РАБОТА?         это ЗАКОНОМЕРНОСТЬ    это ИСТОЧНИК?    это РЕШЕНИЕ
-   (надо сделать)      полезная ВСЕМ?                          и его исход?
+   Is it WORK?         Is it a PATTERN      Is it a SOURCE?   Is it a DECISION
+   (needs to be done)  useful to EVERYONE?                    and its outcome?
           │                   │                    │                 │
           ▼                   ▼                    ▼                 ▼
   ┌──────────────┐   ┌────────────────┐   ┌──────────────┐  ┌────────────────┐
-  │ board/OPEN   │   │ через тимлида  │   │ через тимлида│  │ memory/<я>/    │
-  │ + приоритет  │   │ → PLAYBOOK.md  │   │ → SOURCES.md │  │ decisions.md   │
-  │ + план       │   │                │   │ ТОЛЬКО       │  │                │
-  └──────────────┘   │ у себя остаётся│   │ первичные    │  │ ПОРОГ ВЫСОКИЙ: │
-          │          │ строка-указа-  │   └──────────────┘  │ неочевидное ·  │
-          │          │ тель, не дубль │                     │ НЕВЕРНОЕ ·     │
-          ▼          └────────────────┘                     │ нестандартное ·│
-   выполнено                  ▲                             │ изменившее     │
-          │                   │                             │ чужую работу   │
+  │ board/OPEN   │   │ via Team Lead  │   │ via Team Lead│  │ memory/<me>/   │
+  │ + priority   │   │ → PLAYBOOK.md  │   │ → SOURCES.md │  │ decisions.md   │
+  │ + plan       │   │                │   │ PRIMARY      │  │                │
+  └──────────────┘   │ keep a 1-line  │   │ sources only │  │ HIGH BAR:      │
+          │          │ pointer locally│   └──────────────┘  │ non-obvious ·  │
+          │          │ never duplicate│                     │ WRONG ·        │
+          ▼          └────────────────┘                     │ non-standard · │
+        done                  ▲                             │ changed others'│
+          │                   │                             │ work           │
           ▼                   │                             │                │
-  ┌──────────────┐            │                             │ ИСХОД          │
-  │ board/DONE   │            │                             │ ОБЯЗАТЕЛЕН     │
-  │ чистится     │            │                             └────────────────┘
-  │ через 2 цикла│            │
+  ┌──────────────┐            │                             │ OUTCOME IS     │
+  │ board/DONE   │            │                             │ MANDATORY      │
+  │ pruned after │            │                             └────────────────┘
+  │ 2 cycles     │            │
   └──────────────┘            │
                               │
-   это знание МОЕЙ роли? ─────┤
+   Is it MY role's knowledge?─┤
           │                   │
           ▼                   │
   ┌───────────────────────────┴──────────────┐
-  │ memory/<роль>/                           │
-  │  project.md — про ЭТОТ проект            │
-  │  craft.md   — ремесло, переживёт проект  │
+  │ memory/<role>/                           │
+  │  project.md — about THIS project         │
+  │  craft.md   — craft that outlives project│
   │                                          │
-  │ Проверка, куда: «останется ли это верным │
-  │ в ДРУГОМ проекте?» Да → craft, нет →     │
-  │ project                                  │
+  │ Routing test: "Will this still hold true │
+  │ in ANOTHER project?" Yes → craft,        │
+  │ No → project                             │
   └──────────────────────────────────────────┘
 ```
 
-**Отдельная ветка: я нашёл ошибку в самой документации.**
+**Separate branch: I found an error in the documentation itself.**
 
 ```
-   неточность в документе команды
+   inaccuracy in a team document
               │
               ▼
-   ┌──────────────────────────┐   да    ┌────────────────────────────┐
-   │ правило ограничивает     ├────────►│ ТЫ СТОРОНА — предлагай,    │
-   │ ИМЕННО МЕНЯ?             │         │ но правь чужими руками     │
+   ┌──────────────────────────┐   yes   ┌────────────────────────────┐
+   │ Does this rule restrict  ├────────►│ YOU ARE AN INTERESTED PARTY│
+   │ ME SPECIFICALLY?         │         │ — propose, let others edit │
    └───────────┬──────────────┘         └────────────────────────────┘
-               │ нет
+               │ no
                ▼
-   ┌──────────────────────────┐   да    ┌────────────────────────────┐
-   │ это решение владельца    ├────────►│ показать ЗАМЕР, а не       │
-   │ или инвариант продукта?  │         │ переголосовать             │
+   ┌──────────────────────────┐   yes   ┌────────────────────────────┐
+   │ Is it an Owner decision  ├────────►│ Show a MEASUREMENT,        │
+   │ or product invariant?    │         │ do not overrule            │
    └───────────┬──────────────┘         └────────────────────────────┘
-               │ нет
+               │ no
                ▼
    ┌───────────────────────────────────────────────────────────────┐
-   │ ПРАВЛЮ САМ: назвать случай · прежнюю редакцию ПОМЕТИТЬ РЯДОМ  │
-   │ · поставить дату · сказать тимлиду строкой                     │
+   │ EDIT IT MYSELF: name the case · MARK previous wording nearby  │
+   │ · add a date stamp · inform the Team Lead in one line         │
    └───────────────────────────────────────────────────────────────┘
 ```
 
-**Ничего не дублируется.** Запись, переехавшая в `PLAYBOOK`, из памяти роли удаляется — вместо неё
-строка-указатель. **В записях памяти не бывает имён сессий:** случай опознаётся **ценой**, а не
-автором.
+**Nothing is duplicated.** When an entry is promoted to `PLAYBOOK.md`, it is removed from role
+memory and replaced with a one-line pointer. **Memory entries never contain session names:** a case
+is identified by its **cost**, not its author.
 
 ---
 
-## С-6. Доска: статусы и переходы
+## D-6. The Board: Statuses and Transitions
 
-*Сводит: `board/README.md` §4. Сверялось: 2026-08-29.*
+*Consolidates: `board/README.md` §4. Last verified: 2026-08-29.*
 
 ```
                        ┌──────────┐
-      находка ────────►│  открыт  │◄──────── вернулось: обстоятельство
-      доказана         └────┬─────┘          изменилось
+      finding ────────►│   open   │◄──────── reopened: underlying
+      proven           └────┬─────┘          circumstance changed
                             │
         ┌───────────────────┼──────────────────┬──────────────────┐
         ▼                   ▼                  ▼                  ▼
  ┌─────────────┐    ┌──────────────┐   ┌─────────────┐   ┌──────────────┐
- │ в работе    │    │ ждёт         │   │ будущее     │   │ не решено    │
- │ + КТО       │    │ владельца    │   │ верно, но   │   │ не знаем,    │
- │ + дата      │    │ + в общий    │   │ не в этом   │   │ что делать — │
- │             │    │   список     │   │ заходе      │   │ сказать это  │
- └──────┬──────┘    └──────┬───────┘   └──────┬──────┘   │ вслух        │
+ │ in progress │    │ awaiting     │   │ future      │   │ undecided    │
+ │ + WHO       │    │ Owner        │   │ valid, but  │   │ we do not    │
+ │ + date      │    │ + added to   │   │ not in this │   │ know what to │
+ │             │    │   master list│   │ cycle       │   │ do — state   │
+ └──────┬──────┘    └──────┬───────┘   └──────┬──────┘   │ that openly  │
         │                  │                  │          └──────────────┘
-        │                  │ ответ            │ 3 захода без возврата
-        │                  ▼                  ▼          → пересмотреть
+        │                  │ answer           │ 3 cycles untouched
+        │                  ▼                  ▼          → review
         │           ┌─────────────┐    ┌─────────────────────────────┐
-        │           │ открыт      │    │ реестр улучшений или снять  │
+        │           │ open        │    │ improvement backlog or drop │
         │           └─────────────┘    └─────────────────────────────┘
         ▼
  ┌─────────────┐         ┌──────────────────────────────────────────┐
- │ выполнено   ├────────►│ board/DONE.md — кем и когда              │
- └─────────────┘         │ чистится через два цикла сессий          │
+ │ done        ├────────►│ board/DONE.md — by whom and when         │
+ └─────────────┘         │ pruned after two session cycles          │
                          └──────────────────────────────────────────┘
 
- ┌─────────────┐   причина исчезла / предмет изменился
- │ устарело    │◄──── снимается С ОБЪЯСНЕНИЕМ, не молча
+ ┌─────────────┐   cause vanished / subject changed
+ │ obsolete    │◄──── closed WITH AN EXPLANATION, never silently
  └─────────────┘
 
- САМОПРОВЕРКА, ловящая забывчивость:
+ SELF-CHECK that catches forgetfulness:
  ┌────────────────────────────────────────────────────────────────────┐
- │ карточка «в работе» с датой СТАРШЕ СУТОК = либо сессия умерла,     │
- │ либо статус забыли снять. Пролистать нельзя, её видно.             │
+ │ An "in progress" card dated OLDER THAN 24 HOURS = either the       │
+ │ session died or someone forgot to clear the status. Unmissable.    │
  └────────────────────────────────────────────────────────────────────┘
 
- ЕДИНСТВЕННОЕ НАПРАВЛЕНИЕ ПРАВДЫ:
-    OPEN.md ──сводится──► 00-START.md
-    разошлись числа → НЕВЕРЕН 00-START, а не OPEN
+ SINGLE DIRECTION OF TRUTH:
+    OPEN.md ──summarized into──► 00-START.md
+    If counts diverge → 00-START is wrong, never OPEN
 ```
 
 ---
 
-## С-7. Этапы захода
+## D-7. Stages of a Cycle
 
-*Сводит: `roles/LEAD-PROCEDURES.md` П-1, П-12, П-13. Сверялось: 2026-08-29.*
+*Consolidates: `roles/LEAD-PROCEDURES.md` P-1, P-12, P-13. Last verified: 2026-08-29.*
 
 ```
  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐
- │ 1. ВХОД      │─►│ 2. РАЗДАЧА   │─►│ 3. РАБОТА    │─►│ 4. СВОД      │
+ │ 1. ENTRY     │─►│ 2. DISPATCH  │─►│ 3. EXECUTION │─►│ 4. MERGE     │
  ├──────────────┤  ├──────────────┤  ├──────────────┤  ├──────────────┤
- │ доска        │  │ считать      │  │ доклад →     │  │ merge        │
- │ прогнать всё │  │ число сессий │  │ проверить    │  │ генераторы   │
- │ деревья      │  │ (3 огранич.) │  │ число →      │  │ ПО ПОРЯДКУ   │
- │ приложение   │  │              │  │ решить →     │  │ прогнать всё │
- │ РАБОЧЕЕ?     │  │ территории   │  │ доска        │  │ ЗАНОВО       │
- │              │  │ не пересек.  │  │              │  │              │
+ │ board        │  │ compute      │  │ report →     │  │ merge        │
+ │ run all gates│  │ session count│  │ verify       │  │ generators   │
+ │ working trees│  │ (3 limits)   │  │ number →     │  │ IN ORDER     │
+ │ is the app   │  │              │  │ decide →     │  │ re-run all   │
+ │ WORKING?     │  │ non-overlap  │  │ update board │  │ gates AFRESH │
+ │              │  │ territories  │  │              │  │              │
  └──────────────┘  └──────────────┘  └──────┬───────┘  └──────┬───────┘
                                             │                 │
-                          находка меняет    │                 │
-                          чужую работу ─────┘                 │
-                          → переслать НЕМЕДЛЕННО              │
+                          finding changes   │                 │
+                          others' work ─────┘                 │
+                          → forward IMMEDIATELY               │
                                                               ▼
  ┌──────────────┐  ┌──────────────────────────────────────────────────┐
- │ 6. ЗАКРЫТИЕ  │◄─┤ 5. КОНЕЦ СМЕНЫ                                   │
+ │ 6. CLOSURE   │◄─┤ 5. END OF SHIFT                                  │
  ├──────────────┤  ├──────────────────────────────────────────────────┤
- │ ВСЕ критерии │  │ прогнать · доска · STATE · память · свести ветки │
- │ приёмки,     │  │ · один доклад владельцу                          │
- │ не большин-  │  └──────────────────────────────────────────────────┘
- │ ство         │
- │              │   Три невыполненных из семи = ОТКРЫТЫЙ заход,
- │ приёмка на   │   и говорить надо так.
- │ устройстве   │
- │ ОБЯЗАТЕЛЬНА  │
+ │ ALL          │  │ run gates · board · STATE · memory · merge       │
+ │ acceptance   │  │ branches · single consolidated report to Owner   │
+ │ criteria,    │  └──────────────────────────────────────────────────┘
+ │ not "most"   │
+ │              │   Three unmet criteria out of seven = AN OPEN CYCLE,
+ │ device QA    │   and must be reported as such.
+ │ is MANDATORY │
  └──────────────┘
 ```
 
 ---
 
-## С-8. Восстановление после обрыва
+## D-8. Recovery After an Interruption
 
-*Сводит: `TEAM.md` §7, `roles/LEAD-PROCEDURES.md` П-14. Сверялось: 2026-08-29.*
+*Consolidates: `TEAM.md` §7, `roles/LEAD-PROCEDURES.md` P-14. Last verified: 2026-08-29.*
 
 ```
-   сессии оборваны
+   sessions interrupted
         │
         ▼
  ┌──────────────────────────────────────────────────────────────┐
- │ НИЧЕГО НЕ УДАЛЯТЬ, НЕ ОТКАТЫВАТЬ, НЕ РЕСЕТИТЬ                │
- │ Незнакомая правка — чужая работа, а не мусор.                │
- │ Цена ошибки несимметрична: принять живое за мусор            │
- │ необратимо, обратное стоит получаса чтения.                  │
+ │ DO NOT DELETE, REVERT, OR RESET ANYTHING                     │
+ │ An unfamiliar edit is someone else's work, not garbage.      │
+ │ The cost of error is asymmetric: mistaking live work for     │
+ │ garbage is irreversible; the reverse costs 30 mins of reading│
  └──────────────────────┬───────────────────────────────────────┘
                         ▼
  ┌──────────────────────────────────────────────────────────────┐
- │ git log отвечает «что СВЕДЕНО» и НЕ отвечает «что СДЕЛАНО»   │
+ │ git log answers "what was MERGED", NOT "what was DONE"       │
  │ ──────────────────────────────────────────────────────────── │
- │ смена бывает мертва по коммитам и жива по файлам:            │
- │ последний коммит 22:36, правки файлов до 23:54               │
+ │ A shift can look dead by commits and alive by files:         │
+ │ last commit at 22:36, file edits continuing until 23:54      │
  └──────────────────────┬───────────────────────────────────────┘
                         ▼
         ┌───────────────┴──────────────┐
         ▼                              ▼
  ┌─────────────────┐          ┌──────────────────────┐
- │ статус ВСЕХ     │          │ mtime файлов         │
- │ рабочих деревьев│          │ — единственное, что  │
- │ (их не одно)    │          │ отличает живое от    │
- └────────┬────────┘          │ старого              │
+ │ status of ALL   │          │ file mtime           │
+ │ working trees   │          │ — the only thing     │
+ │ (more than one) │          │ distinguishing live  │
+ └────────┬────────┘          │ work from old        │
           │                   └──────────┬───────────┘
           └────────────┬─────────────────┘
                        ▼
  ┌──────────────────────────────────────────────────────────────┐
- │ СНИМОК незакоммиченного — ВНЕ временных каталогов            │
- │ (они очищаются при перезагрузке, и это уже стоило смены)     │
+ │ SNAPSHOT uncommitted work — OUTSIDE temporary directories    │
+ │ (temp dirs are wiped on reboot, which already cost a shift)  │
  └──────────────────────┬───────────────────────────────────────┘
                         ▼
  ┌──────────────────────────────────────────────────────────────┐
- │ Незакоммиченная правка = НЕПРОВЕРЕННАЯ, пока не найден       │
- │ прогон, который её проверил.                                 │
- │ «Проверить» = сверить её собственные числа с замером,        │
- │ а не убедиться, что собирается.                              │
+ │ An uncommitted edit = UNVERIFIED until you find the test     │
+ │ run that verified it.                                        │
+ │ "Verify" = check its own numbers against a measurement,      │
+ │ not merely confirm that it compiles.                         │
  └──────────────────────┬───────────────────────────────────────┘
                         ▼
-              board/OPEN.md — что уже нашли и не сделали
+              board/OPEN.md — what was already found and left undone
 ```
 
 ---
 
-## С-9. Потоки ролей: две разные формы
+## D-9. Role Workflows: Two Distinct Shapes
 
-*Сводит: документы ролей. Сверялось: 2026-08-29.*
+*Consolidates: role documents. Last verified: 2026-08-29.*
 
 ```
- РОЛЬ, КОТОРАЯ ПРАВИТ            │  РОЛЬ, КОТОРАЯ НЕ ПРАВИТ
- (исполнитель, тимлид,           │  (аналитик, дизайнер, архитектор,
-  тестировщик в своём слое)      │   безопасность)
+ ROLE THAT EDITS CODE            │  ROLE THAT DOES NOT EDIT CODE
+ (Executor, Team Lead,           │  (Analyst, Designer, Architect,
+  Tester within their layer)     │   Security)
  ────────────────────────────────┼──────────────────────────────────────
                                  │
-   задание                       │    область
+   assignment                    │    domain area
       │                          │       │
       ▼                          │       ▼
-   ЗАМЕР (не правка)             │    открыть клетку, куда
-   число из задания —            │    не смотрел НИКТО
-   непроверенное                 │       │
+   MEASUREMENT (not an edit)     │    open a cell where
+   every number in the task      │    NOBODY has looked yet
+   is unverified                 │       │
       │                          │       ▼
-      ▼                          │    спросить: «то ли они считают?»
-   симуляция ДО правки           │    «какой формы должен быть
-      │                          │     дефект, чтобы правило
-      ▼                          │     его не увидело?»
-   правка                        │       │
+      ▼                          │    ask: "Are they counting the right
+   simulation BEFORE editing     │    thing?" "What shape would a defect
+      │                          │    take so the rule misses it?"
+      ▼                          │       │
+   edit                          │       ▼
+      │                          │    prove with a MEASUREMENT
+      ▼                          │       │
+   test that FAILS on old code   │       ▼
+      │                          │    document → hand over
+      ▼                          │    SOMEONE ELSE FIXES IT
+   test run (full, not targeted) │       │
       │                          │       ▼
-      ▼                          │    доказать ЗАМЕРОМ
-   тест, ПАДАЮЩИЙ на старом коде │       │
+      ▼                          │    report — THE ONLY artifact
+   commit with explicit paths    │       │
       │                          │       ▼
-      ▼                          │    описать → передать
-   прогон (полный, не точечный)  │    ЧИНИТ ДРУГОЙ
-      │                          │       │
-      ▼                          │       ▼
-   коммит явными путями          │    отчёт — ЕДИНСТВЕННЫЙ артефакт
-      │                          │       │
-      ▼                          │       ▼
-   отчёт + память                │    память + доска
+      ▼                          │    memory + board
+   report + memory               │
                                  │
  ────────────────────────────────┴──────────────────────────────────────
-  ПОЧЕМУ ГРАНИЦА ЖЁСТКАЯ: правка уничтожает предмет анализа —
-  починивший дальше проверяет собственную работу.
+  WHY THE BOUNDARY IS STRICT: editing destroys the subject of analysis —
+  anyone who fixes the code ends up reviewing their own work.
 ```
 
-**Приёмщик на устройстве стоит особняком:** он не правит и не анализирует код, он **тапает**. Его
-доказательство — кадр и заполненная матрица, и оно не заменяется ничем: зелёные тесты доказывают
-согласованность кода, а не работу продукта.
+**Device / Runtime QA stands apart:** they neither edit nor analyze code — they **tap the real
+device**. Their proof is a captured frame and a completed matrix, and nothing substitutes for it:
+green tests prove internal code consistency, not that the product works.
 
 ---
 
-## С-10. Разворачивание под новый проект
+## D-10. Bootstrapping a New Project
 
-*Сводит: `roles/LEAD-PROCEDURES.md` П-0, `templates/README.md`. Сверялось: 2026-08-29.*
+*Consolidates: `roles/LEAD-PROCEDURES.md` P-0, `templates/README.md`. Last verified: 2026-08-29.*
 
 ```
-   клон регламента
+   clone of the framework repository
          │
          ▼
-   владелец говорит одной сессии:
-   «ознакомься с документацией по командной работе и разверни под этот проект»
+   Owner tells a single session:
+   "Read the teamwork documentation and bootstrap it for this project"
          │
          ▼
  ┌────────────────────────────────────────────────────────────────────┐
- │ П-0. РАЗВОРАЧИВАНИЕ — делает тимлид                                │
+ │ P-0. BOOTSTRAPPING — executed by the Team Lead                     │
  ├────────────────────────────────────────────────────────────────────┤
- │  templates/PROJECT.md      ──копия──►  <проект>/PROJECT.md         │
- │  templates/board/*         ──копия──►  <проект>/board/             │
- │  templates/memory/_role/*  ──копия──►  <проект>/memory/<роль>/     │
- │                                        (по одной на нужную роль)   │
+ │  templates/PROJECT.md      ──copy──►  <project>/PROJECT.md         │
+ │  templates/board/*         ──copy──►  <project>/board/             │
+ │  templates/memory/_role/*  ──copy──►  <project>/memory/<role>/     │
+ │                                       (one per active role)        │
  └────────────────────────────┬───────────────────────────────────────┘
                               ▼
  ┌────────────────────────────────────────────────────────────────────┐
- │ ЗАПОЛНИТЬ PROJECT.md — единственное проектное место:               │
- │ раскладка · проверки · правила материала · генераторы ·            │
- │ базовые линии · стенд · ветки · что решает только владелец         │
+ │ FILL IN PROJECT.md — the single project-specific file:             │
+ │ layout · checks · material rules · generators ·                    │
+ │ ratchet baselines · device rig · branches · Owner-only decisions   │
  │                                                                    │
- │ Пустой раздел ЛУЧШЕ выдуманного: он говорит «не выяснено».         │
+ │ An empty section is BETTER than a fabricated one: it says "unknown"│
  └────────────────────────────┬───────────────────────────────────────┘
                               ▼
  ┌────────────────────────────────────────────────────────────────────┐
- │ НАЗВАТЬ ВЛАДЕЛЬЦУ ЧИСЛО СЕССИЙ и под какие роли                    │
- │ = непересекающиеся территории, но не больше, чем ведёшь            │
+ │ RECOMMEND SESSION COUNT AND ROLES TO THE OWNER                     │
+ │ = non-overlapping territories, never more than you can supervise   │
  └────────────────────────────┬───────────────────────────────────────┘
                               ▼
-                         работа идёт
+                         work proceeds
                               │
                               ▼
  ┌────────────────────────────────────────────────────────────────────┐
- │ ЧТО КУДА ПОПАДАЕТ ПРИ ПУШЕ                                         │
- │  репозиторий регламента ◄── роли, процедуры, схемы, шаблоны        │
- │  репозиторий проекта    ◄── PROJECT.md, board/, memory/, отчёты    │
+ │ WHAT GOES WHERE ON PUSH                                            │
+ │  framework repository ◄── roles, procedures, diagrams, templates   │
+ │  project repository   ◄── PROJECT.md, board/, memory/, reports     │
  │                                                                    │
- │ .gitignore регламента исключает board/, memory/, PROJECT.md,       │
- │ отчёты и кадры — чтобы клонирующий получил ПУСТУЮ РАМКУ            │
+ │ The framework's .gitignore excludes board/, memory/, PROJECT.md,   │
+ │ reports, and frames — so anyone cloning it gets a CLEAN FRAME      │
  └────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## Чего на схемах намеренно нет
+## What Is Intentionally Omitted from the Diagrams
 
-* **состава ролей** — это таблица, ветвления там нет;
-* **правил контента конкретного проекта** — они в `PROJECT.md` и у каждого проекта свои;
-* **порядка чтения внутри одного документа** — оглавление справляется лучше;
-* **всего, что меняется чаще раза в месяц.** Схема с высокой частотой правки не поддерживается
-  никем и начинает врать.
+* **Role roster** — that is a table; there is no branching;
+* **Project-specific content rules** — those live in `PROJECT.md` and differ for every project;
+* **Reading order within a single document** — a table of contents handles that better;
+* **Anything that changes more than once a month.** A diagram with a high edit frequency is
+  maintained by no one and quickly starts lying.
 
-**Схема, которую перестали сверять, хуже её отсутствия:** текст, устарев, выглядит устаревшим, а
-схема — проверенной.
+**A diagram that people have stopped verifying is worse than having no diagram at all:** stale prose
+looks stale, whereas a stale diagram still looks verified.

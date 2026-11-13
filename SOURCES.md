@@ -1,148 +1,152 @@
-# Источники — где учиться по каждому направлению
+# Sources — Where to Learn Across Every Discipline
 
-**Учреждено владельцем 2026-08-29.**
+**Established by the owner on 2026-08-29.**
 
-> «Участники должны информировать тебя о качественных источниках, которые они найдут. Например,
-> когда дизайнер запускается в новой сессии, он должен знать, где ему сразу можно обучиться и
-> изучать ту или иную информацию по определённой проблеме.»
-> — владелец, 2026-08-29
+> "Team members must inform you about high-quality sources they find. For example, when a Designer
+> spins up in a new session, they should immediately know where to go to study and research
+> information on a specific problem."
+> — Owner, 2026-08-29
 
-> «Это ко всем участникам относится. Так мы создадим какой-то „опыт“, чтобы улучшить ориентацию для
-> изучения, вдохновления участников команды.» — владелец, 2026-08-29
+> "This applies to all team members. That way we build up a body of 'experience' to improve
+> orientation, learning, and inspiration for the team." — Owner, 2026-08-29
 
-Этот файл существует, чтобы **новая сессия не начинала с поиска, где искать**. Она открывает свой
-раздел и сразу знает, куда идти по своему вопросу.
+This file exists so that **a new session never starts by searching for where to search**. It opens
+its section and immediately knows where to go for its question.
 
-**Он общий, а не «для дизайнера».** Каждая роль вносит найденное, каждая читает нужное — так у
-команды копится опыт, который не умирает вместе с сессией. Сессия живёт часы, файл — заходы.
-
----
-
-## 1. Как читать этот файл
-
-Первым делом — **свой раздел**, не весь файл. Разделы по направлениям, внутри по вопросам.
-
-Каждая запись говорит **не «хороший сайт», а «на какой вопрос отвечает»**. Источник без такой
-подписи бесполезен: через месяц никто не вспомнит, зачем он здесь.
-
-**И главное правило чтения:** источник отвечает на вопрос «как принято», а решение принимается по
-тому, **что измерено у нас**. Внешний источник — не разрешение. У этого проекта уже есть случай,
-когда порог по частотности корпуса, взятый из внешнего списка, был **перевёрнут** для нашего
-вопроса: `analysis` стоит на 756-м месте, а `coffee` на 1395-м, и гейт по нему выдавил бы `coffee`
-из A1 и пропустил `proposal`.
+**It is shared across all roles, not "just for the Designer."** Every role contributes what it
+finds, and every role reads what it needs — so the team accumulates knowledge that does not die with
+the session. A session lives for hours; this file lives across runs.
 
 ---
 
-## 2. Как пополнять — обязанность каждого участника
+## 1. How to Read This File
 
-**Нашёл качественный источник — сообщи тимлиду.** Он вносит; ты можешь предложить готовую строку.
+Start with **your own section**, not the whole file. Sections are organized by discipline, and
+within each section by question.
 
-Требования к записи, все три обязательны:
+Every entry states **not "good website," but "what question it answers."** A source without that
+label is useless: a month later, nobody will remember why it was put here.
 
-1. **первичность.** Спецификация, официальная документация, публикация организации, которая эту
-   вещь и определяет. **Блог-пересказы, подборки «10 трендов», ответы на форумах — не источник.**
-   Исключение одно: когда первичного не существует (например, практика, устоявшаяся без
-   спецификации), — тогда это помечается прямо;
-2. **на какой вопрос отвечает** — одной строкой, конкретно. Не «про дизайн», а «какой контраст
-   считать достаточным и почему порог не один»;
-3. **кто и когда внёс** — чтобы через полгода было у кого спросить, чем он оказался полезен.
-
-**Чего сюда не вносить:** источники, которые никто не читал; источники «на всякий случай»; и
-источники, из которых мы уже взяли решение, — они переезжают в тот документ, где решение записано,
-и остаются здесь только если понадобятся снова.
+**And the cardinal rule of reading:** an external source answers "what is standard practice," while
+our decision is made based on **what we measured in our own system**. An external source is not
+permission. This project already had a case where a corpus frequency threshold taken from an external
+list was **inverted** for our problem: `analysis` ranks at #756 while `coffee` is at #1395, so a gate
+built on that list would have evicted `coffee` from A1 while letting `proposal` through.
 
 ---
 
-## 3. Дизайн, UI/UX, движение, цвет
+## 2. How to Contribute — Every Member's Responsibility
 
-| Вопрос | Источник |
+**Found a high-quality source? Tell the Team Lead.** The Team Lead adds it; you can propose the
+exact row.
+
+Three requirements for every entry — all three are mandatory:
+
+1. **Primary authority.** A specification, official documentation, or publication by the organization
+   that actually defines the thing. **Blog summaries, "Top 10 Trends" roundups, and forum answers are
+   not sources.** There is only one exception: when no primary specification exists (for instance, de
+   facto engineering practice without a formal spec) — in which case mark that explicitly;
+2. **What question it answers** — in one specific line. Not "about design," but "what contrast ratio
+   is sufficient and why there isn't just a single threshold";
+3. **Who added it and when** — so six months later we know whom to ask how it proved useful.
+
+**What not to put here:** sources nobody has actually read; "just in case" links; and sources from
+which we already extracted a one-off project decision — those move into the document where the
+decision is recorded, and stay here only if we will need to consult them again.
+
+---
+
+## 3. Design, UI/UX, Motion, Color
+
+| Question | Source |
 |---|---|
-| компоненты, состояния, поведение, движение — как система, а не набор приёмов | **Material Design 3**, `m3.material.io` |
-| ожидания платформы, жесты, навигация, доступность | **Apple Human Interface Guidelines**, `developer.apple.com/design/human-interface-guidelines` |
-| какой контраст достаточен и почему порог не один | **WCAG 2.2**, `w3.org/TR/WCAG22` |
-| контраст, который считает **читаемость**, а не только отношение яркостей | **APCA**, `git.apcacontrast.com` — нужен там, где WCAG даёт формально проходящую, но плохо читаемую пару |
-| доступность на Android: размеры целей, TalkBack, масштабирование шрифта | **Android accessibility**, `developer.android.com/guide/topics/ui/accessibility` |
-| анимация в нашем стеке: что идёт на UI-потоке, что нет | **React Native Reanimated**, `docs.swmansion.com/react-native-reanimated` |
-| `prefers-reduced-motion` и что значит «отключить движение» | **W3C MediaQueries 5**, `w3.org/TR/mediaqueries-5/#prefers-reduced-motion` |
+| Components, states, behavior, motion — as a coherent system rather than a bag of tricks | **Material Design 3**, `m3.material.io` |
+| Platform expectations, gestures, navigation, accessibility | **Apple Human Interface Guidelines**, `developer.apple.com/design/human-interface-guidelines` |
+| What contrast is sufficient and why there is more than one threshold | **WCAG 2.2**, `w3.org/TR/WCAG22` |
+| Contrast that models **readability**, not just luminance ratio | **APCA**, `git.apcacontrast.com` — needed where WCAG passes a pair on paper that is still hard to read on screen |
+| Android accessibility: touch target sizes, TalkBack, font scaling | **Android accessibility**, `developer.android.com/guide/topics/ui/accessibility` |
+| Animation in our stack: what runs on the UI thread and what does not | **React Native Reanimated**, `docs.swmansion.com/react-native-reanimated` |
+| `prefers-reduced-motion` and what "disabling motion" actually means | **W3C MediaQueries 5**, `w3.org/TR/mediaqueries-5/#prefers-reduced-motion` |
 
-**Правило владельца, сильнее любого источника:** мы **не копируем другие приложения**. Принцип или
-паттерн взять во внимание можно, реализацию и композицию — нет. Проверка: **если рекомендацию
-нельзя объяснить, не называя чужое приложение, это копирование, а не решение.**
+**Owner's rule, stronger than any external source:** we **do not copy other apps**. You may consider
+a principle or interaction pattern, never the implementation or visual composition. Test: **if a
+recommendation cannot be explained without naming another app, it is copying, not a design decision.**
 
 ---
 
-## 4. Архитектура — мобильное и веб
+## 4. Architecture — Mobile and Web
 
-| Вопрос | Источник |
+| Question | Source |
 |---|---|
-| что даёт и чего стоит новая архитектура RN, границы потоков | **React Native**, `reactnative.dev/architecture` |
-| что версия SDK меняет и чего в ней ещё нет | **Expo SDK changelog**, `expo.dev/changelog` |
-| поведение хранилища и его пределы на Android | **Android data & files**, `developer.android.com/training/data-storage` |
-| требования магазина, страновые поля, возрастные анкеты | **Play Console Help**, `support.google.com/googleplay/android-developer` |
-| веб: производительность и что мерить | **web.dev**, `web.dev/performance` · **Core Web Vitals**, `web.dev/vitals` |
-| веб: шрифты и их подмножества | **web.dev/font-best-practices** |
+| What the React Native New Architecture provides, what it costs, and where thread boundaries lie | **React Native**, `reactnative.dev/architecture` |
+| What an SDK version changes and what it still lacks | **Expo SDK changelog**, `expo.dev/changelog` |
+| Storage behavior and limits on Android | **Android data & files**, `developer.android.com/training/data-storage` |
+| Store requirements, country fields, age rating questionnaires | **Play Console Help**, `support.google.com/googleplay/android-developer` |
+| Web performance and what to measure | **web.dev**, `web.dev/performance` · **Core Web Vitals**, `web.dev/vitals` |
+| Web fonts and font subsetting | **web.dev/font-best-practices** |
 
 ---
 
-## 5. Предметная область проекта — заводится отдельно
+## 5. Project Domain — Maintained Separately
 
-**Сюда не попадают источники, специфичные для предметной области проекта:** внутренние нормы,
-словари, отраслевые спецификации, справочники. Они живут в `SOURCES-PROJECT.md` рядом с
-`PROJECT.md` и версионируются вместе с проектом.
+**Sources specific to a project's domain do not belong in this file:** internal standards,
+dictionaries, industry specifications, reference manuals. Those live in `SOURCES-PROJECT.md` next to
+`PROJECT.md` and are versioned with the project.
 
-**Форма та же** (первичность · на какой вопрос отвечает · кто и когда внёс), и одно правило оттуда
-стоит здесь, потому что оно общее:
+**The format is identical** (primary authority · what question it answers · who added it and when),
+and one rule from there belongs here because it is universal:
 
-> **Расхождение двух авторитетных источников — находка, а не помеха.**
-> В проекте-прародителе два справочных источника расходились в норме у 32 записей, а внутренние
-> данные хранили один вариант из двух. Вывод, который стоит унести: **править материал на прямом
-> противоречии источников нельзя** — такое идёт в решение владельца, а не в правку.
+> **Disagreement between two authoritative sources is a finding, not a nuisance.**
+> In the original project, two reference authorities disagreed on the norm for 32 entries while our
+> internal data stored only one option. The takeaway worth keeping: **never silently edit content
+> when authoritative sources directly contradict each other** — escalate that as a decision for the
+> owner, not a silent fix.
 
 ---
 
-## 6. Данные, хранилище, миграции
+## 6. Data, Storage, Migrations
 
-| Вопрос | Источник |
+| Question | Source |
 |---|---|
-| поведение и пределы хранилища на устройстве | **Android data & files**, `developer.android.com/training/data-storage` |
-| чтение хранилища отладочной сборки | `adb shell run-as <пакет> cat databases/…` — **`adb root` на релизном образе отказан**, и это не чинится |
-| подпись и совместимость установки поверх | **apksigner**, `developer.android.com/tools/apksigner` — проверять `--print-certs`, а не предполагать |
+| On-device storage behavior and limits | **Android data & files**, `developer.android.com/training/data-storage` |
+| Reading storage from a debug build | `adb shell run-as <package> cat databases/...` — **`adb root` is denied on a release image**, and nothing can work around that |
+| APK signing and upgrade compatibility | **apksigner**, `developer.android.com/tools/apksigner` — always verify with `--print-certs`, never assume |
 
-## 7. Прежде чем искать снаружи
+## 7. Before Searching Outside
 
-Посмотри, не измерено ли это здесь: около тридцати `pnpm report:*` и `check:*`, полный список — раздел
-`scripts` в `package.json`. **За одну смену трижды оказалось, что готовый инструмент мерил не тот
-предмет**, а не «инструмента не хватало».
+Check whether we already measure it locally: there are roughly thirty `pnpm report:*` and `check:*`
+scripts — see the `scripts` section of `package.json`. **Three times in a single shift, an existing
+tool turned out to be measuring the wrong object**, rather than "we lacked a tool."
 
-Порядок поиска, признаки годного источника и то, чему внешний источник не даёт разрешения, —
-[`PLAYBOOK.md`](./PLAYBOOK.md) §6. Ловушки среды и купленный опыт — там же §7.
-
----
-
-## 8. Игровая разработка (Godot 4 Mono / C# / 3D) и Фулстак / Бэкенд
-
-| Вопрос | Источник |
-|---|---|
-| устройство сцен, ресурсов (`uid://`), сигналов, жизненный цикл узлов и отличия C# API в Godot 4 | **Godot Engine 4 Official Documentation (C# / .NET)**, `docs.godotengine.org/en/stable/tutorials/scripting/c_sharp/` |
-| оптимизация 3D-рендера, уровни детализации (Mesh LOD), освещение и импорт 3D-сцен в Godot 4 | **Godot 3D Performance & Import**, `docs.godotengine.org/en/stable/tutorials/performance/` · `tutorials/assets_pipeline/` |
-| спецификация формата `.glb` / `.gltf` (материалы, PBR-текстуры, скелетная анимация, узлы) | **Khronos glTF 2.0 Specification**, `registry.khronos.org/glTF/specs/2.0/glTF-2.0.html` |
-| безопасность API, проверка прав доступа к объектам (BOLA/IDOR) и валидация на сервере | **OWASP API Security Top 10**, `owasp.org/API-Security/` |
-| политики построчного доступа к данным (Row-Level Security) и разделение `anon` / `service_role` ключей | **Supabase Row Level Security & Auth Docs**, `supabase.com/docs/guides/database/postgres/row-level-security` |
+Search order, signs of a trustworthy source, and what an external source cannot authorize —
+[`PLAYBOOK.md`](./PLAYBOOK.md) §6. Environment traps and lessons paid for — §7 of the same file.
 
 ---
 
-## 9. Наши собственные документы — читать раньше внешних
+## 8. Game Development (Godot 4 Mono / C# / 3D) and Fullstack / Backend
 
-Внешний источник говорит, **как принято вообще**. Документы проекта говорят, **что уже решено
-здесь**, и они сильнее.
-
-| что | где |
+| Question | Source |
 |---|---|
-| правила материала и качества, гейты, территории, генераторы, линии | `PROJECT.md` — **единственное проектное место** |
-| команда и роли | [`TEAM.md`](./TEAM.md) |
-| закономерности и приёмы | [`PLAYBOOK.md`](./PLAYBOOK.md) |
-| что уже знает эта роль | `memory/<роль>/` |
-| что открыто прямо сейчас | `board/00-START.md` |
+| Scene architecture, resources (`uid://`), signals, node lifecycle, and C# API differences in Godot 4 | **Godot Engine 4 Official Documentation (C# / .NET)**, `docs.godotengine.org/en/stable/tutorials/scripting/c_sharp/` |
+| 3D rendering optimization, Mesh LODs, lighting, and 3D scene import pipeline in Godot 4 | **Godot 3D Performance & Import**, `docs.godotengine.org/en/stable/tutorials/performance/` · `tutorials/assets_pipeline/` |
+| `.glb` / `.gltf` format specification (materials, PBR textures, skeletal animation, node hierarchy) | **Khronos glTF 2.0 Specification**, `registry.khronos.org/glTF/specs/2.0/glTF-2.0.html` |
+| API security, object-level authorization checks (BOLA/IDOR), and server-side validation | **OWASP API Security Top 10**, `owasp.org/API-Security/` |
+| Row-Level Security (RLS) policies and separation between `anon` and `service_role` keys | **Supabase Row Level Security & Auth Docs**, `supabase.com/docs/guides/database/postgres/row-level-security` |
 
-**Проектные источники** — внутренние нормы, словари, спецификации предметной области — заводятся в
-`SOURCES-PROJECT.md` рядом с `PROJECT.md`. Здесь остаётся только то, что верно для любого проекта.
+---
+
+## 9. Our Own Documents — Read Before External Sources
+
+An external source tells you **what is generally done**. Project documents tell you **what has
+already been decided here**, and they take precedence.
+
+| What | Where |
+|---|---|
+| Content and quality rules, gates, territories, generators, baselines | `PROJECT.md` — **the single project-specific anchor** |
+| Team structure and roles | [`TEAM.md`](./TEAM.md) |
+| Recurring patterns and techniques | [`PLAYBOOK.md`](./PLAYBOOK.md) |
+| What this role already knows | `memory/<role>/` |
+| What work is open right now | `board/00-START.md` |
+
+**Project-specific sources** — internal norms, dictionaries, domain specifications — are maintained
+in `SOURCES-PROJECT.md` alongside `PROJECT.md`. Only sources valid across projects stay here.

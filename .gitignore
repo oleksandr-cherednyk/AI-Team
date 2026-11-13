@@ -1,64 +1,66 @@
 # ─────────────────────────────────────────────────────────────────────────────
-# AI-Team — что НЕ попадает в репозиторий регламента
+# AI-Team — What Does NOT Belong in the Framework Repository
 #
-# Здесь лежит рамка: роли, процедуры, схемы, шаблоны. Всё, что относится к
-# КОНКРЕТНОМУ проекту, создаётся при разворачивании (процедура П-0) и живёт в
-# репозитории проекта. Тот, кто склонирует регламент, обязан получить пустую
-# рамку и ни одной чужой задачи.
+# This repository holds the framework only: roles, procedures, diagrams, and
+# templates. Everything specific to an individual project is created during
+# bootstrap (Procedure P-0) and lives in the project repository. Anyone who
+# clones this framework must receive a clean, empty frame with zero foreign
+# project tasks or measurements.
 #
-# Правило простое: если в файле есть имя проекта, число из его замера, задача
-# или чужая фамилия — он проектный и сюда не идёт.
+# Simple rule: if a file contains a project name, a measurement number from a
+# project run, a task, or someone else's name — it is project-specific and
+# never gets committed here.
 # ─────────────────────────────────────────────────────────────────────────────
 
-# Доска задач: планы, находки, вопросы, учёт сделанного.
-# Шаблоны лежат в templates/board/ и версионируются; рабочая доска — нет.
+# Task board: plans, findings, questions, and completed work log.
+# Templates live in templates/board/ and are versioned; the live board is not.
 /board/
 
-# Память ролей: что роль знает про ЭТОТ проект, её ремесло и журнал решений.
-# Шаблоны — в templates/memory/; заполненная память проектная.
+# Role memory: what a role knows about THIS project, its craft, and decisions.
+# Templates live in templates/memory/; populated memory is project-specific.
 /memory/
 
-# Описание конкретного проекта: гейты, правила контента, территории,
-# генераторы, стенд. Заполняется из templates/PROJECT.md.
+# Project passport: gates, content rules, territories, generators, and testbed.
+# Populated from templates/PROJECT.md.
 /PROJECT.md
 /PROJECT-*.md
 
-# Отчёты сессий и заходов.
+# Session and run reports / handoffs.
 /reports/
 /*-report.md
 /*-handoff.md
 /STATE.md
 
-# Проектная часть источников (внутренние ссылки, внутренние нормы).
+# Project-specific sources (internal links and standards).
 /SOURCES-PROJECT.md
 
-# Кадры, логи, снимки, скретч.
+# Frames, logs, snapshots, scratch files.
 /shots/
 /logs/
 *.log
 /.scratch/
 /tmp/
 
-# Локальные настройки инструментов
+# Local IDE and OS files
 .DS_Store
 Thumbs.db
 .idea/
 .vscode/
 *.swp
 
-# Файлы блокировки редакторов (LibreOffice и подобные)
+# Editor lock files (LibreOffice, etc.)
 .~lock.*#
 *.swp
 *~
 
-# Переписка сессий: сообщения ПРОЕКТНЫЕ и живут вне репозитория (CROSS-TOOL-CHAT.md §1).
-# Строки ниже — на случай, если кто-то развернёт канал внутри каталога команды.
+# Cross-session chat: messages are PROJECT-SPECIFIC and live outside the repo
+# (see CROSS-TOOL-CHAT.md §1). Guarded here in case a channel is created locally.
 /_chat/
 /chat/general/
 /chat/roster/
 /chat/*/
 
-# Прочее проектное, что заводится при разворачивании
+# Other project-specific directories created during deployment
 /prompts/
 /diagnostics/
 /qa/

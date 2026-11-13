@@ -1,288 +1,323 @@
-# Опыт команды: закономерности, приёмы и ориентация
+# Team Playbook: Patterns, Techniques, and Orientation
 
-**Учреждено владельцем 2026-08-29.**
+**Established by the owner on 2026-08-29.**
 
-> «Хочу, чтобы при новой сессии участник не был как сырой специалист… Может, паттерны какие-то
-> фиксировать и закономерности — не только по самому проекту, но и по поиску информации в интернете
-> и по другим источникам, ориентация вне проекта.»
-> — владелец, 2026-08-29
+> "When a new session starts, I don't want the participant acting like a raw newcomer... Maybe we can
+> record patterns and regularities — not only about the project itself, but also about searching for
+> information online and across other sources, orienting oneself outside the project."
+> — Owner, 2026-08-29
 
-> **Про примеры.** Все случаи здесь — из реальной смены одного проекта (мобильное приложение с
-> учебным контентом). Они приведены **не как правила про этот проект**, а как форма: по ним видно,
-> как выглядит дефект своего рода. Читая, подставляй своё — предмет меняется, форма нет.
+> **A note on examples.** Every case here comes from a real shift on a single project (a mobile app
+> with educational content). They are included **not as project-specific rules**, but as shapes: they
+> show what a defect of a given kind actually looks like in the wild. As you read, substitute your
+> own domain — the subject changes, the shape does not.
 
-**Читается один раз при входе в работу, до своей роли — это десять минут.** Здесь нет ничего про то,
-что именно делать; здесь то, что команда узнала дорого и не хочет покупать заново.
+**Read once upon entering the team, before your role document — it takes ten minutes.** Nothing here
+tells you what specific task to execute; this is what the team paid dearly to learn and refuses to
+pay for again.
 
-Три соседних документа, чтобы не искать: [`TEAM.md`](./TEAM.md) — кто есть кто;
-[`SOURCES.md`](./SOURCES.md) — где учиться по своему направлению; **этот** — как думать.
-
----
-
-## 1. Один вопрос, который дал больше, чем все остальные приёмы вместе
-
-> **«Какой формы должен быть дефект, чтобы правило его не увидело?»**
-
-Не «где ещё есть дефекты», а «чем это могло бы быть неверно». За одни сутки к нему пришли **три
-сессии независимо**, и он дал все крупные находки:
-
-* утечка английского приходит **покалеченной переносом** (`mother- in- law`), а гейт сравнивал знак
-  в знак → 35 английских слов в польских глоссах **при зелёном гейте**;
-* замер «отвлекающих, отличающихся только конечным `-e`, — ноль» дал ноль потому, что строки
-  кончаются на `!`: `Mach!` и `Mache!` различаются не последним символом → 240 дефектных заданий в
-  виде, объявленном чистым;
-* ступень концепта оказалась выбрана тем, что **сохраняет размеры клеток**, а не тем, что говорит
-  справочник → 104 задания на чужой ступени.
-
-**Второй по силе вопрос — к чужой работе:** не «те ли числа», а **«то ли они считают»**. Рабочая
-сессия доказывает, что сделала свою задачу; усомниться в предмете, который сама выбрала, ей неоткуда.
-
-**Третий — к новому фильтру:** «кто меряет то, что он скрыл, и не он ли сам?»
+Three neighboring documents so you don't have to hunt for them: [`TEAM.md`](./TEAM.md) — who is who;
+[`SOURCES.md`](./SOURCES.md) — where to study by discipline; **this file** — how to think.
 
 ---
 
-## 2. Формы дефекта, которые здесь повторяются
+## 1. One Question That Yielded More Than All Other Techniques Combined
 
-Таблица **для опознания формы в готовом замере, а не для перебора**. Перебором по ней проходят мимо
-нового; она нужна, чтобы уже найденное быстро получило имя и правильную починку.
+> **"What shape would a defect have to take for this rule not to see it?"**
 
-| Форма | Как выглядит | Пример |
+Not "where else are there defects," but "how could this still be wrong." Within twenty-four hours,
+**three sessions arrived at this question independently**, and it produced every major finding:
+
+* English leakage arrives **mangled by hyphenation** (`mother- in- law`), while the gate compared
+  character-for-character → 35 English words inside Polish glosses **with a green gate**;
+* a probe for "distractors differing only by a trailing `-e`: zero" returned zero because the strings
+  ended with `!`: `Mach!` and `Mache!` do not differ in their last character → 240 defective items in
+  a category declared clean;
+* a concept's CEFR level turned out to be chosen by whatever **preserved cell counts**, rather than
+  what the reference grammar stated → 104 items placed at the wrong level.
+
+**The second most powerful question — when reviewing someone else's work:** not "are the numbers
+accurate," but **"are they counting the right thing."** A working session proves that it completed
+its assigned task; it has no vantage point from which to doubt the object of measurement it chose
+for itself.
+
+**The third — when reviewing a new filter:** "who measures what this filter hid, and is the filter
+measuring itself?"
+
+---
+
+## 2. Recurring Defect Shapes
+
+This table is **for recognizing a shape in an existing measurement, not for mechanical checklist
+scanning**. Scanning down a checklist blinds you to novel problems; the table exists so that once
+something looks off, you can name its shape quickly and apply the right fix.
+
+| Shape | What it looks like | Example |
 |---|---|---|
-| **поле пишут, никто не читает** | конвейер заполняет, приложение не спрашивает | `overlayPriority` у 412 единиц; `qa` у 5852; `route.count` у 11 736 |
-| **то же наизнанку** | экран пишет, витрина не называет | `fragen` писал поэлементную карту, спринт повторов её не читал |
-| **две оси с одним именем** | «уровень» лексемы и «уровень» единицы реестра — разные вещи | 133 строки из 332; «один ключ» против «одного задания» |
-| **выдуманная сущность** | вокруг неё наросли исключения, каждое верно в мире, где она есть | `B2-Beruf` как ступень |
-| **признак без запасной ветки** | выводится из одного источника, потеря молчалива | английская дорожка `business`: лексемного слоя нет буквально, 0 из 6212 |
-| **храповик без объяснения** | линия поднята, причина не записана | любой `content/qa/*.json` |
-| **дефект как предохранитель** | один промах в одном месте вредит, в другом спасает, и про вторую роль не знает никто | поиск по id задания там, где лежит id понятия |
-| **уровень, назначенный числами** | ступень выбрана тем, что сохраняет метрику, а не тем, что говорит справочник | `verb.passiv.perfekt` на B1 при материале B2 |
-| **механизм построен и не подключён** | по коду неотличим от работающего: он есть, компилируется, покрыт типами — и его никто не зовёт | `cellServingStatus` (говорит ПОЧЕМУ клетка пуста) — 0 вызовов при 22 у соседней `isCellServed`; тест написан, зелёный и не запускается ничем |
-| **защита на той оси, по которой дефект не приходит** | и защита верна, и дефект настоящий, просто они не встречаются | «ни один тренажёр не должен быть пуст» стерегут по политике, а пустота пришла из отсутствия полей |
+| **field is written, nobody reads it** | pipeline populates it, the app never queries it | `overlayPriority` on 412 items; `qa` on 5,852; `route.count` on 11,736 |
+| **the same thing inside out** | screen writes data, the storefront never exposes it | `fragen` wrote a per-item map, the review sprint never read it |
+| **two axes sharing one name** | "level" of a lexeme vs. "level" of a registry item are different concepts | 133 rows out of 332; "one key" vs. "one exercise item" |
+| **invented entity** | exceptions accrete around it, each locally valid in a world where the entity exists | `B2-Beruf` treated as a proficiency level |
+| **attribute without a fallback branch** | derived from a single source; its absence fails silently | English `business` track: the lexeme layer is literally absent, 0 of 6,212 |
+| **ratchet without an explanation** | baseline raised, reason never recorded | any `content/qa/*.json` |
+| **defect acting as a fuse** | a bug in one place causes harm there, but silently prevents a crash somewhere else — and nobody knows about its second job | looking up by exercise ID where a concept ID is stored |
+| **level assigned by numbers** | level chosen to preserve a metric rather than to match the reference standard | `verb.passiv.perfekt` placed at B1 while its material is B2 |
+| **mechanism built but never wired up** | indistinguishable in code from a working feature: it exists, compiles, is fully typed — and has zero callers | `cellServingStatus` (explains WHY a cell is empty) — 0 calls vs. 22 for neighboring `isCellServed`; or a test that is written, green, and never invoked by any runner |
+| **guard on the axis along which the defect never arrives** | both the guard and the defect are real — they simply never meet | "no drill may be empty" is guarded by policy, while emptiness actually came from missing fields |
 
-**Закон соседней величины — самая частая форма здесь, три экземпляра за одну смену:**
+**The Neighboring Variable Law — the single most frequent shape here, three instances in one shift:**
 
-> **Правку применили к одной величине и не применили к соседней, живущей в том же файле, часто в
-> соседней строке. И у каждой в комментарии написано, ЧТО и ПОЧЕМУ сделали — но только у неё.**
+> **A fix was applied to one variable and not applied to its neighbor living in the same file, often
+> on the very next line. And each variable has a comment explaining WHAT and WHY was done — but only
+> for itself.**
 
-* правку «счёт переживает выход» применили к **счёту** и не тронули **отвеченность** — задание
-  показывается неотвеченным, XP начисляется повторно;
-* план 133 учли у `levelCount` и пропустили у `runsAt` — строка «работает на ближайшей ступени» не
-  показывается **никогда**;
-* в подписи строки вычли **дорожку** и не вычли **локаль** — карточка обещает 22 задания, урок
-  выдаёт 6.
+* the fix "score survives exit" was applied to **score** without touching **answered state** — the
+  item shows up as unanswered, and XP is awarded repeatedly;
+* plan 133 was accounted for in `levelCount` and missed in `runsAt` — the label "works at the nearest
+  level" is **never** displayed;
+* the row subtitle subtracted the **track** but forgot to subtract the **locale** — the card promises
+  22 exercises, the lesson serves 6.
 
-**Как ищется:** найдя правку у величины, посмотреть, **кто живёт рядом и был ли он в том же мире**.
-Комментарий соседа при этом выглядит проверенным — он и был верным до правки.
+**How to hunt for it:** whenever you find a fix on a variable, look at **who lives next door and
+whether that neighbor was born in the same old world**. The neighbor's comment will look reassuringly
+deliberate — because it *was* true before the fix.
 
-**Девятая форма — самая коварная, и у неё свой признак:** *в остальных кто-то забыл, а здесь не
-забыл никто*. Ищется другим вопросом: **«через какую дверь пришёл бы дефект, которого эта защита не
-увидит?»**
+**The ninth shape is the most insidious, and it has a telltale sign:** *in all the other shapes
+somebody forgot something; here, nobody forgot anything*. You find it with a different question:
+**"through which door would a defect enter that this guard cannot see?"**
 
-И закономерность поверх неё: **защита стоит там, где дефект был бы шумным, и отсутствует там, где он
-молчалив.** Немецкая дорожка защищена не заботой, а тем, что её потеря сразу меняет видимость.
-
----
-
-## 3. Как ошибаются наши собственные измерители
-
-Самая частая беда здесь — **не ошибка, а «нечем мерить»**. За одну смену это встретилось четырежды,
-и это одна форма, а не четыре дефекта.
-
-**Проверки, которые стоят дёшево и окупились все:**
-
-1. **Круглый результат — проверяй зонд.** «348 из 348», «0 из 5110» — почти всегда дефект
-   измерителя, а не свойство данных.
-2. **Крупный результат — проверяй смысл.** «3015 из 4094» — почти всегда ответ не на тот вопрос.
-   Дважды за смену такое число выбрасывалось после чтения содержимого.
-3. **Отрицательный результат — докажи, что инструмент вообще видит дефект.** Подставь заведомо
-   испорченный вход. «Ноль срабатываний» без такого контроля означает «не сработало», а не «чисто».
-4. **Полнота важнее строгости.** Правило может быть верным и ловить ноль: исключение однословных
-   совпадений обосновано для когнатов и дало **нулевую полноту** там, где все случаи однословные.
-5. **Гейт не должен быть слабее охраняемого кода.** Гейт считал по пяти локалям, построитель ходил
-   по шести — он выдавал разрешение, которого не проверял.
-6. **Гейт, который меряет то, что сам же фильтрует, — зеркало.** Признак: его показание улучшается
-   ровно тогда, когда фильтр агрессивнее.
-7. **Гейт, чьё удовлетворение вредно, — дефект гейта.** Трижды за смену: метрика повторяемости
-   выросла оттого, что один вопрос разбили на четыре; храповик веса взял плату за комментарий,
-   который сборка вырезает.
-8. **Гейт, не называющий своей слепоты, через месяц читается как доказательство отсутствия
-   дефекта.** Границы измерителя пишутся в текст гейта, а не в README рядом.
-9. **Храповик не замечает, когда становится лучше** — он падает только на ухудшении. Улучшение
-   лежит незаписанным, пока кто-нибудь не обновит линию.
-10. **Ключ сверки обязан быть той идентичностью, которую проверяет сам артефакт.** Генератор
-    объявляет `course|track|id` открытым текстом; двое сверяли по `id` и обе получили неверный ответ
-    — `new Map(items.map(x => [x.id, x]))` на пуле с составной идентичностью **молча теряет** часть
-    записей, и это не видно ни в типах, ни в тестах. Тридцать id встречаются дважды.
-11. **`\b` в JavaScript — граница ASCII-слова.** Регулярка `\bты\b` не совпадает **никогда** ни на
-    одной кириллической строке и печатает честный ноль. Три раза за одну смену инструмент выдавал
-    правдоподобное число вместо отказа.
-12. **Ложная находка опаснее пропущенной.** Измеритель, напечатавший правдоподобное «грязно», хуже
-    напечатавшего правдоподобное «чисто»: пропуск лежит тихо, ложная находка тратит чужое время и
-    уходит наверх как факт. За смену одна сессия поймала у себя четыре таких инструмента, и
-    единственный, успевший дойти до письма владельцу, был именно этого рода — «26 из 100 подсказок
-    называют чужое лицо» при одном настоящем случае. **Прежде чем отдавать находку дальше — прочитай
-    сами случаи, а не только число.**
-13. **Зелёный гейт — утверждение о том, что он читает, и ни о чём больше.** Гейт локалей читает
-    живой пул и был зелёным; тест витрины сверяет пул с витриной и был красным. Проверка ветки
-    «контентными гейтами» дала зелёное при отставшей на 49 заданий витрине.
-    **И поймало это не третье средство проверки, а вторая величина того же числа из независимого
-    источника.** Расхождение двух источников одной величины — сильнее любого одиночного гейта.
-14. **Зелёный `pnpm test` не свидетельствует о типах, и наоборот.** Jest идёт через babel и типы не
-    проверяет: два новых файла дважды прошли `pnpm test` зелёными, а `pnpm typecheck` нашёл в них
-    семь ошибок. Перед коммитом гоняются оба.
-15. **Одно имя поля — два смысла, и по имени они неотличимы.** `concept.level` у `verbtenses` —
-    исполняемый пол задания (`atLeastLevel`), у четырёх остальных пулов — просто метаданные.
-    Правка «того же поля» имеет последствия в одном месте и не имеет в четырёх.
-16. **Разрыв по локали складывается из трёх разных вещей, и по числу они неразличимы:** не
-    написано · **снято намеренно по П5** · показывается, но негодно. «21 из 65» выглядит одинаково
-    во всех трёх. Второй случай — исполненное решение, и «починка» его возвращает ученику
-    неразрешимое задание: сто заданий `pattern@B1` сняты потому, что принимается один ответ
-    дословно, а инструкции в этих локалях нет. **Измеритель ровности по локали обязан различать три
-    случая, иначе первый же, кто его получит, начнёт чинить второй.**
-17. **Замер по токенам систематически оптимистичнее экрана.** `tokenContrast`/`tokenDistance`
-    композитят полупрозрачную заливку над `surface`, а на живом экране обе заливки лежат над
-    страничным градиентом и бликом, которые их **сближают**. Пара, дававшая 7.0 на токенах, дала
-    **2.5 на пикселях** при пороге заметности 2.3. Канон меряет верхнюю оценку различимости, а не
-    ту, что видит ученик.
-18. **Величина сравнима не потому, что она число.** Лобовое сравнение `overlayPriority` с
-    `priorityScore` дало «все 412 ниже, медиана −85» и напрашивающийся громкий вывод — при том, что
-    шкалы разные (43…100 против 6…10). Спасла проверка источника, а не правдоподобие результата.
-    Третий случай той же формы за смену.
-19. **Форма — не содержание.** Заполненность поля, длина, совпадение строк меряются легко; верность
-    смысла не меряется вообще. Об этом отдельно — §5.
+And the meta-pattern sitting above it: **guards stand where a defect would be loud, and are missing
+where a defect is silent.** The German track is protected not by extra care, but by the fact that
+losing it immediately breaks visible screens.
 
 ---
 
-## 4. Приёмы, которые окупились
+## 3. How Our Own Probes Fail
 
-* **Замер до правки.** Всё, что переписывает вход генератора, сначала симулируется на старом входе:
-  сколько добавилось, удалилось, изменилось. Трижды остановило правку, которую уже одобрили.
-* **Второй независимый путь.** Не «перепроверил», а «пришёл другой дорогой и получил то же».
-  Совпадение двух путей — доказательство; повторение одного — нет. Так подтвердилось число 332,
-  полученное с двух концов: от экрана и от каталога.
-* **Тест, падающий на старом коде.** Проверяется мутацией: сними правку — тест обязан покраснеть.
-  Гейт, направленный на прежние построители, дал 243 находки и `exit=1` — только после этого его
-  зелёный цвет что-то значит.
-* **Точечный прогон ничего не доказывает о чужом.** Он показывает, что новый код делает задуманное.
-  Что он не сломал соседнее, показывает только полный прогон.
-* **Спросить владельца территории до того, как назвать его работу дефектной.** Половина «дефектов»
-  снимается одним вопросом.
-* **Проверить достижимость входа.** Прежде чем звать дефектом: доходит ли до этого кода живой
-  сценарий? Ветка, в которую нельзя попасть, — не дефект.
-* **Назвать «не дефект» так же подробно, как находку.** Названное «здесь чисто и вот почему»
-  экономит следующей смене тот же час.
-* **«Мёртвое поле» бывает двух разных родов, и снимать их нельзя одинаково.** Необязательное поле,
-  описывающее **решение** (`overlayPriority`), — единственный след этого решения, и его снятие
-  теряет знание, ничего не ломая. Обязательное поле, описывающее **форму данных** (`route.count`),
-  не снимается вовсе: `tsc` падает. Проверять надо оба признака — обязательность и предмет.
-* **Эталон часто уже есть в соседней локали.** Испанский схлопывал «тренажёр» и «практику» в одно
-  слово, польский их различал — правка свелась к приведению одного к другому, и разделение стало
-  проверяемым, а не вкусовым. Прежде чем решать, как правильно, посмотри, не решено ли это рядом.
-* **Список собственных сомнений.** Не «проверьте всё», а «вот здесь развилка A или B». Составление
-  такого списка **само находит дефекты**: перечисляя развилки, автор увидел, что `plantilla` значит
-  и «шаблон», и «штат сотрудников».
+The most common trouble here is **not a code bug, but having no valid way to measure**. In a single
+shift this happened four times — and all four were one underlying shape, not four separate mistakes.
 
----
+**Cheap checks that have paid for themselves every time:**
 
-## 5. Что машиной не проверяется вовсе
-
-**У нас нет и не будет измерителя верности перевода — есть только измерители его формы.**
-
-Зелёный гейт по локалям означает «форма цела» и **никогда** не будет означать «переведено верно».
-`Panne → «podział»` не ловится ничем: слово не английское, ни с чем не совпадает, форма безупречна,
-оно просто неверное.
-
-То же про естественность: строка может быть грамматичной, заполненной, непохожей на кальку — и
-написанной не на том языке, на котором думают. Это работа носителя, а не замера.
-
-**Практическое следствие:** когда роль докладывает «локали закрыты», это значит первое. Если
-адресат услышит второе — виноват доклад, а не адресат.
-
----
-
-## 6. Ориентация вне проекта: как искать и чему верить
-
-**Порядок поиска — сверху вниз, и обычно останавливается на втором шаге:**
-
-1. **Не измерено ли это уже у нас.** Тридцать `pnpm report:*` и `check:*`. Трижды за смену
-   оказывалось, что готовый инструмент мерил **не тот предмет**, а не «инструмента не хватало».
-2. **Наши собственные документы.** Правила контента, требования к качеству, планы, журнал решений.
-   Внешний источник говорит, как принято вообще; эти говорят, что уже решено здесь, и они сильнее.
-3. **Первичный внешний источник** — спецификация, официальная документация, публикация организации,
-   которая эту вещь и определяет. Список по направлениям — [`SOURCES.md`](./SOURCES.md).
-4. **Ничего из перечисленного** — значит вопрос продуктовый, а не справочный, и идёт владельцу.
-
-**Как отличить источник от пересказа:**
-
-* у источника есть **владелец нормы** — организация, которая эту вещь определяет, а не описывает;
-* он говорит, **чего он не покрывает**. Пересказ этого не делает;
-* он **датирован и версионирован**;
-* он не начинается со слова «лучших» и не заканчивается числом в заголовке.
-
-**Три правила про внешние источники, купленные здесь:**
-
-1. **Источник отвечает «как принято», решение принимается по тому, что измерено у нас.** Порог по
-   частотности корпуса для нашего вопроса оказался **перевёрнут**: `analysis` на 756-м месте,
-   `coffee` на 1395-м, и гейт по нему выдавил бы `coffee` из A1 и пропустил `proposal`.
-2. **Расхождение двух источников — находка, а не помеха.** У 32 немецких лемм Wiktionary даёт оба
-   вспомогательных, а лексикон хранит один. **Снимать отвлекающий на прямом противоречии источников
-   нельзя** — такое идёт в решение, а не в правку.
-3. **Внешний источник не даёт разрешения.** Он не отменяет ни правила контента, ни решения
-   владельца. «Так принято в индустрии» — не основание.
-
-**И правило владельца, сильнее любого источника:** мы **не копируем другие приложения**. Принцип
-взять во внимание можно, реализацию — нет. Проверка: **если рекомендацию нельзя объяснить, не
-называя чужое приложение, это копирование, а не решение.**
+1. **A round number — check the probe.** "348 out of 348" or "0 out of 5,110" is almost always a
+   broken probe, not a property of the data.
+2. **A huge number — check the question.** "3,015 out of 4,094" is almost always the right answer to
+   the wrong question. Twice in one shift, a number like that was thrown out the moment someone read
+   the actual rows.
+3. **A zero result — prove the probe can see a defect at all.** Feed it a deliberately broken input.
+   "Zero hits" without a positive control means "the probe didn't fire," not "the data is clean."
+4. **Recall matters more than precision.** A rule can be logically sound and still catch zero:
+   excluding single-word matches was well-justified for cognates, and yielded **zero recall** where
+   every real leak happened to be a single word.
+5. **A gate must never be weaker than the code it guards.** The gate checked five locales while the
+   builder iterated over six — the gate issued a pass for territory it never inspected.
+6. **A gate that measures what it filters is a mirror.** Telltale sign: its score improves in exact
+   proportion to how aggressively the filter drops items.
+7. **A gate whose satisfaction causes harm is a defective gate.** Three times in one shift: a
+   repeatability metric improved because one question was split into four; a bundle-weight ratchet
+   penalized a code comment that the bundler strips anyway.
+8. **A gate that does not state its blind spots will be read a month later as proof of absence.**
+   Write the probe's boundaries inside the gate's own output/code, not in a README next door.
+9. **A ratchet never notices improvement** — it only fails on regression. Any improvement sits
+   unprotected until someone tightens the baseline.
+10. **The join key must match the identity enforced by the artifact itself.** The generator declares
+    `course|track|id` in plain sight; two sessions joined by `id` alone and both got wrong answers —
+    `new Map(items.map(x => [x.id, x]))` on a pool with composite identity **silently drops** records,
+    and neither TypeScript nor unit tests complain. Thirty IDs appeared twice.
+11. **`\b` in JavaScript is an ASCII word boundary.** A regex like `\b[Cyrillic word]\b` **never**
+    matches any Cyrillic string and prints an honest-looking zero. Three times in a single shift, a
+    probe returned a plausible number instead of failing loudly.
+12. **A false positive is more dangerous than a miss.** A probe that prints a plausible "dirty" is
+    worse than one that prints a plausible "clean": a miss sits quietly, whereas a false finding
+    burns teammates' hours and travels upward as established fact. In one shift a session caught four
+    such probes of its own, and the only one that made it all the way into a note to the owner was
+    of this exact kind — "26 of 100 hints name the wrong grammatical person" when only one case was
+    genuine. **Before handing off a finding, read the actual items, not just the count.**
+13. **A green gate is a statement about what it reads, and nothing more.** The locale gate reads the
+    live pool and was green; the storefront test compares the pool against the storefront and was
+    red. Checking a branch with "content gates" gave all-green while the storefront lagged behind by
+    49 items.
+    **And what caught it was not a third test runner, but computing the same quantity from a second,
+    independent source.** Disagreement between two sources of the same number is stronger than any
+    single gate.
+14. **A green `pnpm test` says nothing about types, and vice versa.** Jest runs through Babel and
+    does not typecheck: two new files passed `pnpm test` green twice while `pnpm typecheck` found
+    seven errors in them. Run both before committing.
+15. **One field name, two meanings — indistinguishable by name.** `concept.level` in `verbtenses` is
+    an executable floor for serving items (`atLeastLevel`); in the other four pools it is passive
+    metadata. Editing "the same field" changes runtime behavior in one pool and does nothing in four.
+16. **A locale gap is the sum of three completely different things that look identical as a number:**
+    not yet written · **intentionally withheld under rule P5** · served to the user, but broken.
+    "21 of 65" looks the same in all three cases. The second case is an executed design decision, and
+    "fixing" it hands an unsolvable exercise back to the learner: one hundred `pattern@B1` items were
+    withheld because only a single verbatim answer is accepted and those locales have no disambiguating
+    instruction. **Any locale-coverage probe must distinguish these three buckets, or the first person
+    who reads the report will start "fixing" bucket two.**
+17. **Token-level contrast measurements are systematically more optimistic than the actual screen.**
+    `tokenContrast`/`tokenDistance` composite a semi-transparent fill over `surface`, whereas on a
+    live screen both fills sit over a page gradient and specular highlight that **pull them closer
+    together**. A pair scoring 7.0 on tokens scored **2.5 on actual pixels** against a 2.3
+    just-noticeable-difference threshold. Token math measures the upper bound of distinguishability,
+    not what the user's eye receives.
+18. **Two quantities are not comparable just because both are numbers.** Comparing `overlayPriority`
+    directly against `priorityScore` produced "all 412 are lower, median −85" and an alarming
+    headline — when in fact the two live on different scales (43..100 vs. 6..10). Checking how the
+    sources were defined saved the day; checking whether the output looked plausible did not. Third
+    instance of that shape in the same shift.
+19. **Form is not meaning.** Field presence, string length, and character matches are easy to measure;
+    semantic accuracy cannot be measured by script at all. More on this in §5.
 
 ---
 
-## 7. Ловушки среды — то, что стоило часов
+## 4. Techniques That Paid Off
 
-* **`/tmp` — tmpfs.** Что сессия писала в скретч, перезагрузка уничтожает. Отчёт по ходу в рабочее
-  дерево — единственная форма сохранности, а не дисциплина.
-* **`git log` отвечает «что сведено», а не «что сделано».** Смена бывает мертва по коммитам и жива
-  по файлам: последний коммит в 22:36, правки файлов до 23:54.
-* **Измеритель с зашитым абсолютным путём** честно печатает числа по чужому дереву, а их у нас
-  девять. При переносе в `scripts/` — только `process.cwd()`.
-* **Прогон нельзя гонять, пока правишь дерево** — своё или соседа. Тест увидит новый код со старыми
-  данными и покажет ложное красное.
-* **`gradlew … | tail` печатает код возврата `tail`**, а не сборки.
-* **Несвежий APK на устройстве** выглядит как ошибка в коде. Сверять md5 установленного `base.apk`.
-* **Второй пакет на эмуляторе перехватывает диплинк** — звать `am start` с `-p`.
-* **Эмулятор падает с SIGSEGV в swiftshader** — запускать `-gpu host`.
-* **Прогоны тестов — тоже тяжёлая операция.** Один `pnpm test` держит воркеров по 1.5–2 ГБ, а
-  деревьев девять: 28 процессов jest из трёх деревьев съели память до нуля и убили прогон сигналом.
-  Полный набор гоняет **один** в единицу времени, остальные — адресно по своей поверхности.
-* **Тяжёлые операции не одновременно.** Девять деревьев, у каждого свой `node_modules` — именно это
-  однажды уронило машину и убило девять сессий.
+* **Measure before editing.** Anything that rewrites generator inputs is simulated against the old
+  input first: how many items were added, removed, or altered. Three times, this stopped an already
+  approved change before it did damage.
+* **Second independent path.** Not "I double-checked my script," but "I arrived via a different route
+  and got the exact same number." Agreement between two independent paths is proof; running the same
+  path twice is not. That is how the number 332 was confirmed from both ends — starting from the UI
+  screen and starting from the content directory.
+* **A test that fails on the old code.** Verify by mutation: revert the fix — the test must turn red.
+  Pointing a new gate at the old builders produced 243 findings and `exit=1` — only after that does
+  its green status mean anything.
+* **A targeted test run proves nothing about the neighbors.** It shows your new code does what you
+  intended; only the full suite shows what else you broke along the way.
+* **Ask the territory owner before calling their work a defect.** Half of all "defects" vanish with
+  a single question.
+* **Verify input reachability.** Before reporting a bug in a code branch, check whether any live flow
+  can actually reach it. Dead code is not a runtime defect.
+* **Document "not a defect" in the same detail as a finding.** Writing down "this area is clean, and
+  here is why" saves the next shift the exact same hour of investigation.
+* **"Dead fields" come in two distinct species, and they cannot be removed the same way.** An optional
+  field that records a **human decision** (`overlayPriority`) is the only trace of that decision;
+  deleting it destroys institutional memory without breaking the build. A required field that
+  describes **data shape** (`route.count`) cannot be removed casually at all: `tsc` fails immediately.
+  Always check both axes — whether the type requires it and what kind of knowledge it holds.
+* **The reference solution often already exists in a neighboring locale.** Spanish collapsed "drill"
+  and "practice" into one word while Polish kept them distinct — the fix reduced to aligning Spanish
+  with the Polish distinction, turning a matter of taste into a verifiable rule. Before inventing a
+  standard from scratch, check whether the problem was already solved next door.
+* **List of your own doubts.** Not "please review everything," but "here is fork A vs. B where I was
+  unsure." Writing that list **discovers defects by the sheer act of writing it**: while listing
+  ambiguities, an author realized that Spanish `plantilla` means both "template" and "workforce."
 
 ---
 
-## 8. Как этот файл пополняется
+## 5. What Cannot Be Checked by Machine at All
 
-**Каждым участником, в тот же день. Через тимлида — новое; своей рукой — неверное.** Развилка одна
-и проходит по предмету правки, а не по званию правящего:
+**We do not have — and never will have — an automated probe for translation accuracy; we only have
+probes for translation form.**
 
-| что | как | почему так |
+A green locale gate means "the structural form is intact" and will **never** mean "the translation is
+accurate." `Panne -> "podział"` is caught by no script: the word is not English, it collides with
+nothing, its morphology is spotless — it simply means the wrong thing ("division" instead of
+"breakdown").
+
+The same holds for naturalness: a string can be grammatical, non-empty, free of obvious calques — and
+still phrased in a way no native speaker would ever think or say. That requires a fluent human reader,
+not a script.
+
+**Practical consequence:** when a role reports "locales are green," it means structural form only. If
+the recipient hears "the translations are good," the fault lies with how the report was phrased, not
+with the recipient.
+
+---
+
+## 6. Orientation Outside the Project: How to Search and What to Trust
+
+**Search order — top to bottom, and it usually stops at step two:**
+
+1. **Check whether we already measure it locally.** Roughly thirty `pnpm report:*` and `check:*`
+   scripts exist in the repo. Three times in one shift, an existing tool turned out to be measuring
+   **the wrong object**, rather than "we needed to write a new tool."
+2. **Our own project documents.** Content rules, quality requirements, plans, decision logs. An
+   external source says what is customary in general; our documents say what has already been decided
+   here, and they win.
+3. **Primary external source** — the specification, official documentation, or publication by the
+   body that defines the standard. Curated list by discipline — [`SOURCES.md`](./SOURCES.md).
+4. **None of the above** — then the question is a product decision, not a reference lookup, and goes
+   to the owner.
+
+**How to tell a primary source from a secondary retelling:**
+
+* a primary source has a **standard owner** — the organization that defines the thing rather than
+  merely describing it;
+* it explicitly states **what it does not cover**. Retellings never do;
+* it is **dated and versioned**;
+* its title does not start with "Best" or end with a number.
+
+**Three rules about external sources, paid for on this project:**
+
+1. **An external source answers "what is customary"; we decide based on what is measured here.** A
+   corpus-frequency threshold imported from outside turned out to be **inverted** for our domain:
+   `analysis` sits at rank #756 while `coffee` sits at #1395, so a gate built on corpus rank would
+   have kicked `coffee` out of A1 and let `proposal` in.
+2. **Disagreement between two authoritative sources is a finding, not noise.** For 32 German lemmas,
+   Wiktionary lists both auxiliaries (`haben` and `sein`) while our lexicon stores only one. **Never
+   strip a distractor when authoritative sources directly contradict each other** — escalate it as a
+   decision, not a silent edit.
+3. **An external source never grants permission.** It cannot override content rules or an owner
+   decision. "Industry standard" is not an argument against a project invariant.
+
+**And the owner's rule, stronger than any external source:** we **do not copy other apps**. You may
+consider a general principle, never someone else's implementation. Test: **if you cannot explain a
+recommendation without naming another app, it is copying, not engineering.**
+
+---
+
+## 7. Environment Traps — Things That Cost Hours
+
+* **`/tmp` is `tmpfs`.** Anything a session writes to scratch disappears on reboot. Writing reports
+  incrementally inside the working tree is the only real durability mechanism, not bureaucracy.
+* **`git log` answers "what was merged," not "what was done."** A shift can look dead in commits and
+  alive in the filesystem: last commit at 22:36, file modifications continuing until 23:54.
+* **A probe with a hardcoded absolute path** dutifully prints numbers from **someone else's working
+  tree** — and we run nine of them. Any script promoted into `scripts/` must use `process.cwd()`.
+* **Never run verification suites while a working tree is actively being edited** — yours or a
+  neighbor's. The test runner will read new code against half-written data and fail with a phantom red.
+* **`gradlew ... | tail` returns the exit code of `tail`**, not of the Gradle build.
+* **A stale APK on the device** masquerades as a code bug. Always compare the `md5` of the installed
+  `base.apk`.
+* **A second package installed on the emulator intercepts deep links** — always invoke `am start`
+  with an explicit `-p <package>`.
+* **The emulator crashes with `SIGSEGV` in `swiftshader`** — launch it with `-gpu host`.
+* **Test suites are heavy operations too.** A single `pnpm test` spawns workers taking 1.5–2 GB each,
+  and across nine working trees, 28 concurrent Jest processes from three trees exhausted RAM to zero
+  and killed the run via OOM signal. Only **one** full test suite runs at a time; everyone else runs
+  targeted tests scoped to their surface.
+* **Never run heavy operations concurrently.** Nine working trees, each with its own `node_modules`
+  and `android/build` on the same disk partition — running them together is what crashed the host
+  machine and killed nine sessions at once.
+
+---
+
+## 8. How This File Is Maintained
+
+**By every participant, on the same day. New patterns go through the Team Lead; factual inaccuracies
+are fixed directly.** The fork depends on the nature of the edit, not the rank of the editor:
+
+| What | How | Why |
 |---|---|---|
-| **новая закономерность или приём** | через тимлида | он один видит, повторяется ли это у других, и не лежит ли уже соседней строкой |
-| **неточность в том, что здесь написано** — число не воспроизводится, файла нет, правило противоречит соседнему | **правишь сам**, назвав случай и пометив прежнюю редакцию рядом | `TEAM.md` §6 и П-8.7: самоправка — норма, а не превышение. Молча обойти хуже |
-| **правило, ограничивающее тебя же на этой задаче** | предлагаешь, правит другой | здесь ты сторона (С-5) |
+| **a new pattern or technique** | via the Team Lead | only the Team Lead sees whether it recurs across sessions or already sits two lines above |
+| **a verified inaccuracy in existing text** — a number no longer reproduces, a file is gone, a rule contradicts its neighbor | **fix it yourself**, naming the incident and marking the superseded wording inline | `TEAM.md` §6 and P-8.7: self-correction is standard practice, not overstepping. Silently ignoring an error is worse |
+| **a rule that constrains you on your current task** | propose it; someone else makes the edit | here you are an interested party (D-5) |
 
-> **Прежняя редакция (до 2026-09-03): «каждым участником, через тимлида, в тот же день»** — без
-> оговорки про неточности. Отменена как противоречащая П-8.7 и ветке «правлю сам» на С-5: одна и та
-> же правка этого файла выходила и разрешённой, и запрещённой. Случай: сверка 2026-09-03 нашла в
-> `DIAGRAMS.md` ссылку на несуществующий шаг П-8 и два устаревших числа — всё это правки второго
-> рода, и требовать под них тимлида значит не поправить их вовсе.
+> **Previous wording (prior to 2026-09-03): "by every participant, through the Team Lead, on the same
+> day"** — with no carve-out for factual corrections. Superseded because it contradicted P-8.7 and
+> the "fix it myself" branch of diagram D-5: the exact same correction to this file was simultaneously
+> permitted and forbidden. Incident: the 2026-09-03 audit found a reference in `DIAGRAMS.md` to a
+> non-existent step of P-8 along with two stale counts — all of them factual corrections of the
+> second kind, where requiring Team Lead bottlenecks means they never get fixed at all.
 
-Сюда попадает то, что:
+An entry belongs here if and only if:
 
-* **повторится** — закономерность, а не случай;
-* **стоило времени** — не «полезно знать», а «мы за это заплатили»;
-* **можно проверить** — с примером и числом, а не по памяти.
+* **it will recur** — it is a structural pattern, not a one-off fluke;
+* **it cost real time** — not "nice to know," but "we paid for this";
+* **it is verifiable** — backed by a concrete example and number, not memory.
 
-Сюда **не** попадает: пересказ того, что и так в роли; правило без случая, из которого оно выведено;
-и то, что относится к одному заходу — такое живёт в журнале решений.
+What **does not** belong here: repeating what already lives in a role document; a rule without the
+incident it came from; or anything specific to a single run — that belongs in the run's decision log.
 
-**Признак, что файл испортился:** его перестали читать целиком, потому что он вырос. Тогда его режут
-по направлениям, а не разбавляют дальше.
+**Sign that this file has decayed:** people stop reading it end-to-end because it grew too long. When
+that happens, split it by discipline instead of diluting it further.

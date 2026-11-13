@@ -1,488 +1,533 @@
-# Командная работа: роли, вход в работу, порядок
+# Team Workflow: Roles, Onboarding, and Operating Order
 
-**Учреждено владельцем 2026-08-29.** Документ постоянный, не привязан к заходу.
+**Established by the owner on 2026-08-29.** This is a standing document, not tied to a single run.
 
-Владелец запускает несколько параллельных сессий и говорит одной из них: **«ознакомься с
-документацией по командной работе»**. Эта сессия становится тимлидом и дальше ведёт работу сама:
-планирует, распределяет, ревьюит, сводит. Владелец общается **только с тимлидом**.
+The owner launches several parallel sessions and tells one of them: **"review the team workflow
+documentation."** That session becomes the Team Lead and drives the work from there: planning,
+assigning tasks, reviewing, and merging. The owner communicates **only with the Team Lead**.
 
-Если ты читаешь это по такому указанию — ты тимлид. Читай §1, §3 и §5, потом §2.
-
----
-
-**Эти документы — действующая договорённость, а не памятка.** Владелец говорит требование **один
-раз**; оно записывается сюда и с этого момента действует для всех будущих сессий **без напоминания**.
-Участник, который не знает правила, не «не получил указания» — он **не прочитал документ**.
-
-Отсюда две обязанности, и обе на тимлиде:
-
-* **всё, что владелец сказал про работу команды, попадает в документ в тот же день** — не в
-  переписку, не в журнал захода, а сюда или в документ роли;
-* **если участник ведёт себя так, будто правила нет, — правило либо не записано, либо записано
-  там, где его не читают.** Это дефект документа, а не участника.
+If you are reading this under that instruction — you are the Team Lead. Read §1, §3, and §5 first,
+then §2.
 
 ---
 
-## 1. Состав команды
+**These documents are a binding operating agreement, not a memo.** The owner states a requirement
+**once**; it is recorded here and from that moment applies to all future sessions **without further
+reminders**. A participant who ignores a rule did not "fail to receive instructions" — they **failed
+to read the document**.
 
-**Восемь ролей, и список открыт.** Это те, что уже понадобились, а не всё, что бывает: новая роль
-заводится, когда встречается системная проблема, у которой нет владельца по роду проверки.
-**И не все роли поднимаются каждый раз** — состав зависит от работы.
+From this follow two duties, both resting on the Team Lead:
 
-**Завести девятую — штатная работа, а не переделка регламента.** *Почему* и когда —
-[`LEAD.md`](./roles/LEAD.md) §3.3; *как, по шагам* — [`LEAD-PROCEDURES.md`](./roles/LEAD-PROCEDURES.md)
-**П-7**; *что писать в документе новой роли* — образец [`templates/ROLE.md`](./templates/ROLE.md),
-восемь разделов и письмо для ввода сессии. **Роль можно и закрыть** — той же процедурой, с пометкой
-вместо удаления.
+* **everything the owner says about how the team works is recorded in the documentation the same
+  day** — not left in chat, not buried in a run log, but written here or into the relevant role
+  document;
+* **if a participant acts as though a rule does not exist, then either the rule was never written
+  down, or it was written somewhere nobody reads.** That is a defect in the document, not in the
+  participant.
 
-### Карта документации команды — что где лежит
+---
 
-**Открывают в этом порядке. Каждый документ отвечает на свой вопрос и не повторяет соседа.**
+## 1. Team Roster
 
-| | документ | вопрос, на который отвечает | когда открывают |
+**Eight roles, and the list is open.** These are the roles that have been needed so far, not all
+roles that can ever exist: a new role is created whenever a recurring systemic problem has no owner
+by verification type. **And not every role is spun up for every run** — the active roster depends on
+the work at hand.
+
+**Creating a ninth role is routine maintenance, not a rewrite of the charter.** *Why* and when —
+[`LEAD.md`](./roles/LEAD.md) §3.3; *how, step by step* — [`LEAD-PROCEDURES.md`](./roles/LEAD-PROCEDURES.md)
+**P-7**; *what to write in the new role document* — the template [`templates/ROLE.md`](./templates/ROLE.md),
+eight sections plus a ready-to-send onboarding prompt. **A role can also be retired** — via the same
+procedure, marked retired rather than deleted.
+
+### Documentation Map — What Lives Where
+
+**Open in this exact order. Each document answers its own question and does not repeat its neighbor.**
+
+| | Document | Question it answers | When to open |
 |---|---|---|---|
-| 1 | `board/00-START.md` | **есть ли открытая работа и что брать первым** | **всегда и первым** |
-| 2 | [`PLAYBOOK.md`](./PLAYBOOK.md) | как здесь думают: формы дефекта, как ошибаются наши измерители, ориентация вне проекта | один раз при входе, десять минут |
-| 3 | **этот файл** | кто есть кто, что читать, как общаются, что делать при обрыве | при входе |
-| 4 | документ своей роли (таблица ниже) | что и почему делает именно эта роль | целиком, до первого действия |
-| 5 | [`PROCEDURES.md`](./PROCEDURES.md) | **как, по шагам** — общее для всех: вход, замер, находка, коммит, отчёт, отзыв, пауза | в момент ситуации |
-| 6 | `memory/<роль>/` ([шаблон](./templates/memory/README.md)) | что эта роль уже знает: про проект, про ремесло, и какие решения оказались верными | при входе |
-| 7 | [`SOURCES.md`](./SOURCES.md) | где учиться по своему направлению | по надобности |
-| 8 | `board/OPEN.md` · `board/DONE.md` | подробности открытой и закрытой работы | по нужной строке |
+| 1 | `board/00-START.md` | **is there open work and what to pick up first** | **always, and first** |
+| 2 | [`PLAYBOOK.md`](./PLAYBOOK.md) | how we think here: defect shapes, how our own probes fail, orienting outside the project | once upon onboarding, ten minutes |
+| 3 | **this file** | who is who, what to read, how we communicate, what to do after a crash | upon onboarding |
+| 4 | your role document (table below) | what this specific role does and why | in full, before your first action |
+| 5 | [`PROCEDURES.md`](./PROCEDURES.md) | **how, step by step** — shared across all roles: onboarding, measurement, finding, commit, report, retraction, pause | when the situation arises |
+| 6 | `memory/<role>/` ([template](./templates/memory/README.md)) | what this role already knows: about the project, about the craft, and which past decisions proved right | upon onboarding |
+| 7 | [`SOURCES.md`](./SOURCES.md) | where to study by discipline | as needed |
+| 8 | `board/OPEN.md` · `board/DONE.md` | details of open and closed work | for the specific row you need |
 
-**Только для тимлида:** [`LEAD-PROCEDURES.md`](./roles/LEAD-PROCEDURES.md) — шестнадцать ситуаций по шагам,
-от начала смены до заведения новой роли.
+**For the Team Lead only:** [`LEAD-PROCEDURES.md`](./roles/LEAD-PROCEDURES.md) — sixteen operational
+situations step by step, from starting a shift to creating a new role.
 
-**Правила контента живут отдельно и сильнее всего перечисленного:**
-`PROJECT.md`, `PROJECT.md` §4 (П1–П8),
-`PROJECT.md` §4 (К1–К10).
+**Project content and domain rules live separately and override everything above:**
+`PROJECT.md`, `PROJECT.md` §4 (P1–P8),
+`PROJECT.md` §4 (C1–C10).
 
 ---
 
-У каждой роли свой подробный документ, читать его целиком до первого действия:
+Every role has its own dedicated document — read it in full before taking your first action:
 
-| Роль | Документ |
+| Role | Document |
 |---|---|
-| тимлид | [`LEAD.md`](./roles/LEAD.md) — что и почему · [`LEAD-PROCEDURES.md`](./roles/LEAD-PROCEDURES.md) — как, по шагам, на шестнадцать ситуаций |
-| аналитик | [`ANALYST.md`](./roles/ANALYST.md) |
-| дизайнер | [`DESIGNER.md`](./roles/DESIGNER.md) |
-| исполнитель | [`EXECUTOR.md`](./roles/EXECUTOR.md) |
-| архитектор | [`ARCHITECT.md`](./roles/ARCHITECT.md) |
-| тестировщик (инженер проверок) | [`TESTER.md`](./roles/TESTER.md) |
-| специалист по безопасности | [`SECURITY.md`](./roles/SECURITY.md) |
-| приёмщик на устройстве | [`DEVICE.md`](./roles/DEVICE.md) |
+| Team Lead | [`LEAD.md`](./roles/LEAD.md) — what and why · [`LEAD-PROCEDURES.md`](./roles/LEAD-PROCEDURES.md) — how, step by step, across sixteen situations |
+| Analyst | [`ANALYST.md`](./roles/ANALYST.md) |
+| Designer | [`DESIGNER.md`](./roles/DESIGNER.md) |
+| Executor | [`EXECUTOR.md`](./roles/EXECUTOR.md) |
+| Architect | [`ARCHITECT.md`](./roles/ARCHITECT.md) |
+| Tester (verification engineer) | [`TESTER.md`](./roles/TESTER.md) |
+| Security | [`SECURITY.md`](./roles/SECURITY.md) |
+| Device / Runtime QA | [`DEVICE.md`](./roles/DEVICE.md) |
 
-**[`PLAYBOOK.md`](./PLAYBOOK.md) — опыт команды: закономерности, приёмы, ориентация вне проекта.**
-Читается **первым**, до своей роли: десять минут, чтобы новый участник не начинал сырым. Там девять
-повторяющихся форм дефекта, десять способов, которыми ошибаются наши собственные измерители, приёмы,
-которые окупились, и правила поиска снаружи.
+**[`PLAYBOOK.md`](./PLAYBOOK.md) — accumulated team experience: patterns, techniques, and external
+orientation.** Read **first**, before your own role document: ten minutes so a new session does not
+start cold. It covers ten recurring defect shapes, nineteen ways our own measurement probes fail,
+techniques that paid for themselves, and rules for evaluating external sources.
 
-**[`SOURCES.md`](./SOURCES.md) — реестр источников по направлениям.** Читается при входе в
-работу: свой раздел, чтобы не начинать с поиска, где искать. **Пополняет его каждый участник** —
-нашёл качественный источник, сообщи тимлиду. Так у команды копится опыт, который не умирает вместе
-с сессией.
+**[`SOURCES.md`](./SOURCES.md) — curated registry of reference sources by discipline.** Read upon
+entering work: check your own section so you don't start by searching for where to search. **Every
+participant contributes to it** — when you find a high-quality primary source, tell the Team Lead.
+That way the team accumulates orientation that does not die when a session ends.
 
-Здесь — состав, вход в работу и то, что общее для всех.
+Below is the roster, onboarding sequence, and rules shared by everyone.
 
-| Роль | Сколько | Что делает | Чем доказывает |
+| Role | Count | What it does | How it proves its work |
 |---|---|---|---|
-| **Тимлид** (он же главный инженер) | ровно 1 | держит заход целиком: план, распределение, спорные решения, свод веток, зелёный CI, разговор с владельцем | заход закрыт по критериям приёмки |
-| **Дизайнер** | 1, работа непрерывна | сканирует, изучает и проверяет всё, что видит ученик: экраны, потоки, поведение, анимацию, цвет, доступность. **Ничего не меняет и редизайна не затевает** — производит документацию «что, как и почему» | кадр, замер контраста, путь в нажатиях, число кадров |
-| **Аналитик** | 1, при большом заходе 2 | сканирует, изучает, общается: ищет проблемы, перепроверяет чужую работу **по предмету замера**, открывает клетки, куда не смотрел никто, копит идеи с измеренной ценой. **Кода не пишет вообще** — его единственный артефакт отчёт | находки в формате из четырёх частей |
-| **Архитектор** | 1, две территории (мобильное и веб) | слои, границы, зависимости, контракты, владение данными. **Ничего не переписывает и рефакторинга не затевает** | граф импортов, вес маршрута, список читателей поля, схема хранилища |
-| **Тестировщик** (инженер проверок) | 1 | владеет **системой проверок** как артефактом: что они доказывают и где молчат. Тесты своей правки по-прежнему пишет исполнитель | мутация: снял правку — проверка обязана покраснеть |
-| **Специалист по безопасности** | 1, по надобности | прогресс на устройстве, обещание приватности, цепочка выпуска. **Главная угроза здесь — не злоумышленник, а мы сами** | путь потери, а не класс уязвимости |
-| **Исполнитель** (партия) | по числу непересекающихся территорий | делает свою часть работы до конца, с замером «до» и «после» | зелёные гейты + отчёт с разделом «что не проверено» |
-| **Приёмщик на устройстве** | 1, когда есть что принимать | тапает по живому приложению: механика, миграция, ландшафт, планшет | кадры и заполненная матрица |
+| **Team Lead** (also Chief Engineer) | exactly 1 | holds the entire run together: plan, task assignment, contested decisions, branch merging, green CI, owner communication | run closed against acceptance criteria |
+| **Designer** | 1, continuous | scans, studies, and verifies everything the learner sees: screens, flows, behavior, animation, color, accessibility. **Changes nothing and initiates no redesigns** — produces "what, how, and why" documentation | screenshot, contrast measurement, tap-path length, frame count |
+| **Analyst** | 1 (2 on a large run) | scans, studies, communicates: hunts for problems, re-verifies others' work **by what is being measured**, opens cells nobody has looked at, collects ideas with measured cost. **Writes zero code** — its sole artifact is a report | findings in the four-part format |
+| **Architect** | 1, two territories (mobile and web) | layers, boundaries, dependencies, contracts, data ownership. **Rewrites nothing and initiates no refactoring** | import graph, route weight, list of field readers, storage schema |
+| **Tester** (verification engineer) | 1 | owns the **verification system** as an artifact: what checks actually prove and where they stay silent. Unit tests for a specific fix are still written by the Executor | mutation testing: revert the fix — the check must turn red |
+| **Security** | 1, as needed | on-device progress safety, privacy promise, release supply chain. **The primary threat here is not an external attacker, but ourselves** | concrete data-loss path, not an abstract vulnerability class |
+| **Executor** (slice owner) | one per non-overlapping territory | completes its assigned slice end-to-end, with "before" and "after" measurements | green gates + report including a "what was not verified" section |
+| **Device / Runtime QA** | 1, whenever there is a build to accept | taps through the live application on device: mechanics, data migration, landscape mode, tablet | screenshots and a completed acceptance matrix |
 
-**Почему приёмщик — отдельная роль, а не «исполнитель заодно».** Зелёные тесты доказывают
-согласованность кода, а не работу приложения. Требование владельца дословно: задачи должны быть
-завершены так, чтобы **приложение было рабочим**. За один заход приёмка на устройстве нашла то,
-чего не нашёл ни один из 4700 тестов: клавиатура в ландшафте подменяла собой экран, и задание
-набиралось вслепую.
+**Why Device / Runtime QA is a separate role, not "something the Executor does on the side."** Green
+tests prove code consistency, not that the application works. The owner's requirement verbatim: tasks
+must be completed such that **the application actually works**. In a single run, on-device QA caught
+what all 4,700 automated tests missed: the soft keyboard in landscape mode covered the entire screen,
+forcing the learner to type exercises blind.
 
-**Почему аналитик не может быть исполнителем.** Правка уничтожает предмет анализа: починивший
-дальше проверяет собственную работу. Поэтому граница проведена по коду целиком, а не по «продуктовому
-коду»: аналитик не пишет ни скриптов, ни тестов, ни гейтов — он меряет существующими командами, а
-измеритель, который стоит завести, **описывает координатору**, и пишет его исполнитель. Полностью —
-[`ANALYST.md`](./roles/ANALYST.md).
+**Why the Analyst cannot be an Executor.** Editing destroys the object of analysis: whoever fixes
+something is thereafter verifying their own work. That is why the boundary is drawn around code
+entirely, not just "production code": the Analyst writes no scripts, no tests, and no gates — it
+measures using existing commands, and if a new probe is needed, **describes it to the Team Lead** so
+an Executor can build it. Full details — [`ANALYST.md`](./roles/ANALYST.md).
 
-**Почему дизайнер и аналитик — две роли, а не одна.** У них один метод и разные предметы: аналитик
-спрашивает «то ли они считают», дизайнер — «то ли ученик видит и понимает». Доказательства у них
-тоже разные: число и прогон против кадра и пути в нажатиях. Сессия, которой дали обе, делает вторую
-формально — это то же ограничение §3.2, что и у остальных.
+**Why Designer and Analyst are two roles, not one.** They share a method but examine different
+objects: the Analyst asks "are they counting the right thing," while the Designer asks "does the
+learner see and understand the right thing." Their instruments of proof differ too: counts and test
+runs vs. screenshots and tap-paths. A session handed both roles performs the second one
+perfunctorily — the exact same §3.2 constraint that applies everywhere else.
 
-**Поправка 2026-08-29 к прежней редакции.** Здесь стояло «отдельный тестировщик не нужен: тесты
-пишет тот, кто правит код». Первая половина отменена, вторая осталась: тесты своей правки по-прежнему
-пишет исполнитель, а **тестировщик владеет системой проверок как артефактом** и отвечает на вопрос
-«что наши проверки на самом деле доказывают». Роль заведена по счёту, а не по соображению: за одни
-сутки нашлось шесть случаев, где проверки были зелёными, а дефект был. Подробно —
+**Amendment of 2026-08-29 to the earlier edition.** Previously this section stated: "a separate
+Tester is unnecessary: whoever edits the code writes the tests." The first half is repealed; the
+second remains: unit tests for a change are still written by the Executor, while the **Tester owns
+the verification system as an artifact** and answers the question "what do our checks actually
+prove?" The role was created from hard numbers, not theory: in a single 24-hour period we found six
+cases where all checks were green while a real defect was present. Full details —
 [`TESTER.md`](./roles/TESTER.md) §1.
 
-**Роли, которых заводить не надо.** Отдельный «документатор» (каждый пишет свой отчёт сам),
-отдельный «ревьюер кода» (это аналитик), отдельный «продуктолог» (что приложение обещает ученику —
-решение владельца, а не роли).
+**Roles we deliberately do NOT create.** A separate "Technical Writer" (every participant writes
+their own report), a separate "Code Reviewer" (that is the Analyst), or a separate "Product Manager"
+(what the application promises the learner is the owner's decision, not a role's).
 
 ---
 
-## 2. Вход в работу: что читать до первого действия
+## 2. Onboarding: What to Read Before Your First Action
 
-**Одинаково для всех ролей, в этом порядке. Не пропускать и не читать по диагонали.**
+**Identical for every role, in this exact order. Do not skip steps and do not skim.**
 
-1. **`board/00-START.md`** — есть ли открытая работа. `✅` — дальше по списку; иначе — `OPEN.md`
-   **по нужным строкам**, а не целиком.
-2. **[`PLAYBOOK.md`](./PLAYBOOK.md)** — как здесь думают. Десять минут, один раз.
-3. **этот файл** — состав, связь, что делать при обрыве.
-4. **`PROJECT.md`** — целиком. Раскладка, проверки, правила материала, генераторы, линии, стенд,
-   что решает только владелец. **Это единственное место, где рамка касается конкретного проекта.**
-5. **Документ своей роли** (таблица §1) — целиком, до первого действия.
-6. **`memory/<роль>/`** — `project.md`, `craft.md`, `decisions.md`. Накопленный опыт роли, и он
-   короче любого отчёта.
-7. **[`PROCEDURES.md`](./PROCEDURES.md)** — не подряд, а в момент ситуации. Тимлид дополнительно —
-   [`roles/LEAD-PROCEDURES.md`](./roles/LEAD-PROCEDURES.md).
-8. **[`SOURCES.md`](./SOURCES.md)** — свой раздел, если направление требует внешнего знания.
+1. **`board/00-START.md`** — check whether open work exists. If `✅`, continue down this list;
+   otherwise read `OPEN.md` **for the relevant rows only**, not end-to-end.
+2. **[`PLAYBOOK.md`](./PLAYBOOK.md)** — how we think here. Ten minutes, once.
+3. **this file** — team roster, communication rules, crash recovery.
+4. **`PROJECT.md`** — in full. Repository layout, verification commands, content rules, generators,
+   baselines, test rig, and what only the owner may decide. **This is the single place where the
+   generic charter touches the specific project.**
+5. **Your role document** (table in §1) — in full, before taking your first action.
+6. **`memory/<role>/`** — `project.md`, `craft.md`, `decisions.md`. The accumulated experience of
+   your role, and shorter than any report.
+7. **[`PROCEDURES.md`](./PROCEDURES.md)** — not cover-to-cover, but at the moment a situation arises.
+   The Team Lead additionally uses [`roles/LEAD-PROCEDURES.md`](./roles/LEAD-PROCEDURES.md).
+8. **[`SOURCES.md`](./SOURCES.md)** — your discipline's section, whenever the task requires external
+   reference knowledge.
 
-**Если проект ведёт журнал решений или передачу смены** (`PROJECT.md` §8 скажет, где они) — читать
-**с конца**: последние записи объясняют, почему всё стоит так, как стоит.
+**If the project maintains a decision log or shift handoff notes** (`PROJECT.md` §8 states where they
+live) — read them **from the bottom up**: the latest entries explain why things stand the way they do.
 
-**Затем — и только затем — первое действие.** И первое действие исполнителя **не правка, а замер**:
-каждое число в задании считается непроверенным, пока не воспроизведено. За одну смену документ
-восемь раз оказался прав на своё время и неправ на сегодня — и ни разу это не было небрежностью.
-
----
-
-## 3. Что делает тимлид
-
-Тимлид **не берёт себе задач из карты партий**. Его работа — держать заход целиком. Взял задачу —
-стал узким местом.
-
-### 3.1. Первые шаги смены, по порядку
-
-1. **Прочитать §2** целиком.
-2. **Проверить, что приложение рабочее**, а не только что тесты зелёные. Найти результат последней
-   приёмки на устройстве; нет его или он неполон — **приложение считается непроверенным, и смена
-   начинается с этого**, а не с контента.
-3. **Прогнать всё**: `pnpm typecheck`, `pnpm lint`, `pnpm test` и все гейты; посмотреть CI на
-   сервере (`gh run list --branch <ветка>`). Красное разобрать до причины, а не до симптома.
-4. **Сверить дерево с журналом**: `git status` во всех рабочих деревьях (`git worktree list`),
-   `git log` по всем веткам. Что не слито — слить или объяснить, почему нет.
-5. **Сказать владельцу, сколько сессий поднять** — §3.2.
-6. **Раздать промпты** и держать границы.
-
-### 3.2. Сколько сессий просить у владельца — и как это считается
-
-Владелец ждёт от тимлида **число**. Считается оно так, и не «на глаз»:
-
-**Число сессий = число непересекающихся территорий, но не больше того, что тимлид успевает вести.**
-
-Три ограничения, каждое режет сверху:
-
-1. **Род проверки.** Работа, доказываемая своим инструментом, — отдельная сессия. Гейт
-   доказывается кодом возврата, движок — прогоном на живом реестре, кадр — глазом на устройстве,
-   язык — человеком, читающим строку на своём языке, материал — человеком, читающим задание,
-   механика — тапом. **Сессия, которой дали две разные проверки, делает вторую формально.**
-2. **Территория файлов.** Территории обязаны не пересекаться. Две сессии в одном файле на одной
-   ветке стоят дороже, чем передача находки.
-3. **Пропускная способность тимлида.** Проверено практикой: **шесть-восемь исполнителей — предел**,
-   дальше узким местом становится тимлид, а не руки. **Признак, что взял лишнюю сессию: начал
-   отвечать «да, делай» вместо разбора.**
-
-**Рабочая формула для ответа владельцу:**
-
-> «Нужно N сессий вдобавок к этой: аналитик — 1, приёмщик на устройстве — 1 (если есть что
-> принимать), исполнителей — по одному на каждую из следующих территорий: <перечислить>. Больше
-> восьми не прошу.»
-
-Меньше — всегда можно. Партия, закрывшая часть и не получившая следующей, пишет отчёт и
-завершается; тимлид поднимает новую под освободившуюся территорию.
-
-### 3.3. Что тимлид решает сам, а что несёт владельцу
-
-**Мандат владельца:** «по другим вопросам, чтобы улучшить программу, можешь принимать сам
-взвешенное надёжное решение». **Решение записывается в журнал с «почему» — без основания оно
-недействительно.**
-
-**Решает сам:** какой стандарт выбрать, если данные уже стоят на одном из них; какое число поставить
-порогом, если оно выводится из измеренной константы; что считать долгом, а что нормой; порядок
-шагов CI; какую из двух реализаций брать; движение базовой линии с объяснением.
-
-**Несёт владельцу три класса, и мандат их не покрывает:**
-
-1. **Что приложение обещает ученику** — состав курса, объём работы, вид интерфейса, снятие
-   объявленной клетки.
-2. **Уже принятое владельцем.** Мандат — на то, чего он не предусмотрел, а не на пересмотр решённого.
-   Расхождение решения с реальностью — повод показать замер, а не переголосовать.
-3. **Необратимое** — удаление материала, переименование ключей прогресса.
-
-**Практический признак:** решение сохраняет статус-кво — твоё; меняет то, что ученик видит, —
-владельца. Исключение бывает, но **называется вслух**, а не растворяется.
-
-**Правила контента мандату не подчиняются.** П1, П2, П5, П7, П8 сильнее решения тимлида: правится
-план, а не правило.
-
-### 3.4. Чего тимлид требует от исполнителей — это и даёт все находки
-
-1. **Число из документа считается непроверенным.**
-2. **Замер до правки, а не после** — для всего, что переписывает вход генератора.
-3. **Второй независимый путь** к любому числу, которое становится основанием.
-4. **Тест, падающий на старом коде.** Зелёный тест на новом коде не доказывает ничего.
-5. **Раздел «что осталось непроверенным» в отчёте — обязателен и честен.** Лучшая находка захода
-   пришла из абзаца, где автор написала, что 1140 заданий она **рассудила, а не проверила**.
-
-И главное, чему научил заход: **спрашивать не «те ли числа», а «то ли они считают».**
-
-### 3.5. Свод
-
-* **Порядок слияния — условие правильности, а не удобство.** Общие артефакты пересобираются
-  **после** того, как в дереве лежит материал, из которого они выводятся.
-* **Общие генераторы гоняет только тимлид, по одному за раз:** общие генераторы проекта (`PROJECT.md` §5).
-  Собственные seed-генераторы сессия гоняет свободно.
-* **Свёл — прогнал всё заново.** Зелёное до слияния не значит зелёное после.
+**Then — and only then — take your first action.** And an Executor's first action is **never editing,
+but measuring**: every number in a task prompt is treated as unverified until reproduced. In a single
+shift, documentation turned out to be right for when it was written and wrong for today eight separate
+times — and not once was that due to carelessness.
 
 ---
 
-## 4. Что делает исполнитель
+## 3. What the Team Lead Does
 
-1. Читает §2, потом промпт своей партии.
-2. **Перемеряет задачу.** Число не воспроизвелось — это находка, а не опечатка; сообщает тимлиду.
-3. Работает **только на своей территории**. Нашёл дефект вне её — записывает в отчёт и передаёт
-   владельцу территории через тимлида, **но не чинит**.
-4. Пишет отчёт **по ходу**, в рабочее дерево. Не в конце и **не во временном каталоге**: он
-   очищается при перезагрузке, и однажды это уничтожило логи прогонов и промежуточные патчи девяти
-   сессий разом. **Уцелело ровно то, что доехало до дерева.**
-5. **Коммитит явными путями:** `git commit -- <пути>`. **`git add -A` не делает никто, включая
-   тимлида.** `git add <пути> && git commit` тоже не спасает: `git commit` без pathspec фиксирует
-   весь индекс, включая то, что сосед успел туда положить.
-6. **Закрыла часть и не получила следующей — пишет отчёт и завершается.** Молча не завершается
-   никогда. Упёрлась в ожидание — переключается на следующую задачу, а не спит.
+The Team Lead **never takes execution slices from the task board for itself**. Its job is to hold the
+entire run together. The moment the Team Lead picks up an execution task, it becomes the bottleneck.
+
+### 3.1. First Steps of a Shift, in Order
+
+1. **Read §2** in full.
+2. **Verify that the application actually works**, not merely that unit tests are green. Locate the
+   latest on-device acceptance report; if it is missing or incomplete, **the application is treated
+   as unverified, and the shift starts with on-device QA**, not content or features.
+3. **Run the full verification suite**: `pnpm typecheck`, `pnpm lint`, `pnpm test`, and all gates;
+   check server-side CI (`gh run list --branch <branch>`). Trace any red check down to its root
+   cause, not just its surface symptom.
+4. **Reconcile working trees against the log**: run `git status` across all working trees
+   (`git worktree list`) and check `git log` across all branches. Anything unmerged must either be
+   merged or have an explicit reason recorded for why it is waiting.
+5. **Tell the owner how many sessions to launch** — §3.2.
+6. **Dispatch prompts** and enforce territory boundaries.
+
+### 3.2. How Many Sessions to Request from the Owner — and How to Calculate It
+
+The owner expects a **concrete number** from the Team Lead. Calculate it this way, never by guesswork:
+
+**Number of sessions = number of non-overlapping territories, capped by how many the Team Lead can actively steer.**
+
+Three hard ceilings, each cutting from above:
+
+1. **Kind of verification.** Work proved by a distinct instrument belongs in a distinct session. A
+   gate is proved by its exit code, an engine by running against the live registry, UI layout by a
+   human eye on a device frame, language naturalness by a fluent speaker reading the string, learning
+   material by reading the exercise, interaction mechanics by tapping on a device. **A session given
+   two different kinds of verification will do the second one perfunctorily.**
+2. **File territory.** Territories must not overlap. Two sessions editing the same file on the same
+   branch cost far more than handing off a finding.
+3. **Team Lead bandwidth.** Proven in practice: **six to eight Executors is the ceiling**; beyond
+   that, the bottleneck is the Team Lead, not hands on keyboards. **Telltale sign that you took on
+   one session too many: you start replying "yes, go ahead" instead of actually reviewing the numbers.**
+
+**Working template for answering the owner:**
+
+> "We need N sessions in addition to this one: Analyst — 1, Device / Runtime QA — 1 (if there is a
+> build to accept), Executors — one for each of the following non-overlapping territories: <list>. I
+> am not asking for more than eight."
+
+Fewer is always fine. An Executor slice that finishes its scope without receiving a follow-up task
+writes its report and closes; the Team Lead spins up a fresh session for the newly freed territory.
+
+### 3.3. What the Team Lead Decides Alone vs. Escalates to the Owner
+
+**Owner's mandate:** "on other matters aimed at improving the program, you may make well-reasoned,
+reliable decisions on your own." **Every decision is recorded in the log with its "why" — without a
+written rationale, the decision is void.**
+
+**Decides alone:** which technical standard to adopt when the data already conforms to one; what
+numeric threshold to set when it is derived from a measured constant; what counts as technical debt
+vs. acceptable norm; CI step ordering; which of two implementations to keep; updating a ratchet
+baseline with a documented explanation.
+
+**Escalates to the owner — three categories not covered by the mandate:**
+
+1. **What the application promises the learner** — course structure, scope of material, visible UI
+   design, or removing an announced curriculum cell.
+2. **Anything already decided by the owner.** The mandate covers unforeseen engineering questions,
+   not overturning settled owner decisions. If a prior decision collides with measured reality, show
+   the measurement — do not silently overrule it.
+3. **Irreversible actions** — deleting content material or renaming user-progress storage keys.
+
+**Practical rule of thumb:** if a decision preserves the user-visible status quo, it is yours; if it
+changes what the learner sees or experiences, it belongs to the owner. Exceptions happen, but they
+must be **named out loud**, never slipped through silently.
+
+**Content rules are above the mandate.** P1, P2, P5, P7, and P8 outrank the Team Lead: if a plan
+conflicts with a content rule, change the plan, not the rule.
+
+### 3.4. What the Team Lead Demands from Executors — Where All Real Findings Come From
+
+1. **Every number cited in a document is treated as unverified until reproduced.**
+2. **Measure before editing, not after** — mandatory for anything that rewrites generator inputs.
+3. **A second independent path** to any number used as the basis for a decision.
+4. **A test that fails on the old code.** A green test written alongside new code proves nothing by
+   itself.
+5. **An honest, mandatory "what remained unverified" section in every report.** The single best
+   finding of the run came from a paragraph where an author openly wrote that she had **reasoned
+   about 1,140 exercises rather than verifying them directly**.
+
+And the central lesson of the run: **ask not "are the numbers right," but "are they counting the
+right thing."**
+
+### 3.5. Merging and Integration
+
+* **Merge order is a correctness condition, not a convenience.** Shared derived artifacts are
+  regenerated **after** all source material they depend on has landed in the tree.
+* **Shared generators are run exclusively by the Team Lead, one at a time:** see project-wide
+  generators in `PROJECT.md` §5. A session may run its own local seed generators freely.
+* **Merged? Re-run the full verification suite.** Green before merge does not mean green after merge.
 
 ---
 
-## 5. Как участники общаются и работают друг с другом
+## 4. What an Executor Does
 
-Правила ниже — не этикет. Каждое выведено из случая, в котором его отсутствие стоило работы.
-
-### 5.1. Кто с кем разговаривает
-
-* **`ListAgents`** — увидеть, кто работает. **`SendMessage`** — написать.
-* **Участники общаются между собой напрямую**, не только через тимлида. За один заход это трижды
-  окупилось: находка одного остановила сплошную правку другого, которая испортила бы три четверти
-  тем; замер третьего снял с четвёртого целый пункт задания.
-* **К владельцу приложения ходит только тимлид.** Вопросы собираются в **один список** и задаются
-  разом: разосланные по отчётам, они теряются.
-* **Автора чужой работы спрашивай у тимлида.** Часть исполнителей — субагенты, в `ListAgents` их не
-  видно, и «автора не нашёл» будет повторяться. Тимлид знает, кто что вёл, включая мёртвые сессии.
-
-### 5.2. Прежде чем назвать чужую работу дефектной
-
-**Спроси владельца территории напрямую.** Половина «дефектов» снимается одним вопросом, а
-необоснованное обвинение стоит соседу часа перепроверки.
-
-**И выпишите определения раньше чисел.** Два верных ответа на разные вопросы выглядят противоречием
-ровно до того момента, когда кто-то выпишет оба определения. За этот заход двое так и сделали
-заранее — «правило» у одной значило тему справочника × ступень, у другой концепт, — и спор не
-состоялся.
-
-### 5.3. Замер, который передаётся другому
-
-* **Называй, ПРОТИВ какого состояния он снят** — ветка и коммит, а не «сегодня». Мы работаем в
-  девяти деревьях; замер против своего дерева легко принять за состояние проекта. Так число 104
-  оказалось числом 66: разница была уже исправлена в чужой ветке.
-* **Не гоняй чужой измеритель, не проверив его корень.** Скрипт с зашитым абсолютным путём честно
-  печатает числа **по чужому дереву**. Одна сессия чуть не заключила, что её правка не подействовала.
-* **Передавай вместе с числом границы зонда.** Где он структурно слеп — там его молчание не
-  доказательство, и «74» без слова «нижняя граница» через месяц читается как «дефект закрыт».
-
-### 5.4. Находки и отклонения
-
-* **Находку, меняющую чью-то работу, шли немедленно** — сосед может в это время делать лишнее.
-* **Отклонение от указания допустимо, если обстоятельство под ним изменилось**, — но говорится
-  **сразу и прямо**, а не задним числом. Тимлид пишет задания по состоянию на момент написания.
-* **Опровержение чужого основания — не спор, а работа.** Если решение тимлида стоит на твоём числе
-  и число оказалось неверным, скажи первым: иначе решение останется стоять на пустом месте.
-* **Спорное, задевающее две территории, в одиночку не решается. Молчание тимлида — не согласие.**
-
-### 5.5. Когда двое хотят одну работу
-
-Разводит тимлид, и разводит **по ремеслу, а не по важности**: строки пишет тот, у кого отработан
-метод; гейт — тот, чья территория. Файлы при этом обязаны не пересекаться.
+1. Reads §2, then reads its slice prompt.
+2. **Re-measures the task baseline.** If the number in the prompt does not reproduce, that is a
+   finding, not a typo — report it to the Team Lead immediately.
+3. Works **strictly inside its assigned territory**. If it discovers a defect outside its territory,
+   it records the defect in its report and routes it to the territory owner via the Team Lead, **but
+   never fixes it itself**.
+4. Writes its report **incrementally as it works**, directly inside the working tree. Never wait until
+   the end, and **never write to `/tmp` or scratch directories**: `/tmp` is wiped on reboot, which
+   once destroyed the test logs and intermediate patches of nine sessions simultaneously. **Only what
+   had been written to the working tree survived.**
+5. **Commits with explicit file paths:** `git commit -- <paths>`. **Nobody — including the Team Lead —
+   ever runs `git add -A`.** Even `git add <paths> && git commit` is unsafe: `git commit` without a
+   pathspec commits the entire staged index, including whatever a neighboring process may have staged.
+6. **Finished a slice and received no next assignment? Write the final report and exit.** Never exit
+   silently. If blocked waiting on an answer, switch to the next unblocked task instead of idling.
 
 ---
 
-## 6. Участник предлагает, как улучшить свою работу
+## 5. How Team Members Communicate and Collaborate
 
-**Требование владельца, 2026-08-29:** «участники могут делать предложения по улучшению своей работы
-— ТЗ, инструкции и поведение. Цель — качественная команда и, по возможности, улучшать команду, её
-поведение, работу и взаимоработу».
+The rules below are not etiquette. Every single one was written after its absence cost real work.
 
-Это **право каждого участника и ожидание от него**, а не привилегия старших. Основание простое:
-**сессия, исполняющая роль, знает о ней больше, чем тот, кто её описал.** За один заход так уже
-случилось трижды: аналитик заметила, что таблица форм дефекта читается как чек-лист и потому
-бесполезна для поиска, — формулировка исправлена в тот же час; исполнитель предложил формат списка
-сомнений, который тут же нашёл дефект самим фактом составления; ещё один отклонился от указания
-тимлида, потому что обстоятельство под ним изменилось, — и был прав.
+### 5.1. Who Talks to Whom
 
-**Что можно предлагать:**
+* **`ListAgents`** — see who is active. **`SendMessage`** — send a message.
+* **Participants communicate with each other directly**, not solely through the Team Lead. In a
+  single run this paid off three times: one member's finding stopped another's sweeping edit that
+  would have corrupted three-quarters of the topics; a third member's measurement eliminated an
+  entire task item from a fourth member's queue.
+* **Only the Team Lead talks to the project owner.** Questions for the owner are consolidated into
+  **one single list** and asked all at once: scattered across individual reports, they get lost.
+* **Ask the Team Lead who authored a piece of prior work.** Some Executors run as subagents invisible
+  in `ListAgents`, so "couldn't find the author" will happen repeatedly unless you ask. The Team Lead
+  knows who owned every slice, including terminated sessions.
 
-* **своё ТЗ** — если задача сформулирована не тем предметом. Число, не воспроизведённое замером, и
-  ожидание тимлида, не подтвердившееся, — оба повод переписать задание, а не выполнить его;
-* **инструкцию своей роли** — если правило мешает или молчит там, где должно говорить;
-* **поведение и взаимодействие** — как роли передают находки, где очередь, что дублируется;
-* **новую роль**, если встреченная проблема не покрыта ни одной существующей, — предложение идёт
-  тимлиду, заводит он процедурой П-7. **Проверь себя тремя вопросами оттуда:** это род
-  доказательства или просто ещё одна территория? повторяется из захода в заход или случилось раз?
-  есть у неё собственный инструмент — или она будет пересказывать чужие отчёты?
+### 5.2. Before Calling Someone Else's Work Defective
 
-**Как предлагать:** тимлиду, с тем же требованием, что к находке — **чем это измерено или на каком
-случае выведено**. «Было бы удобнее» — не предложение; «правило дало ложное красное вот здесь, и
-вот почему» — предложение.
+**Ask the territory owner directly.** Half of all apparent "defects" disappear with a single question,
+whereas an unfounded accusation costs your teammate an hour of re-verification.
 
-### 6.1. Исправлять документацию можно самому
+**And write down definitions before comparing numbers.** Two correct answers to slightly different
+questions look like a contradiction right up until someone writes both definitions side by side. In
+this run two sessions did that up front — "rule" meant *grammar topic × level* for one session and
+*concept ID* for the other — and a pointless dispute never happened.
 
-**Требование владельца, 2026-08-29:** *самоисправление неточности допускается, если проблема
-проверена; самоулучшение — если оно проверено и надёжно. Если надёжно — это даже хорошо.*
+### 5.3. Handing Off a Measurement to Another Session
 
-**Документация — рабочий инструмент, а не памятник.** Её пишут те же сессии, что и код, и ошибается
-она так же. **Молча обойти неточность хуже, чем поправить:** обойдёт ещё десять человек, и каждый
-потратит своё время заново.
+* **State AGAINST WHICH STATE the measurement was taken** — branch and commit hash, never "today." We
+  work across nine working trees; a measurement taken in your own tree is easy to mistake for the
+  state of `main`. That is how 104 turned out to be 66: the difference had already been fixed on
+  another branch.
+* **Never run someone else's probe script without checking its root path.** A script with a hardcoded
+  absolute path will cheerfully print numbers **from someone else's working tree**. One session
+  nearly concluded that its fix had zero effect because the probe was reading the neighbor's tree.
+* **Always pass the probe's blind spots along with the number.** Where a probe is structurally blind,
+  its silence is not proof — and a bare "74" without the words "lower bound" will be read a month
+  later as "defect closed."
 
-| | что это | порог |
+### 5.4. Findings and Deviations
+
+* **Send any finding that alters someone else's work immediately** — your neighbor may be wasting
+  hours on obsolete assumptions right now.
+* **Deviating from an instruction is permissible when the underlying facts have changed** — but state
+  it **immediately and explicitly**, never after the fact. The Team Lead writes task prompts against
+  the state of the world at the moment of writing.
+* **Refuting a number that someone else's decision rests on is core work, not picking a fight.** If a
+  Team Lead decision stands on your measurement and that measurement turns out to be wrong, speak up
+  first — otherwise the decision remains standing on thin air.
+* **Anything contested that touches two territories is never decided unilaterally. Silence from the
+  Team Lead is not consent.**
+
+### 5.5. When Two Sessions Want the Same Work
+
+The Team Lead arbitrates, and arbitrates **by craft fit, not by status**: strings go to whoever has a
+proven linguistic workflow; gates go to whoever owns the verification surface. File territories must
+remain strictly non-overlapping.
+
+---
+
+## 6. Proposing Improvements to How the Team Works
+
+**Owner's requirement, 2026-08-29:** "participants may propose improvements to their own work — task
+specs, instructions, and behavior. The goal is a high-quality team and, whenever possible, improving
+the team, its behavior, its work, and how members work together."
+
+This is **every participant's right and expected duty**, not a privilege reserved for leads. The
+reason is simple: **the session executing a role knows more about its friction points than whoever
+wrote the role description.** In a single run this proved itself three times: the Analyst noticed
+that the defect-shape table read like a mechanical checklist and was therefore useless for discovery —
+the wording was fixed within the hour; an Executor proposed a structured doubt-list format that
+immediately uncovered a bug by the sheer act of filling it out; another Executor deviated from the
+Team Lead's prompt because the underlying counts had shifted — and was completely right.
+
+**What you can propose changing:**
+
+* **your own task spec** — if the task is framed around the wrong object of measurement. Both an
+  unreproducible baseline number and an unconfirmed Team Lead assumption are reasons to rewrite the
+  task spec rather than blindly execute it;
+* **your role's instructions** — if a rule gets in the way or stays silent where it should speak;
+* **team behavior and collaboration** — how findings are routed between roles, where bottlenecks form,
+  what work is being duplicated;
+* **a new role**, if a recurring problem is not covered by any existing role — send the proposal to
+  the Team Lead, who creates it via procedure P-7. **Test your proposal against the three questions
+  from P-7 first:** is this a distinct kind of proof or just another file territory? Does it recur
+  across runs or did it happen once? Does it have its own verification instrument — or would it just
+  summarize other roles' reports?
+
+**How to propose:** send it to the Team Lead with the exact same rigor required for a technical
+finding — **how it was measured or which concrete incident produced it**. "It would be more
+convenient" is not a proposal; "this rule produced a false red here, and here is why" is.
+
+### 6.1. Fixing Documentation Directly
+
+**Owner's requirement, 2026-08-29:** *self-correction of inaccuracies is permitted when the issue is
+verified; self-improvement of rules is permitted when verified and reliable. When reliable, it is
+actively encouraged.*
+
+**Documentation is a working tool, not a monument.** It is written by the same sessions that write
+code, and it fails in the same ways. **Silently stepping around an inaccuracy is worse than fixing
+it:** ten more sessions will trip over the same spot and pay the same tax all over again.
+
+| | What it covers | Threshold |
 |---|---|---|
-| **самоисправление** | число не воспроизводится · файла или флага нет · битая ссылка · дубль · правило противоречит соседнему · пример снят | правишь **сам и сразу**, тимлиду — строкой в ближайшем докладе |
-| **самоулучшение** | новое или изменённое правило | **проверено и выведено из случая**; тимлиду — **до записи или одновременно** |
+| **self-correction** | a number does not reproduce · a file or flag no longer exists · broken link · duplicate entry · a rule contradicts its neighbor · an example was retired | fix it **yourself and immediately**; notify the Team Lead with a one-liner in your next update |
+| **self-improvement** | a new or modified rule | **verified and derived from a concrete incident**; notify the Team Lead **before or as you write it** |
 
-**И сразу мера:** это **заметка на полях, а не работа**. Правится то, обо что споткнулся по дороге к
-своей задаче, — не то, что нашёл, пойдя искать. Смена не открывается ревизией документации, и
-десять правок за смену означают, что подменена работа. Ревизия — отдельное дело, её **заказывают**
-(`PROCEDURES.md` О-13).
+**And keep the proportion clear:** this is **a margin note made in passing, not your main job**. Fix
+what you tripped over on the way to your assigned task — do not go hunting for documentation edits. A
+shift never starts with a documentation audit, and ten doc edits in a single shift mean you have
+substituted documentation tinkering for real work. A full audit is a separate task that must be
+**explicitly commissioned** (`PROCEDURES.md` GP-13).
 
-**Четыре обязательных шага и границы — [`PROCEDURES.md`](./PROCEDURES.md) О-13.** Коротко: назови
-случай · прежнюю редакцию помечай **рядом**, а не стирай · поставь дату · скажи тимлиду.
+**Four mandatory steps and boundaries — [`PROCEDURES.md`](./PROCEDURES.md) GP-13.** In short: name
+the incident · mark the old wording **inline** rather than erasing it · date the change · tell the
+Team Lead.
 
-**Чего не правишь сам:** решения владельца · правило, которое ограничивает **именно тебя** (ты
-сторона — предлагай, но правь чужими руками) · чужую память · границы чужой роли.
+**What you never edit yourself:** owner decisions · a rule that constrains **you personally** (you
+are an interested party — propose the change, let someone else make the edit) · another role's memory ·
+another role's territory boundaries.
 
-**Это уже работает, и потому записано.** За одну смену в документах команды нашли четыре ошибки —
-две из них в документе, который писал тимлид, и обе нашли те, кого он этим документом инструктировал.
-Ещё две формулировки участники **отменили у самих себя**, когда случай, на котором они стояли,
-оказался неверным.
+**This already works in practice, which is why it is codified here.** In a single shift, team members
+caught four errors in the team documentation — two of them inside the document written by the Team
+Lead, spotted by the very sessions instructed to follow it. Two more proposed wordings were
+**retracted by their own authors** once the incident they rested on turned out to be a false alarm.
 
-**Отклонение от указания допустимо**, если обстоятельство под ним изменилось, — но **говорится
-сразу и прямо, а не задним числом**. Тимлид пишет задания по состоянию на момент написания;
-состояние меняется быстрее, чем он успевает переписать.
+**Deviating from an instruction is permissible** when the underlying facts have changed — provided
+you **state it immediately and directly, never after the fact**. The Team Lead writes task prompts
+against the world as it stood when the prompt was drafted; reality shifts faster than prompts get
+rewritten.
 
-**Тимлид обязан принятое предложение записать в документ в тот же день.** Приём, оставшийся в
-переписке, умирает вместе с сессией.
-
----
-
-## 7. Работа переживает обрыв
-
-Сессии умирают: перезагрузка, кончившийся диск, зависание. За сутки 2026-08-28 это случилось
-трижды и убило девятнадцать сессий суммарно. Правила ниже написаны по следам.
-
-1. **`STATE.md` захода обновляется на каждой вехе.** Там написано, кто что делает, где это лежит и
-   что дальше. Он и есть точка восстановления.
-2. **Решение — в журнал сразу, с «почему».** Поправка пишется **рядом** с решением, а не вместо
-   него: одна сессия процитировала отменённую редакцию, потому что поправка жила только в сообщении
-   коммита.
-3. **`git log` отвечает на вопрос «что сведено» и не отвечает на «что сделано».** На второй
-   отвечают `git status` во всех деревьях и `mtime`. Смена может быть мертва по коммитам и жива по
-   файлам: последний коммит в 22:36, правки файлов до 23:54, восемнадцать файлов работы, которой по
-   `git log` не существует.
-4. **Незакоммиченная правка считается непроверенной, пока не найден прогон, который её проверил.**
-   Не «выглядит законченной», а «есть запись, что её гоняли». И «проверить» значит **сверить её
-   собственные числа с замером**, а не убедиться, что она компилируется.
-5. **Тяжёлые операции не запускаются одновременно.** `pnpm install`, сборка Gradle, эмулятор — у
-   каждого дерева свой `node_modules` и `android/build` на одном разделе. Именно это и уронило
-   систему.
-6. **Восстановление ничего не удаляет и не откатывает.** Незнакомая правка — чужая работа, а не
-   мусор. Цена ошибки несимметрична: принять живую работу за мусор необратимо, принять мусор за
-   работу стоит получаса чтения.
+**The Team Lead must record every accepted proposal in the documentation the same day.** A technique
+left in chat dies with the session.
 
 ---
 
-## 8. Документация команды поддерживается, а не пишется один раз
+## 7. Work Survives Disconnects
 
-**Требование владельца, 2026-08-29:** «если из того, что я сказал по команде, будет что-то — нужно
-фиксировать и вносить изменения в документацию по команде, улучшать, менять, фиксировать, что
-устарело, а что новое и полезное».
+Sessions die: reboots, full disks, hangs. On 2026-08-28 alone this happened three times, killing
+nineteen sessions in total. The rules below were written in the aftermath.
 
-**Отвечает тимлид, но пишут все** (§7). Три правила:
+1. **The run's `STATE.md` is updated at every milestone.** It records who is doing what, where their
+   work lives, and what comes next. It is the primary recovery checkpoint.
+2. **Every decision goes into the log immediately, with its "why."** Amendments are written **next
+   to** the original decision, never overwriting it: one session cited a repealed rule because the
+   repeal lived only inside a commit message.
+3. **`git log` answers "what was merged," not "what was done."** The second question is answered by
+   `git status` across all working trees plus file `mtime`. A shift can look dead in commits and very
+   much alive in files: last commit at 22:36, file edits continuing until 23:54 — eighteen modified
+   files of real work that do not exist according to `git log`.
+4. **Uncommitted changes are treated as unverified until you find the test run that verified them.**
+   Not "the code looks finished," but "there is a log proving it was run." And "verified" means
+   **checking its numbers against an actual measurement**, not merely confirming that it compiles.
+5. **Never run heavy operations concurrently.** `pnpm install`, Gradle builds, the Android emulator —
+   each working tree has its own `node_modules` and `android/build` on the same disk partition.
+   Running them in parallel is what brought the machine down.
+6. **Crash recovery never deletes or reverts unfamiliar changes.** An unfamiliar diff is a teammate's
+   unmerged work, not trash. The cost of error is asymmetric: mistaking live work for trash is
+   irreversible; mistaking trash for live work costs thirty minutes of reading.
 
-1. **Записывается в тот же день.** Приём, оставшийся в переписке, умирает вместе с сессией. Правило,
-   которое «занесём потом», не заносится.
-2. **Устаревшее помечается, а не стирается.** Поправка пишется **рядом** с прежней редакцией: одна
-   сессия процитировала отменённое решение, потому что поправка жила только в сообщении коммита. У
-   каждого утверждения с числом — дата замера.
-3. **Правило без случая — не правило.** Всё, что здесь стоит, выведено из инцидента и называет его.
-   Формулировка «так лучше» без случая не вносится: её нечем будет проверить и нечем отменить.
+---
 
-**Что считать устаревшим:** правило, которое дважды помешало и ни разу не помогло; число, которое
-перестало воспроизводиться; роль, которую не поднимали два захода подряд. Всё это — повод
-пересмотреть, а не молча обойти.
+## 8. Team Documentation Is Maintained Continuously, Not Written Once
 
-**Где что живёт, чтобы не дублировать:**
+**Owner's requirement, 2026-08-29:** "whenever anything comes up from what I said about the team —
+record it and update the team documentation: improve it, revise it, and mark what is obsolete vs.
+what is new and useful."
 
-| Что | Куда |
+**The Team Lead is accountable, but everyone contributes** (§6). Three rules:
+
+1. **Recorded the same day.** A technique left in chat dies with the session. A rule we promise to
+   "write down later" never gets written down.
+2. **Superseded text is marked, never silently erased.** Write the amendment **next to** the prior
+   wording: one session cited a repealed decision because the repeal lived only in a commit message.
+   Every statement citing a number must carry the date of measurement.
+3. **A rule without an incident is not a rule.** Everything written here comes from a real operational
+   incident and names it. "This is best practice" without a concrete case does not get added: there
+   would be no way to verify whether it works and no way to know when to repeal it.
+
+**What counts as obsolete:** a rule that got in the way twice and never helped once; a baseline
+number that no longer reproduces; a role that was not spun up for two consecutive runs. All three are
+reasons to revise the document explicitly, never to silently ignore it.
+
+**Where things live so we do not duplicate them:**
+
+| What | Where it belongs |
 |---|---|
-| роли, границы, ритм | документ роли |
-| общее для всех: вход, связь, обрыв | этот файл |
-| закономерности и приёмы, переживающие заход | [`PLAYBOOK.md`](./PLAYBOOK.md) |
-| где учиться | [`SOURCES.md`](./SOURCES.md) |
-| решения одного захода с основаниями | журнал захода |
+| role purpose, boundaries, cadence | the role's own document |
+| shared across all roles: onboarding, communication, crash recovery | this file |
+| recurring patterns and techniques that outlive a single run | [`PLAYBOOK.md`](./PLAYBOOK.md) |
+| where to study external standards | [`SOURCES.md`](./SOURCES.md) |
+| single-run decisions and their rationale | the run's decision log |
 
 ---
 
-## 9. Признаки, что команда собрана неправильно
+## 9. Signs That the Team Is Assembled Wrong
 
-* тимлид взял себе задачу из карты партий;
-* тимлид отвечает «да, делай» вместо разбора — значит, сессий больше, чем он ведёт;
-* у сессии две разные проверки — вторую она делает формально;
-* аналитик что-то починил;
-* приёмки на устройстве нет, а заход объявлен закрытым;
-* отчёты появились в конце, а не по ходу;
-* владельцу задали семь вопросов из семи разных отчётов.
+* the Team Lead picked up an execution slice from the task board;
+* the Team Lead replies "yes, go ahead" instead of examining the numbers — meaning there are more
+  active sessions than the Team Lead can steer;
+* a single session was given two different kinds of verification — it is doing the second one
+  perfunctorily;
+* the Analyst fixed code;
+* there is no on-device acceptance report, yet the run is declared complete;
+* reports appeared at the very end of the shift instead of being written incrementally;
+* the owner was asked seven separate questions scattered across seven separate reports.
 
 ---
 
-## Приложение. Сверка: что владелец сказал про команду и где это записано
+## Appendix. Traceability Matrix: What the Owner Required for the Team and Where It Is Recorded
 
-**Составлено 2026-08-29 ревизией всей документации команды.** Таблица существует для одного:
-**проверить, что ни одно требование не потерялось**, и чтобы следующий тимлид мог убедиться в этом
-за минуту, а не перечитывая переписку.
+**Compiled on 2026-08-29 during a full audit of the team documentation.** This table exists for a
+single purpose: **to verify that not a single owner requirement was dropped**, and so the next Team
+Lead can confirm this in one minute instead of re-reading old chat logs.
 
-| | требование владельца | где исполнено |
+| # | Owner requirement | Where it is implemented |
 |---|---|---|
-| 1 | тимлид и главный инженер ведёт параллельные сессии, отвечает на вопросы, качество главное | [`LEAD.md`](./roles/LEAD.md), [`LEAD-PROCEDURES.md`](./roles/LEAD-PROCEDURES.md) |
-| 2 | сессия-аналитик: ищет, перепроверяет, изучает, что улучшить; **не с кодом**; ничего не ломать и идею не менять | [`ANALYST.md`](./roles/ANALYST.md) §2–§3 |
-| 3 | «аналитик только сканирует, изучает и общается, код не пишет» | `ANALYST.md` §2, абзац «не пишет в проект кода вообще» |
-| 4 | все сессии общаются между собой | §5 этого файла, [`PROCEDURES.md`](./PROCEDURES.md) О-4 |
-| 5 | тимлид говорит, сколько сессий поднять | `LEAD.md` §3.1, `LEAD-PROCEDURES.md` П-2 |
-| 6 | участники предлагают улучшения своей работы (ТЗ, инструкции, поведение) | §6 этого файла, `PROCEDURES.md` О-10 |
-| 7 | дизайнер: UI/UX, документирует, **изменений и редизайна не делает**; официальные источники; **не копировать другие приложения**; палитра | [`DESIGNER.md`](./roles/DESIGNER.md) §2–§3 |
-| 8 | дизайнер учитывает **поведение и анимацию** | `DESIGNER.md` §3.3 |
-| 9 | работа дизайнера **непрерывна**, но находки не выдумывать; результат качественный | `DESIGNER.md` §7 |
-| 10 | тимлид **улучшает команду** | `LEAD.md` §4 |
-| 11 | список ролей открыт: инженеров можно добавлять под системные проблемы; не все поднимаются каждый раз | `LEAD.md` §3.3, `LEAD-PROCEDURES.md` П-7 |
-| 12 | тимлид **сам говорит**, когда сессию добавить или закрыть | `LEAD.md` §3.2, `LEAD-PROCEDURES.md` П-10 |
-| 13 | архитектор: только своё направление, **мобильное и веб** | [`ARCHITECT.md`](./roles/ARCHITECT.md) |
-| 14 | участники сообщают о качественных источниках; новая сессия сразу знает, где учиться | [`SOURCES.md`](./SOURCES.md), `PROCEDURES.md` О-11 |
-| 15 | это ко всем; накапливать **«опыт»** для ориентации | [`PLAYBOOK.md`](./PLAYBOOK.md) |
-| 16 | тестировщик | [`TESTER.md`](./roles/TESTER.md) |
-| 17 | специалист по безопасности | [`SECURITY.md`](./roles/SECURITY.md) |
-| 18 | память по ролям: **проект отдельно, ремесло отдельно**; не код; структура; устаревшее помечать | `memory/README.md` §1, §3, §4 |
-| 19 | опыт решений: что оказалось верным или нет; **только сложное, важное, нестандартное** | `memory/README.md` §3а, `memory/<роль>/decisions.md` |
-| 20 | папка находок, вопросов, планов; тимлид изучает при входе; учёт кем и когда; статусы; **чистить** | `board/` |
-| 21 | базовый файл: есть задачи или нет; приоритет; всё закрыто — сказать; **отчёт по планам, не по задачам** | `board/00-START.md`, `board/README.md` §2 |
-| 22 | алгоритм без пропусков | `board/README.md` §2.1–2.3 |
-| 23 | инструкции тимлиду на разные ситуации, включая **как завести нового участника** и что менять в документации | `LEAD-PROCEDURES.md` П-7 и П-8 |
-| 24 | инструкции для всех участников, часть общая | [`PROCEDURES.md`](./PROCEDURES.md) |
-| 25 | **тимлиду не запрещено учиться** | `LEAD-PROCEDURES.md` П-15 |
-| 26 | улучшать взаимоработу и правила общения | §5 этого файла |
-| 27 | фиксировать изменения в документации команды; устаревшее менять или удалять | §8 этого файла, `LEAD-PROCEDURES.md` П-8 |
-| 28 | **зафиксировать, чтобы не напоминать каждый раз** | преамбула этого файла |
+| 1 | Team Lead and Chief Engineer steers parallel sessions, answers questions, quality comes first | [`LEAD.md`](./roles/LEAD.md), [`LEAD-PROCEDURES.md`](./roles/LEAD-PROCEDURES.md) |
+| 2 | Analyst session: hunts for issues, re-verifies, studies what to improve; **never touches code**; break nothing and do not alter the core concept | [`ANALYST.md`](./roles/ANALYST.md) §2–§3 |
+| 3 | "the Analyst only scans, studies, and communicates — writes no code" | `ANALYST.md` §2, paragraph "writes zero code in the project" |
+| 4 | all sessions communicate with one another | §5 of this file, [`PROCEDURES.md`](./PROCEDURES.md) GP-4 |
+| 5 | Team Lead states how many sessions to spin up | `LEAD.md` §3.1, `LEAD-PROCEDURES.md` P-2 |
+| 6 | participants propose improvements to their own work (task specs, instructions, behavior) | §6 of this file, `PROCEDURES.md` GP-10 |
+| 7 | Designer: UI/UX, documents findings, **makes no code changes and initiates no redesign**; uses official sources; **never copy other apps**; palette discipline | [`DESIGNER.md`](./roles/DESIGNER.md) §2–§3 |
+| 8 | Designer accounts for **behavior and animation** | `DESIGNER.md` §3.3 |
+| 9 | Designer's work is **continuous**, but never invent artificial findings; quality over quantity | `DESIGNER.md` §7 |
+| 10 | Team Lead **continuously improves the team** | `LEAD.md` §4 |
+| 11 | role list is open: engineers can be added for systemic problems; not every role spins up every time | `LEAD.md` §3.3, `LEAD-PROCEDURES.md` P-7 |
+| 12 | Team Lead **proactively states** when to add or close a session | `LEAD.md` §3.2, `LEAD-PROCEDURES.md` P-10 |
+| 13 | Architect: strictly its own domain, **mobile and web** | [`ARCHITECT.md`](./roles/ARCHITECT.md) |
+| 14 | participants share high-quality sources; a new session immediately knows where to learn | [`SOURCES.md`](./SOURCES.md), `PROCEDURES.md` GP-11 |
+| 15 | applies to everyone; accumulate **"experience"** for orientation | [`PLAYBOOK.md`](./PLAYBOOK.md) |
+| 16 | Tester role | [`TESTER.md`](./roles/TESTER.md) |
+| 17 | Security role | [`SECURITY.md`](./roles/SECURITY.md) |
+| 18 | role-specific memory: **project separated from craft**; no code dumps; structured; mark obsolete entries | `memory/README.md` §1, §3, §4 |
+| 19 | decision experience: what proved right or wrong; **only complex, important, non-obvious decisions** | `memory/README.md` §3a, `memory/<role>/decisions.md` |
+| 20 | board folder for findings, questions, plans; Team Lead reviews on entry; track who/when; statuses; **keep clean** | `board/` |
+| 21 | entry-point file: whether open tasks exist; priority; if all closed, say so; **report by plans, not by raw tasks** | `board/00-START.md`, `board/README.md` §2 |
+| 22 | zero-gap execution algorithm | `board/README.md` §2.1–2.3 |
+| 23 | step-by-step Team Lead instructions across situations, including **how to onboard a new role** and what documentation to update | `LEAD-PROCEDURES.md` P-7 and P-8 |
+| 24 | instructions for all participants, with a shared common core | [`PROCEDURES.md`](./PROCEDURES.md) |
+| 25 | **the Team Lead is encouraged to study and learn too** | `LEAD-PROCEDURES.md` P-15 |
+| 26 | improve collaboration and communication rules | §5 of this file |
+| 27 | record changes in team documentation; revise or retire obsolete rules | §8 of this file, `LEAD-PROCEDURES.md` P-8 |
+| 28 | **codify everything so the owner never has to repeat it** | preamble of this file |
 
-**Как пользоваться таблицей.** Появилось новое требование — оно попадает сюда **строкой** и в тот
-документ, которому принадлежит. Строка без ссылки означает, что требование записано **только здесь**,
-то есть исполнено наполовину: таблица — указатель, а не место хранения.
+**How to use this table.** Whenever a new owner requirement arrives, add it **as a row here** AND
+write it into the document where it belongs. A row without a target link means the requirement was
+recorded **only in this table** — which means it is only half-implemented: this table is an index,
+not the storage location.
