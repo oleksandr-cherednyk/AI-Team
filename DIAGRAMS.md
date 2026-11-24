@@ -1,554 +1,370 @@
-# Diagrams — Sequences, Branches, and Relationships
+# Diagrams — Sequences, Decision Trees & Knowledge Flows
 
-**A diagram is created only where the subject is a sequence or a branch.** A list of roles belongs in
-a table, not a diagram; the choice "my decision or the Owner's" belongs in a decision tree, because
-in prose it takes a paragraph to read, whereas as a tree it takes three seconds.
-
-**A diagram is the source of truth, not a copy.** For whatever it depicts, it is authoritative; the
-adjacent text merely explains it. Two truths go stale independently, and one of them starts lying
-more confidently than the other.
-
-**Maintenance rule.** Every diagram states **what it consolidates** and **when it was last
-verified**. If you edit that source document, you open the corresponding diagram. This requirement is
-recorded in three places, and all three are mandatory: **P-8 step 5** ("verify backlinks") · **P-7
-step 3**, where diagrams appear as a dedicated row in the "where to register a role" table ·
-**P-12-bis check 4**, where the end-of-shift checklist asks whether a new workflow shape emerged that
-is missing from the diagrams. **Diagrams rot faster than prose** because fixing a line of text is
-easy, whereas redrawing a tree takes effort.
-
-> **Previous wording (prior to 2026-09-03):** "this is recorded as a dedicated step in procedure P-8
-> 'update documentation'". There was no dedicated step about diagrams in P-8 — the rule pointed to a
-> procedure where no such step existed, so by the letter of the law, diagrams were never updated.
-> Case: the 2026-09-03 audit found two stale numbers in D-1 within this very file, and the
-> maintenance rule caught neither of them.
+**Create a diagram only for branching decisions or multi-step sequences** (rosters belong in tables). Each diagram is authoritative for the flow it depicts and states what it consolidates. Whenever a source procedure changes, update its diagram in the same commit (`P-8`, `P-12-bis`).
 
 ---
 
-## D-1. Document Map: What Is Read from Where
+## D-1. Entry & Document Map (Lite Mode vs. Full Fleet Mode)
 
-*Consolidates: `TEAM.md` §1. Last verified: 2026-08-29.*
+*Consolidates: `README.md`, `TEAM.md` §1–§2.*
 
+```text
+                       New or Small Repo?
+                               │
+                 ┌─────────────┴─────────────┐
+                 ▼ YES (Lite Mode)           ▼ NO (Full Fleet Mode)
+      ┌───────────────────────┐   ┌───────────────────────────────┐
+      │ 1. AGENTS.md          │   │ 1. board/00-START.md          │  Is there open work?
+      │ 2. PROJECT.md         │   └───────────────┬───────────────┘
+      │ 3. 1 Agent + 1        │                   ▼
+      │    Read-Only Reviewer │   ┌───────────────────────────────┐
+      └───────────────────────┘   │ 2. PROJECT.md                 │  Profile, commands, rules
+                                  └───────────────┬───────────────┘
+                                                  ▼
+                                  ┌───────────────────────────────┐
+                                  │ 3. PLAYBOOK.md (once)         │  Defect shapes & probe traps
+                                  └───────────────┬───────────────┘
+                                                  ▼
+                                  ┌───────────────────────────────┐
+                                  │ 4. TEAM.md                    │  Roster, comms, recovery
+                                  └───────────────┬───────────────┘
+                                                  ▼
+                 ┌────────────────┬───────────────┴──────┬──────────────────┐
+                 ▼                ▼                      ▼                  ▼
+          ┌────────────┐   ┌─────────────┐       ┌──────────────┐   ┌─────────────┐
+          │ roles/<me> │   │ PROCEDURES  │       │ memory/<me>/ │   │ SOURCES.md  │
+          │ in full    │   │ on demand   │       │ project ·    │   │ on demand   │
+          │            │   │ (GP-1..13)  │       │ craft ·      │   │             │
+          └─────┬──────┘   └─────────────┘       │ decisions    │   └─────────────┘
+                │ Team Lead only                 └──────────────┘
+                ▼
+         ┌──────────────────────┐
+         │ roles/LEAD-PROCEDURES│
+         │ (P-0..P-16 + FM)     │
+         └──────────────────────┘
 ```
-                       ┌─────────────────────────────┐
-   ALWAYS FIRST ──────►│  board/00-START.md          │  Is there open work?
-                       │  "✅ none" or P0/P1/P2/P3   │  10 seconds
-                       └──────────────┬──────────────┘
-                                      │ work exists
-                                      ▼
-                       ┌─────────────────────────────┐
-   ONCE ──────────────►│  PLAYBOOK.md                │  How we think here:
-   upon entry          │  defect shapes · how our    │  10 minutes
-                       │  own probes lie             │
-                       └──────────────┬──────────────┘
-                                      ▼
-                       ┌─────────────────────────────┐
-                       │  TEAM.md                    │  Who is who, comms, recovery
-                       └──────────────┬──────────────┘
-                                      ▼
-        ┌───────────────┬─────────────┴───────┬──────────────────┐
-        ▼               ▼                     ▼                  ▼
- ┌────────────┐  ┌─────────────┐     ┌───────────────┐   ┌──────────────┐
- │ roles/<me> │  │ PROCEDURES  │     │ memory/<me>/  │   │ PROJECT.md   │
- │ what & why │  │ how, step   │     │ what I        │   │ gates, rules,│
- │            │  │ by step,    │     │ already know: │   │ territories  │
- │ read in    │  │ when a      │     │ project ·     │   │ — THE SINGLE │
- │ full before│  │ situation   │     │ craft ·       │   │ project-wide │
- │ 1st action │  │ arises      │     │ decisions     │   │ source       │
- └────────────┘  └─────────────┘     └───────────────┘   └──────────────┘
-        │                                                        ▲
-        │ Team Lead additionally                                 │
-        ▼                                                 come here for
- ┌──────────────────────┐        ┌─────────────┐          "how does it
- │ roles/LEAD-PROCEDURES│        │ SOURCES.md  │◄── as needed, work here?"
- │ 19 situations        │        │ where to    │    your section
- └──────────────────────┘        │ learn       │
-                                 └─────────────┘
-```
 
-**Read top to bottom exactly once.** After that, open files on demand: a procedure when a situation
-arises, the board by the relevant line, and sources when an external answer is needed.
-
-**For the Team Lead — not the very first step.** This map answers "what is read from where", not
-"how to start a shift": the Team Lead's first hour is **executed**, and the order is reversed — run
-the suite first, then read (P-1, Part A). Entering a shift by following this diagram would bring the
-Team Lead to the commands with pre-formed expectations, priming them to confirm those expectations.
-
-> **Verified 2026-09-03:** "15 situations" updated to 19. The table of contents in
-> `LEAD-PROCEDURES.md` lists P-0…P-15, while the file body also includes P-3-bis, P-12-bis, and
-> P-16 (with P-16 missing from the table of contents). The number in the diagram lagged by four while
-> looking authoritative — the exact reason a stale diagram is more dangerous than stale prose.
+> **Team Lead exception (`P-1`):** Run live verification checks and worktree status **before** reading documents so stale prose never biases measurements.
 
 ---
 
-## D-2. Lifecycle of a Finding: From Observation to Closure
+## D-2. Lifecycle of a Finding
 
-*Consolidates: `PROCEDURES.md` GP-3, GP-4, GP-9. Last verified: 2026-08-29.*
+*Consolidates: `PROCEDURES.md` GP-3, GP-4, GP-9.*
 
-```
+```text
    observation
        │
        ▼
   ┌─────────────────────────┐   no    ┌──────────────────────────────┐
-  │ Is this code reachable  ├────────►│ NOT A DEFECT. Record in the  │
-  │ by a live scenario?     │         │ same detail as a finding     │
+  │ Reachable in a live     ├────────►│ NOT A DEFECT — record why in │
+  │ scenario?               │         │ report ("Verified — Clean")  │
   └───────────┬─────────────┘         └──────────────────────────────┘
               │ yes
               ▼
   ┌─────────────────────────┐   no    ┌──────────────────────────────┐
-  │ Did you read THE ACTUAL ├────────►│ Read them. A false finding   │
-  │ CASES, not just a count?│         │ is worse than a missed one   │
+  │ Read actual records,    ├────────►│ Inspect real records first;  │
+  │ not just summary count? │         │ false findings waste hours   │
   └───────────┬─────────────┘         └──────────────────────────────┘
               │ yes
               ▼
   ┌─────────────────────────┐
-  │ Round # → check probe   │   "348 of 348" — almost always a probe bug
-  │ Huge #  → check meaning │   "3015 of 4094" — almost always the wrong question
+  │ Round # → check probe   │   0 of N / N of N → likely broken probe
+  │ Huge #  → check metric  │   >70% flagged → likely wrong question
   └───────────┬─────────────┘
               ▼
   ┌─────────────────────────┐  mine   ┌──────────────────────────────┐
-  │ Whose territory?        ├────────►│ Fix it myself; measure first │
+  │ Whose territory?        ├────────►│ Measure first → fix → prove  │
   └───────────┬─────────────┘         └──────────────┬───────────────┘
               │ someone else's                       │
               ▼                                      │
   ┌─────────────────────────────────────┐            │
-  │ ASK the territory owner             │            │
-  │ before calling it a defect          │            │
-  │ (half are resolved by one question) │            │
+  │ Ask territory owner directly first  │            │
+  │ (align definitions before filing)   │            │
   └───────────┬─────────────────────────┘            │
               │ confirmed                            │
               ▼                                      │
   ┌─────────────────────────────────────┐            │
-  │ Hand over: MEASUREMENT, not theory  │            │
-  │ + probe boundaries ("74 — lower")   │            │
+  │ Hand over: MEASUREMENT + probe      │            │
+  │ blind spots (separate from theory)  │            │
   └───────────┬─────────────────────────┘            │
               ▼                                      ▼
   ┌───────────────────────────────────────────────────────────┐
-  │ board/OPEN.md — card: what · how proven · what it means   │
-  │ · next step · PLAN · dated priority                       │
+  │ board/OPEN.md — 4 parts: what · proof · impact · next step│
   └───────────┬───────────────────────────────────────────────┘
               ▼
        ┌──────────────┐  changes user-     ┌────────────────────┐
-       │ Who decides? ├───────────────────►│ awaiting Owner     │
-       └──────┬───────┘  visible behavior  │ (into ONE list)    │
+       │ Who decides? ├───────────────────►│ waiting on owner   │
+       └──────┬───────┘  visible promise   │ (one batched list) │
               │ preserves status quo       └────────────────────┘
               ▼
        ┌──────────────┐        ┌──────────────────────────────┐
-       │ in progress  ├───────►│ done → DONE.md               │
+       │ in progress  ├───────►│ done → board/DONE.md         │
        └──────┬───────┘        │ (pruned after 2 cycles)      │
               │                └──────────────────────────────┘
-              │ finding turns out to be wrong
+              │ disproven later
               ▼
        ┌──────────────────────────────────────────────────────┐
-       │ RETRACTION — just as immediately as a finding.       │
-       │ Notify everyone who received it. Separate what is    │
-       │ retracted from what still holds. Shape → decisions.md│
+       │ RETRACTION — send immediately to all recipients.     │
+       │ Separate retracted cause from valid raw data; log    │
+       │ error shape in memory/<role>/decisions.md.           │
        └──────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## D-3. Decision Tree: My Decision or the Owner's
+## D-3. Decision Tree: Team Lead vs. Owner
 
-*Consolidates: `roles/LEAD-PROCEDURES.md` P-4. Last verified: 2026-08-29.*
+*Consolidates: `roles/LEAD-PROCEDURES.md` P-4, P-11.*
 
-```
+```text
                         Is a decision needed?
-                              │
-              ┌───────────────┴───────────────┐
-              ▼                               ▼
-   Changes what the user               Preserves the status quo
-   sees or experiences?                       │
-              │                               ▼
-      ┌───────┴────────┐              ┌────────────────────┐
-      ▼                ▼              │ MINE.              │
-     YES              NO              │ Record the grounds │
-      │                │              │ — without a "why", │
-      │                └──────────────► the decision is    │
-      ▼                                 invalid            │
- ┌─────────────────┐                  └────────────────────┘
- │ THE OWNER'S     │
- └────────┬────────┘                   Three classes, always the Owner's:
-          │                            ──────────────────────────────────
-          ▼                            1. What the product PROMISES
- ┌────────────────────────────┐           (scope, volume, answer grading)
- │ The question must carry:   │        2. ALREADY DECIDED by the Owner
- │ · numbers with measurement │           (discrepancy → show measurement,
- │   dates                    │            never overrule)
- │ · what changes for the user│        3. IRREVERSIBLE actions
- │ · options, including       │           (deletion, renaming keys)
- │   "leave as is"            │
- │ · caveats without which    │        Material rules ARE NOT SUBJECT
- │   the question misleads    │        to mandate — they outrank the
- └────────┬───────────────────┘        Team Lead's authority.
+                               │
+               ┌───────────────┴───────────────┐
+               ▼                               ▼
+    Changes what the user               Preserves user-visible
+    sees or is promised?                status quo?
+               │                               │
+       ┌───────┴────────┐                      ▼
+       ▼                ▼              ┌────────────────────┐
+      YES              NO ────────────►│ TEAM LEAD DECIDES  │
+       │                               │ Record rationale — │
+       ▼                               │ without "why", it  │
+  ┌─────────────────┐                  │ is invalid.        │
+  │ OWNER DECIDES   │                  └────────────────────┘
+  └────────┬────────┘
+           │                            Always Owner's (3 classes):
+           ▼                            ───────────────────────────
+  ┌────────────────────────────┐        1. Product promises (scope,
+  │ Plain-language question:   │           visible UX, domain rules)
+  │ · dated live numbers       │        2. Prior Owner decisions
+  │ · what changes for user    │           (show measurement, never
+  │ · options + "leave as is"  │            silently overrule)
+  │ · costs + recommendation   │        3. Irreversible actions
+  └────────┬───────────────────┘           (data deletion, key renames)
+           ▼
+    Consolidate into ONE list           Project domain rules (PROJECT.md §4)
+    and ask Owner all at once           override Team Lead authority.
+```
+
+---
+
+## D-4. Decision Tree: Red in a Verification Run
+
+*Consolidates: `PROCEDURES.md` GP-5, `roles/LEAD-PROCEDURES.md` P-6.*
+
+```text
+                            check run is red
+                                   │
+                                   ▼
+                        ┌──────────────────────┐
+                        │ RE-RUN IT            │  Single run in shared
+                        └──────────┬───────────┘  tree proves nothing
+                                   ▼
+                        ┌──────────────────────────────────────┐
+                        │ WHOSE RED? — git status / git diff   │
+                        │ or git stash & test clean HEAD       │
+                        └──────────┬───────────────────────────┘
+                 someone else's ◄──┴───► mine
+                           │              │
+                           ▼              ▼
+                  hand to territory    classify failure (4 types):
+                  owner
+                                  ┌───────────────────────────────────────┐
+                                  │ 1. Code/data violated a rule          │
+                                  │    → fix code/data, keep ceiling      │
+                                  ├───────────────────────────────────────┤
+                                  │ 2. Code/data beat baseline (better)   │
+                                  │    → lower/tighten baseline freely    │
+                                  ├───────────────────────────────────────┤
+                                  │ 3. Derived artifact is stale          │
+                                  │    → run generator (PROJECT.md §5)    │
+                                  ├───────────────────────────────────────┤
+                                  │ 4. Gate itself is defective           │
+                                  │    → fix the gate, never degrade      │
+                                  │      product quality to appease it    │
+                                  └───────────────────────────────────────┘
+
+   Raising a baseline requires recording which underlying data changed.
+   Never leave a red gate sitting "until later" — track open work on board.
+```
+
+---
+
+## D-5. Knowledge Routing: What Lives Where
+
+*Consolidates: `PROCEDURES.md` GP-11, GP-13, `templates/memory/README.md`.*
+
+```text
+                        I discovered something
+                               │
+           ┌───────────────────┼────────────────────┬─────────────────┐
+           ▼                   ▼                    ▼                 ▼
+    Actionable WORK?    Universal PATTERN?   Primary SOURCE?   Non-obvious
+           │                   │                    │          DECISION + outcome?
+           ▼                   ▼                    ▼                 ▼
+   ┌──────────────┐   ┌────────────────┐   ┌──────────────┐  ┌────────────────┐
+   │ board/OPEN   │   │ via Team Lead  │   │ via Team Lead│  │ memory/<me>/   │
+   │ + priority   │   │ → PLAYBOOK.md  │   │ → SOURCES.md │  │ decisions.md   │
+   │ + plan       │   │ (keep 1-line   │   │ (official    │  │ (outcome is    │
+   └──────┬───────┘   │  pointer only) │   │  specs only) │  │  mandatory)    │
+          ▼           └────────────────┘   └──────────────┘  └────────────────┘
+     done → DONE.md            ▲
+    (prune 2 cycles)           │
+    Role-specific knowledge?───┘
           ▼
-   Batch into ONE list,
-   ask all at once
-```
+   ┌──────────────────────────────────────────┐
+   │ memory/<role>/                           │
+   │  project.md — true for THIS project only │
+   │  craft.md   — holds across ALL projects  │
+   └──────────────────────────────────────────┘
 
-**Self-test:** if the Owner cannot choose an option from your question without asking "what did you
-mean by this?", the question is not ready.
-
----
-
-## D-4. Decision Tree: Red in a Test Run
-
-*Consolidates: `PROCEDURES.md` GP-5, `roles/LEAD-PROCEDURES.md` P-6. Last verified: 2026-08-29.*
-
-```
-                            test run is red
-                                  │
-                                  ▼
-                       ┌──────────────────────┐
-                       │ RE-RUN IT            │  A single run in a shared tree
-                       └──────────┬───────────┘  proves nothing
-                                  ▼
-                       ┌──────────────────────────────────────┐
-                       │ WHOSE IS IT? — not "mine looks clean"│
-                       │ but: git stash your edits and        │
-                       │ run on a clean HEAD                  │
-                       └──────────┬───────────────────────────┘
-                someone else's ◄──┴───► mine
-                          │              │
-                          ▼              ▼
-                 hand to territory    classify the KIND — there are four:
-                 owner
-                                 ┌───────────────────────────────────────┐
-                                 │ 1. Material violated a rule           │
-                                 │    → fix the material, do not touch   │
-                                 │      the ceiling                      │
-                                 ├───────────────────────────────────────┤
-                                 │ 2. Material BEAT the baseline (better)│
-                                 │    → LOWER the ratchet baseline freely│
-                                 ├───────────────────────────────────────┤
-                                 │ 3. Artifact not rebuilt               │
-                                 │    → run the generator                │
-                                 ├───────────────────────────────────────┤
-                                 │ 4. Defect in the gate itself          │
-                                 │    → fix THE GATE, do not degrade     │
-                                 │      the material to appease it       │
-                                 └───────────────────────────────────────┘
-
-  Hallmark of the fourth kind — the most important and most frequently missed:
-  ┌──────────────────────────────────────────────────────────────────────┐
-  │ "To make the gate green, we would have to make the material WORSE" — │
-  │ that is a defect in the gate, not in the material.                   │
-  │ Example: a repetition metric rose because one question was split     │
-  │ into four; satisfying the metric meant collapsing them back to one.  │
-  └──────────────────────────────────────────────────────────────────────┘
-
-  Raising a ratchet baseline → mandatory record of WHICH DATA changed.
-  Leaving a gate red "until we get to it" is FORBIDDEN: people stop reading
-  a red gate within a day.
+   Found an inaccuracy in team docs?
+   · Restricts ME personally → propose; another role edits
+   · Owner invariant         → show measurement; never overrule
+   · Verified factual error  → fix in passing · mark old wording · date · inform Lead
 ```
 
 ---
 
-## D-5. Knowledge Routing: What Gets Saved Where
+## D-6. Board Statuses & Single Source of Truth
 
-*Consolidates: `PROCEDURES.md` GP-11, `memory/README.md`. Last verified: 2026-08-29.*
+*Consolidates: `templates/board/README.md` §2 & §4.*
 
-```
-                        I learned something
-                              │
-          ┌───────────────────┼────────────────────┬─────────────────┐
-          ▼                   ▼                    ▼                 ▼
-   Is it WORK?         Is it a PATTERN      Is it a SOURCE?   Is it a DECISION
-   (needs to be done)  useful to EVERYONE?                    and its outcome?
-          │                   │                    │                 │
-          ▼                   ▼                    ▼                 ▼
-  ┌──────────────┐   ┌────────────────┐   ┌──────────────┐  ┌────────────────┐
-  │ board/OPEN   │   │ via Team Lead  │   │ via Team Lead│  │ memory/<me>/   │
-  │ + priority   │   │ → PLAYBOOK.md  │   │ → SOURCES.md │  │ decisions.md   │
-  │ + plan       │   │                │   │ PRIMARY      │  │                │
-  └──────────────┘   │ keep a 1-line  │   │ sources only │  │ HIGH BAR:      │
-          │          │ pointer locally│   └──────────────┘  │ non-obvious ·  │
-          │          │ never duplicate│                     │ WRONG ·        │
-          ▼          └────────────────┘                     │ non-standard · │
-        done                  ▲                             │ changed others'│
-          │                   │                             │ work           │
-          ▼                   │                             │                │
-  ┌──────────────┐            │                             │ OUTCOME IS     │
-  │ board/DONE   │            │                             │ MANDATORY      │
-  │ pruned after │            │                             └────────────────┘
-  │ 2 cycles     │            │
-  └──────────────┘            │
-                              │
-   Is it MY role's knowledge?─┤
-          │                   │
-          ▼                   │
-  ┌───────────────────────────┴──────────────┐
-  │ memory/<role>/                           │
-  │  project.md — about THIS project         │
-  │  craft.md   — craft that outlives project│
-  │                                          │
-  │ Routing test: "Will this still hold true │
-  │ in ANOTHER project?" Yes → craft,        │
-  │ No → project                             │
-  └──────────────────────────────────────────┘
-```
-
-**Separate branch: I found an error in the documentation itself.**
-
-```
-   inaccuracy in a team document
-              │
-              ▼
-   ┌──────────────────────────┐   yes   ┌────────────────────────────┐
-   │ Does this rule restrict  ├────────►│ YOU ARE AN INTERESTED PARTY│
-   │ ME SPECIFICALLY?         │         │ — propose, let others edit │
-   └───────────┬──────────────┘         └────────────────────────────┘
-               │ no
-               ▼
-   ┌──────────────────────────┐   yes   ┌────────────────────────────┐
-   │ Is it an Owner decision  ├────────►│ Show a MEASUREMENT,        │
-   │ or product invariant?    │         │ do not overrule            │
-   └───────────┬──────────────┘         └────────────────────────────┘
-               │ no
-               ▼
-   ┌───────────────────────────────────────────────────────────────┐
-   │ EDIT IT MYSELF: name the case · MARK previous wording nearby  │
-   │ · add a date stamp · inform the Team Lead in one line         │
-   └───────────────────────────────────────────────────────────────┘
-```
-
-**Nothing is duplicated.** When an entry is promoted to `PLAYBOOK.md`, it is removed from role
-memory and replaced with a one-line pointer. **Memory entries never contain session names:** a case
-is identified by its **cost**, not its author.
-
----
-
-## D-6. The Board: Statuses and Transitions
-
-*Consolidates: `board/README.md` §4. Last verified: 2026-08-29.*
-
-```
-                       ┌──────────┐
-      finding ────────►│   open   │◄──────── reopened: underlying
-      proven           └────┬─────┘          circumstance changed
-                            │
-        ┌───────────────────┼──────────────────┬──────────────────┐
-        ▼                   ▼                  ▼                  ▼
- ┌─────────────┐    ┌──────────────┐   ┌─────────────┐   ┌──────────────┐
- │ in progress │    │ awaiting     │   │ future      │   │ undecided    │
- │ + WHO       │    │ Owner        │   │ valid, but  │   │ we do not    │
- │ + date      │    │ + added to   │   │ not in this │   │ know what to │
- │             │    │   master list│   │ cycle       │   │ do — state   │
- └──────┬──────┘    └──────┬───────┘   └──────┬──────┘   │ that openly  │
-        │                  │                  │          └──────────────┘
-        │                  │ answer           │ 3 cycles untouched
-        │                  ▼                  ▼          → review
-        │           ┌─────────────┐    ┌─────────────────────────────┐
-        │           │ open        │    │ improvement backlog or drop │
-        │           └─────────────┘    └─────────────────────────────┘
+```text
+    proven finding ──► open ◄── reopened (facts changed)
+                        │
+        ┌───────────────┼──────────────────┬──────────────────┐
+        ▼               ▼                  ▼                  ▼
+  ┌───────────┐  ┌──────────────┐   ┌───────────┐    ┌────────────┐
+  │in progress│  │waiting on    │   │  future   │    │ unresolved │
+  │+who +date │  │owner (1 list)│   │ (valid,   │    │ (explicit) │
+  └─────┬─────┘  └──────┬───────┘   │  deferred)│    └────────────┘
+        │               │ answered  └───────────┘
+        │               ▼
+        │             open
         ▼
- ┌─────────────┐         ┌──────────────────────────────────────────┐
- │ done        ├────────►│ board/DONE.md — by whom and when         │
- └─────────────┘         │ pruned after two session cycles          │
-                         └──────────────────────────────────────────┘
+  ┌───────────┐  ┌──────────────────────────────────┐
+  │   done    ├─►│ board/DONE.md (pruned 2 cycles)  │
+  └───────────┘  └──────────────────────────────────┘
 
- ┌─────────────┐   cause vanished / subject changed
- │ obsolete    │◄──── closed WITH AN EXPLANATION, never silently
- └─────────────┘
+  obsolete ◄── closed WITH written rationale (never silent)
 
- SELF-CHECK that catches forgetfulness:
- ┌────────────────────────────────────────────────────────────────────┐
- │ An "in progress" card dated OLDER THAN 24 HOURS = either the       │
- │ session died or someone forgot to clear the status. Unmissable.    │
- └────────────────────────────────────────────────────────────────────┘
-
- SINGLE DIRECTION OF TRUTH:
-    OPEN.md ──summarized into──► 00-START.md
-    If counts diverge → 00-START is wrong, never OPEN
+  TRUTH DIRECTION:  board/OPEN.md ──summarized into──► board/00-START.md
+                    If counts diverge → 00-START.md is wrong.
+  STALE CHECK:      "in progress" older than 24h → investigate immediately.
 ```
 
 ---
 
-## D-7. Stages of a Cycle
+## D-7. Cycle Stages (Aligned with P-1: Run First, Read Second)
 
-*Consolidates: `roles/LEAD-PROCEDURES.md` P-1, P-12, P-13. Last verified: 2026-08-29.*
+*Consolidates: `roles/LEAD-PROCEDURES.md` P-1, P-12, P-13.*
 
-```
+```text
  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐
  │ 1. ENTRY     │─►│ 2. DISPATCH  │─►│ 3. EXECUTION │─►│ 4. MERGE     │
  ├──────────────┤  ├──────────────┤  ├──────────────┤  ├──────────────┤
- │ board        │  │ compute      │  │ report →     │  │ merge        │
- │ run all gates│  │ session count│  │ verify       │  │ generators   │
- │ working trees│  │ (3 limits)   │  │ number →     │  │ IN ORDER     │
- │ is the app   │  │              │  │ decide →     │  │ re-run all   │
- │ WORKING?     │  │ non-overlap  │  │ update board │  │ gates AFRESH │
- │              │  │ territories  │  │              │  │              │
+ │ RUN checks   │  │ size roster  │  │ report →     │  │ merge no-ff  │
+ │ worktrees/CI │  │ (3 limits)   │  │ verify #s →  │  │ generators   │
+ │ live app ok? │  │ non-overlap  │  │ decide →     │  │ IN ORDER     │
+ │ THEN read    │  │ territories  │  │ update board │  │ re-run ALL   │
+ │ board + plan │  │              │  │              │  │ checks fresh │
  └──────────────┘  └──────────────┘  └──────┬───────┘  └──────┬───────┘
                                             │                 │
-                          finding changes   │                 │
-                          others' work ─────┘                 │
-                          → forward IMMEDIATELY               │
-                                                              ▼
+                         impacting finding ─┘                 │
+                         → forward immediately                ▼
  ┌──────────────┐  ┌──────────────────────────────────────────────────┐
  │ 6. CLOSURE   │◄─┤ 5. END OF SHIFT                                  │
  ├──────────────┤  ├──────────────────────────────────────────────────┤
- │ ALL          │  │ run gates · board · STATE · memory · merge       │
- │ acceptance   │  │ branches · single consolidated report to Owner   │
- │ criteria,    │  └──────────────────────────────────────────────────┘
- │ not "most"   │
- │              │   Three unmet criteria out of seven = AN OPEN CYCLE,
- │ device QA    │   and must be reported as such.
- │ is MANDATORY │
+ │ ALL criteria │  │ Step 0: check dirty worktrees · run checks ·     │
+ │ met (never   │  │ sync board · update STATE.md · update memory ·   │
+ │ majority) +  │  │ doc housekeeping (P-12-bis) · 1 Owner summary    │
+ │ Runtime QA   │  └──────────────────────────────────────────────────┘
  └──────────────┘
 ```
 
 ---
 
-## D-8. Recovery After an Interruption
+## D-8. Crash & Interruption Recovery
 
-*Consolidates: `TEAM.md` §7, `roles/LEAD-PROCEDURES.md` P-14. Last verified: 2026-08-29.*
+*Consolidates: `TEAM.md` §5, `roles/LEAD-PROCEDURES.md` P-14, P-16.*
 
-```
-   sessions interrupted
-        │
-        ▼
- ┌──────────────────────────────────────────────────────────────┐
- │ DO NOT DELETE, REVERT, OR RESET ANYTHING                     │
- │ An unfamiliar edit is someone else's work, not garbage.      │
- │ The cost of error is asymmetric: mistaking live work for     │
- │ garbage is irreversible; the reverse costs 30 mins of reading│
- └──────────────────────┬───────────────────────────────────────┘
-                        ▼
- ┌──────────────────────────────────────────────────────────────┐
- │ git log answers "what was MERGED", NOT "what was DONE"       │
- │ ──────────────────────────────────────────────────────────── │
- │ A shift can look dead by commits and alive by files:         │
- │ last commit at 22:36, file edits continuing until 23:54      │
- └──────────────────────┬───────────────────────────────────────┘
-                        ▼
-        ┌───────────────┴──────────────┐
-        ▼                              ▼
- ┌─────────────────┐          ┌──────────────────────┐
- │ status of ALL   │          │ file mtime           │
- │ working trees   │          │ — the only thing     │
- │ (more than one) │          │ distinguishing live  │
- └────────┬────────┘          │ work from old        │
-          │                   └──────────┬───────────┘
-          └────────────┬─────────────────┘
-                       ▼
- ┌──────────────────────────────────────────────────────────────┐
- │ SNAPSHOT uncommitted work — OUTSIDE temporary directories    │
- │ (temp dirs are wiped on reboot, which already cost a shift)  │
- └──────────────────────┬───────────────────────────────────────┘
-                        ▼
- ┌──────────────────────────────────────────────────────────────┐
- │ An uncommitted edit = UNVERIFIED until you find the test     │
- │ run that verified it.                                        │
- │ "Verify" = check its own numbers against a measurement,      │
- │ not merely confirm that it compiles.                         │
- └──────────────────────┬───────────────────────────────────────┘
-                        ▼
-              board/OPEN.md — what was already found and left undone
-```
-
----
-
-## D-9. Role Workflows: Two Distinct Shapes
-
-*Consolidates: role documents. Last verified: 2026-08-29.*
-
-```
- ROLE THAT EDITS CODE            │  ROLE THAT DOES NOT EDIT CODE
- (Executor, Team Lead,           │  (Analyst, Designer, Architect,
-  Tester within their layer)     │   Security)
- ────────────────────────────────┼──────────────────────────────────────
-                                 │
-   assignment                    │    domain area
-      │                          │       │
-      ▼                          │       ▼
-   MEASUREMENT (not an edit)     │    open a cell where
-   every number in the task      │    NOBODY has looked yet
-   is unverified                 │       │
-      │                          │       ▼
-      ▼                          │    ask: "Are they counting the right
-   simulation BEFORE editing     │    thing?" "What shape would a defect
-      │                          │    take so the rule misses it?"
-      ▼                          │       │
-   edit                          │       ▼
-      │                          │    prove with a MEASUREMENT
-      ▼                          │       │
-   test that FAILS on old code   │       ▼
-      │                          │    document → hand over
-      ▼                          │    SOMEONE ELSE FIXES IT
-   test run (full, not targeted) │       │
-      │                          │       ▼
-      ▼                          │    report — THE ONLY artifact
-   commit with explicit paths    │       │
-      │                          │       ▼
-      ▼                          │    memory + board
-   report + memory               │
-                                 │
- ────────────────────────────────┴──────────────────────────────────────
-  WHY THE BOUNDARY IS STRICT: editing destroys the subject of analysis —
-  anyone who fixes the code ends up reviewing their own work.
-```
-
-**Device / Runtime QA stands apart:** they neither edit nor analyze code — they **tap the real
-device**. Their proof is a captured frame and a completed matrix, and nothing substitutes for it:
-green tests prove internal code consistency, not that the product works.
-
----
-
-## D-10. Bootstrapping a New Project
-
-*Consolidates: `roles/LEAD-PROCEDURES.md` P-0, `templates/README.md`. Last verified: 2026-08-29.*
-
-```
-   clone of the framework repository
+```text
+   session interrupted
          │
          ▼
-   Owner tells a single session:
-   "Read the teamwork documentation and bootstrap it for this project"
-         │
-         ▼
- ┌────────────────────────────────────────────────────────────────────┐
- │ P-0. BOOTSTRAPPING — executed by the Team Lead                     │
- ├────────────────────────────────────────────────────────────────────┤
- │  templates/PROJECT.md      ──copy──►  <project>/PROJECT.md         │
- │  templates/board/*         ──copy──►  <project>/board/             │
- │  templates/memory/_role/*  ──copy──►  <project>/memory/<role>/     │
- │                                       (one per active role)        │
- └────────────────────────────┬───────────────────────────────────────┘
-                              ▼
- ┌────────────────────────────────────────────────────────────────────┐
- │ FILL IN PROJECT.md — the single project-specific file:             │
- │ layout · checks · material rules · generators ·                    │
- │ ratchet baselines · device rig · branches · Owner-only decisions   │
- │                                                                    │
- │ An empty section is BETTER than a fabricated one: it says "unknown"│
- └────────────────────────────┬───────────────────────────────────────┘
-                              ▼
- ┌────────────────────────────────────────────────────────────────────┐
- │ RECOMMEND SESSION COUNT AND ROLES TO THE OWNER                     │
- │ = non-overlapping territories, never more than you can supervise   │
- └────────────────────────────┬───────────────────────────────────────┘
-                              ▼
-                         work proceeds
-                              │
-                              ▼
- ┌────────────────────────────────────────────────────────────────────┐
- │ WHAT GOES WHERE ON PUSH                                            │
- │  framework repository ◄── roles, procedures, diagrams, templates   │
- │  project repository   ◄── PROJECT.md, board/, memory/, reports     │
- │                                                                    │
- │ The framework's .gitignore excludes board/, memory/, PROJECT.md,   │
- │ reports, and frames — so anyone cloning it gets a CLEAN FRAME      │
- └────────────────────────────────────────────────────────────────────┘
+  ┌──────────────────────────────────────────────────────────┐
+  │ DO NOT DELETE, REVERT, OR RESET UNFAMILIAR CHANGES       │
+  └──────────────────────────┬───────────────────────────────┘
+                             ▼
+  ┌──────────────────────────────────────────────────────────┐
+  │ git log = merged only; inspect git status + file mtime   │
+  │ across ALL worktrees; snapshot diffs outside /tmp        │
+  └──────────────────────────┬───────────────────────────────┘
+                             ▼
+  ┌──────────────────────────────────────────────────────────┐
+  │ Treat uncommitted work as UNVERIFIED until matched to    │
+  │ live check runs; rescue orphaned work via P-16           │
+  └──────────────────────────┬───────────────────────────────┘
+                             ▼
+                resume from STATE.md + board/OPEN.md
 ```
 
 ---
 
-## What Is Intentionally Omitted from the Diagrams
+## D-9. Role Workflows: Editing vs. Read-Only Auditing
 
-* **Role roster** — that is a table; there is no branching;
-* **Project-specific content rules** — those live in `PROJECT.md` and differ for every project;
-* **Reading order within a single document** — a table of contents handles that better;
-* **Anything that changes more than once a month.** A diagram with a high edit frequency is
-  maintained by no one and quickly starts lying.
+*Consolidates: `roles/*.md`.*
 
-**A diagram that people have stopped verifying is worse than having no diagram at all:** stale prose
-looks stale, whereas a stale diagram still looks verified.
+```text
+  EDITING ROLES                      │  READ-ONLY AUDITING ROLES
+  (Executor, Junior, Team Lead,      │  (Analyst, Architect, Designer,
+   Tester in verification layer)     │   Security)
+  ───────────────────────────────────┼───────────────────────────────────
+    assignment                       │    target surface / profile
+       │                             │       │
+       ▼                             │       ▼
+    MEASURE baseline first           │    open uninspected cells / seams
+       │                             │       │
+       ▼                             │       ▼
+    simulate before risky edits      │    challenge premise & defect shape
+       │                             │       │
+       ▼                             │       ▼
+    implement change                 │    prove with reproducible metric
+       │                             │       │
+       ▼                             │       ▼
+    mutation-test check              │    document & hand off to owner
+       │                             │       │
+       ▼                             │       ▼
+    full checks + explicit commit    │    incremental report + memory
+       │                             │
+       ▼                             │  Runtime / Device QA sits alongside:
+    incremental report + memory      │  exercises live app + fills matrix
+  ───────────────────────────────────┴───────────────────────────────────
+  WHY SEPARATE: editing destroys independence — fixers review themselves.
+```
+
+---
+
+## D-10. Project Bootstrap (`P-0`)
+
+*Consolidates: `roles/LEAD-PROCEDURES.md` P-0, `templates/README.md`.*
+
+```text
+   Clone ai-team next to project
+         │
+         ▼
+   Choose Mode:
+   · Lite Mode  ──► copy templates/AGENTS.md + templates/PROJECT.md
+   · Full Mode  ──► copy PROJECT.md + board/* + active memory/<role>/*
+         │
+         ▼
+   Fill PROJECT.md from LIVE measurements (leave unknowns empty)
+         │
+         ▼
+   Verify repository boundary:
+   · ai-team repo  ◄── generic charter, roles, procedures, templates ONLY
+   · project repo  ◄── AGENTS.md, PROJECT.md, board/, memory/, reports
+   · Confirm with `git ls-files` inside ai-team
+```

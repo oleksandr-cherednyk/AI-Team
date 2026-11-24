@@ -1,213 +1,122 @@
-# AI-Team — Operating Charter for a Team of Parallel AI Sessions
+# AI-Team — Operating Charter for AI Coding Agents
 
-Multiple sessions work on the same repository simultaneously. One of them is the **Team Lead**: it
-plans, assigns work, merges the results, and communicates with the owner. The others hold their
-roles and territories.
+A portable, incident-driven operating framework for running AI coding agents with engineering rigor — from **a single agent + reviewer on a new project** up to **a parallel multi-session team on a mature codebase**.
 
-This is neither a library nor a tool. **This is an operating charter**: roles, procedures, diagrams,
-and rules for maintaining memory and the task board. Everything written here is derived from real
-operational incidents — every rule names the actual case it came from.
+This is neither a library nor a runtime tool. **It is an operating charter**: operating modes, role boundaries, verification procedures, decision trees, and templates for project context, task boards, and persistent memory. Every rule exists because of a real operational failure, not abstract theory.
 
 ---
 
 ## Why This Exists
 
-Parallel sessions break predictably, and always in the same ways:
+AI coding sessions break predictably, and always in the same ways:
 
-* **work is lost on disconnect** — a session dies, and nobody knows what it managed to finish;
-* **two sessions edit the same file** and only find out at merge time;
-* **a finding never reaches** the owner of that territory;
-* **knowledge dies with the session** — a technique discovered in the morning is forgotten by evening;
-* **a new session starts cold** and pays again for lessons already bought;
-* **checks are green while a defect exists** — and nobody asks what those checks actually prove.
+* **green checks hide real defects** — tests compile and pass while the probe is blind or never wired into the runner;
+* **fixes break adjacent state** — a fix updates one variable and misses its sibling on the next line;
+* **self-review misses the real question** — whoever edits code proves their own assumptions instead of challenging the premise;
+* **two parallel sessions collide** — editing the same file in separate working trees and finding out only at merge time;
+* **knowledge dies with the session** — a hard-won lesson discovered in the morning is paid for again in the evening;
+* **work is lost on disconnect** — a session dies and nobody knows what finished or what was verified.
 
-The charter answers each of these points not with a wish, but with a procedure.
+This charter answers each failure mode with concrete procedures rather than vague reminders.
 
 ---
 
-## Getting Started
+## Two Operating Modes (Pick by Project Size)
 
-### 1. Project Owner
+Do **not** deploy eight parallel roles onto a brand-new repository. Match governance weight to project complexity:
 
-Clone this repository **next to** your project or inside it — whichever is more convenient:
+| Mode | When to Use | What You Deploy | Reading Overhead |
+| --- | --- | --- | --- |
+| **Lite Mode** *(1 Agent + 1 Reviewer)* | Greenfield projects, MVPs, small codebases before strict CI & tests exist | `templates/AGENTS.md` + `templates/PROJECT.md` | ~1–2 pages |
+| **Full Fleet Mode** *(Parallel Sessions)* | Mature codebases, multi-surface audits, parallel workstreams with automated gates | `PROJECT.md` + `board/` + `memory/` + selected `roles/*.md` + `CROSS-TOOL-CHAT.md` | Role-scoped |
 
-```
+### Quick Start — Lite Mode (Recommended for New Projects)
+1. Copy [`templates/AGENTS.md`](./templates/AGENTS.md) into your project root as `AGENTS.md` and adapt the verification commands.
+2. Copy [`templates/PROJECT.md`](./templates/PROJECT.md) into your project (e.g., `docs/PROJECT.md` or `PROJECT.md`) and fill in only verified facts.
+3. Run one primary implementation agent and use a second session (or separate CLI tool) strictly in **read-only review mode** on diffs.
+
+### Quick Start — Full Fleet Mode (Parallel Sessions)
+Clone this repository next to (or inside) your project:
+```bash
 git clone <url> ai-team
 ```
-
-Then spin up a single session and tell it verbatim:
-
+Start one session and tell it verbatim:
 > **"Review the team workflow documentation in `ai-team/` and deploy it for this project."**
 
-That session becomes the Team Lead and executes procedure **P-0** — deployment
-([`roles/LEAD-PROCEDURES.md`](./roles/LEAD-PROCEDURES.md)). It will create the working directories for
-the project, populate [`templates/PROJECT.md`](./templates/PROJECT.md) with your rules, gates, and
-territories, and tell you **how many sessions to spin up** and for which roles.
-
-### 2. Any Team Member
-
-Reading order — [`TEAM.md`](./TEAM.md) §2. In short: first the board (whether there is open work),
-then [`PLAYBOOK.md`](./PLAYBOOK.md) (how we think here), then your own role document.
+That session becomes the **Team Lead** and runs procedure **P-0** ([`roles/LEAD-PROCEDURES.md`](./roles/LEAD-PROCEDURES.md)): deploying templates into the project context, populating `PROJECT.md` from live measurements, and recommending the exact number of parallel sessions and roles needed.
 
 ---
 
-## What Lives Here
+## Repository Map
 
-| | What it covers |
-|---|---|
-| [`TEAM.md`](./TEAM.md) | team roster, onboarding, communication rules, crash recovery |
-| [`PROCEDURES.md`](./PROCEDURES.md) | thirteen general procedures: onboarding, measurement, finding, commit, report, retraction, pause, and editing the documentation itself |
-| [`PLAYBOOK.md`](./PLAYBOOK.md) | defect shapes, how our own probes fail, and navigating external sources |
-| [`DIAGRAMS.md`](./DIAGRAMS.md) | diagrams: flows, decision trees, knowledge routing, document relationships |
-| [`SOURCES.md`](./SOURCES.md) | where to study by discipline; project-specific sources are maintained separately |
-| [`CROSS-TOOL-CHAT.md`](./CROSS-TOOL-CHAT.md) | **communication across sessions of different tools** via files: messages live OUTSIDE the repository, or the channel does not work |
-| [`roles/`](./roles/) | **ten** role documents, including [`JUNIOR.md`](./roles/JUNIOR.md) — applying decided changes and completeness of application |
-| [`roles/EXECUTION-PROFILE.md`](./roles/EXECUTION-PROFILE.md) | **which model and reasoning effort** to use for a task: profile by outcome, not by diff size |
-| [`templates/`](./templates/) | `PROJECT.md`, board, memory — plus `ROLE.md`, the template for a new role document |
-
----
-
-## Roles
-
-Eight core roles, **and the list is open** — a new role is created when a recurring systemic problem
-has no owner by verification type (procedure P-7).
-
-| Role | What it does | Edits code? |
-|---|---|---|
-| **Team Lead** | holds the entire run together, takes no tasks for itself | own and shared files |
-| **Executor** | owns its territory end-to-end, measures "before" and "after" | yes |
-| **Device / Runtime QA** | taps the live application: mechanics, migration, devices | no |
-| **Tester** | owns the verification system: what checks prove and where they stay silent | verification layer only |
-| **Analyst** | re-verifies others' work **by what is being measured**, not just arithmetic accuracy | **no** |
-| **Designer** | everything the user sees: screens, flows, behavior, color | **no** |
-| **Architect** | layers, boundaries, dependencies, contracts, data ownership | **no** |
-| **Security** | user data, privacy promise, release supply chain | **no** |
-
-Roles that **do not edit code** are not decorative. Editing destroys the object of analysis: whoever
-fixes something is thereafter verifying their own work.
-
-### Creating a Ninth Role Takes One Procedure
-
-**The list is open in practice, not just in principle.** All eight roles were created along the same
-path — the last two directly via this procedure — and it is specified end-to-end:
-
-* **when to create one** — a kind of verification with no owner, recurring across runs, with its own
-  instrument of proof. Plus **three cases where it looks like you need a role, but you actually need
-  something else**: an Executor territory, a procedure, or simply a second session in an existing role;
-* **what to write** — [`templates/ROLE.md`](./templates/ROLE.md): eight sections, each stating what
-  to include, what to leave out, and which incident produced that requirement. Plus a ready-made
-  **session onboarding prompt** — six parts, copied directly into the first message of a new session;
-* **where to register it** — six places, otherwise the role exists on paper but nobody will find it;
-  the checklist is in the procedure;
-* **how to retire it** — a role folds back into a territory if over an entire shift it produced no
-  finding that a neighboring role would not have caught. The document is not deleted, only marked
-  retired: a deleted role gets reinvented six months later along with all the mistakes already paid for.
-
-Procedure **P-7** — [`roles/LEAD-PROCEDURES.md`](./roles/LEAD-PROCEDURES.md).
+| Path | Purpose | Read When |
+| --- | --- | --- |
+| [`TEAM.md`](./TEAM.md) | Operating modes, role roster, onboarding order, collaboration & recovery rules | Onboarding (Full Mode) |
+| [`PROCEDURES.md`](./PROCEDURES.md) | 13 shared step-by-step procedures (`GP-1`..`GP-13`): measuring, findings, commits, reports, retractions, pauses | On demand |
+| [`PLAYBOOK.md`](./PLAYBOOK.md) | Recurring defect shapes, how verification probes lie, high-ROI verification techniques | Once on onboarding |
+| [`DIAGRAMS.md`](./DIAGRAMS.md) | Authoritative ASCII decision trees & flows (`D-1`..`D-10`) | Visual reference |
+| [`SOURCES.md`](./SOURCES.md) | Primary external technical references by discipline (Web, Backend/Security, Mobile, GameDev/3D) | On demand |
+| [`CROSS-TOOL-CHAT.md`](./CROSS-TOOL-CHAT.md) | File-based messaging across different AI tools & `git worktree`s | Multi-tool parallel runs |
+| [`roles/`](./roles/) | 8 core roles + `JUNIOR.md` + `LEAD-PROCEDURES.md` + `EXECUTION-PROFILE.md` (11 files) | Your assigned role only |
+| [`templates/`](./templates/) | `AGENTS.md` (Lite), `PROJECT.md`, `board/`, `memory/`, and `ROLE.md` | Project bootstrap (`P-0`) |
+| [`skills/code-audit/SKILL.md`](./skills/code-audit/SKILL.md) | Distilled multi-stack bootstrap & read-only audit skill for AI coding agents | Agent skill install |
 
 ---
 
-## Three Ideas Worth Reading This For
+## Roles (Full Fleet Mode)
 
-**1. Ask not "are the numbers right," but "are they counting the right thing."** A working session
-proves that it completed its assigned task; it has no vantage point from which to doubt the object
-of measurement it chose for itself. That is why the Analyst role exists.
+Eight core roles plus **Junior** (completeness specialist). The roster is **open** — a new role is introduced via procedure **P-7** only when a recurring systemic verification gap has no owner. Not every role is spun up on every cycle.
 
-**2. "What shape would a defect have to take for this rule not to see it?"** Not "where else," but
-"how could this still be wrong." In the shift from which this charter grew, three sessions arrived
-at this question independently, and it produced every major finding.
+| Role | Responsibility | Edits Code? |
+| --- | --- | --- |
+| **Team Lead** | Plans, assigns territories, verifies critical numbers, merges, communicates with owner | Shared/merge ops only |
+| **Executor** | Owns a non-overlapping slice end-to-end with "before" and "after" measurements | Yes |
+| **Junior** | Applies settled decisions exhaustively (`N of N` completeness); never makes judgment calls | Yes (settled specs only) |
+| **Runtime / Device QA** | Exercises the live product (browser, emulator, desktop window) end-to-end | No |
+| **Tester** | Owns the verification layer: proves via mutation what tests catch and where they are blind | Verification layer only |
+| **Analyst** | Challenges measurement validity ("are we counting the right thing?") and inspects module seams | **No** |
+| **Designer** | Evaluates live UX, states, flows, contrast, accessibility, and motion | **No** |
+| **Architect** | Audits layer boundaries, dependency direction, contracts, data ownership, and bundle/query cost | **No** |
+| **Security** | Enforces zero-leaks, threat modeling, AuthN/AuthZ (IDOR/RLS), and release artifact hygiene | **No** |
 
-**3. Retracting your own finding is real work, not an admission of failure.** In a single shift,
-authors retracted five of their own findings before anyone started fixing them. One of those
-retractions stopped a change that would have shipped broken content back to the user.
+> **Why read-only roles never edit code:** editing destroys the independence of analysis — whoever fixes a defect immediately starts verifying their own assumptions.
 
 ---
 
-## What Does NOT Belong in This Repository
+## Three Core Ideas Behind This Charter
 
-**Everything project-specific.** The task board, role memories, reports, plans, `PROJECT.md` — these
-are created during deployment and live in the **project's** context, never committed here. See
-[`.gitignore`](./.gitignore) and [`templates/README.md`](./templates/README.md).
+1. **Ask not "are the numbers accurate?" — ask "are they counting the right thing?"** A working session proves it finished its task; it has no vantage point from which to doubt the metric it chose for itself.
+2. **"What shape would a defect have to take for this rule not to see it?"** Not "where else?", but "how could this still be wrong while every check stays green?"
+3. **Retracting your own finding is real work, not failure.** A false finding wastes teammates' hours and propagates upward as fact; a timely retraction protects the whole run.
 
-### What NEVER Enters This Repository — and Why It Matters
+---
 
-**The charter is portable:** it is taken into another project, to another owner, with another team.
-Therefore everything tied to a **specific** project must remain outside tracked files.
+## What NEVER Belongs in This Repository
 
-| Never committed | Why |
-|---|---|
-| **`memory/`** — role memory | experience of **this** team on **this** project |
-| **`board/`** — task board | findings and open work of the specific project |
-| **`PROJECT.md`, `STATE.md`** | state of a specific run |
-| **reports, handoffs, implementation plans** | tied to specific numbers and dates |
-| **`_chat/`** — session messages | project correspondence, and **outside the repository by design** |
-| **screenshots, logs, diagnostics** | run artifacts |
+This charter is portable across projects and owners. **Everything tied to a specific project stays outside tracked files** (enforced via [`.gitignore`](./.gitignore)):
 
-**All of the above are listed in `.gitignore`.** Verify this with a command, not by eye:
+| Excluded from Framework Repo | Why |
+| --- | --- |
+| `board/` | Open findings and work items of a specific project |
+| `memory/` | Accumulated experience from a specific project |
+| `PROJECT.md`, `STATE.md`, `AGENTS.md` | Project passport, live run state, project agent rules |
+| `reports/`, `*-report.md`, `*-handoff.md` | Run-specific numbers and dates |
+| `_chat/`, `chat/` | Ephemeral cross-session messages (live outside git worktrees by design) |
+| `shots/`, `logs/`, `diagnostics/` | Run artifacts |
 
+> **Rule:** Whenever you create a new project-specific directory next to the framework, add it to `.gitignore` and **commit that `.gitignore` line immediately**, before neighboring worktrees accidentally commit project artifacts.
+
+Verify cleanly with:
 ```bash
-git ls-files                 # everything tracked must belong strictly to the framework
+git ls-files   # Every tracked file must belong strictly to the generic framework
 ```
 
-**Project files DO LIVE RIGHT HERE — and that is normal.** The team works inside the charter's
-directory: the board, memory, reports, and correspondence appear right next to the rules, and there
-is nowhere else to put them.
-
-> **There is one rule: create a project file — add it to `.gitignore` and IMMEDIATELY COMMIT that line.**
-
-**Both halves are mandatory, and the second is more important.** A line added to `.gitignore` but
-not committed protects **only you**: a neighboring session in another working tree does **not** have
-that rule, and it will commit project files without suspecting they should be ignored.
-
-Not "later," not "at the end of the shift." Within an hour, a directory looks like part of the
-furniture and gets committed without a second glance — and then the charter, meant to be a clean
-framework, arrives at the next project carrying someone else's board and someone else's memory.
-
-**Sign that the rule was broken:** `git status` shows an unfamiliar directory, and nobody remembers
-who created it.
-
-**One honest caveat.** `PLAYBOOK.md` and the role documents **do contain examples from the project
-where this charter grew up** — Spanish strings, German lemmas, drills. This is **intentional**: a
-rule without a real incident is a platitude, and the concrete case is what makes it recognizable.
-**An example is welcome; a project-specific prescription is not.** If a rule assumes your domain
-rather than illustrating a pattern, that is a defect in the charter and should be fixed.
-
-Anyone who clones this repository gets an **empty frame**: rules, roles, procedures, diagrams, and
-templates — and not a single task from someone else's project.
-
----
-
-## How This Charter Evolves
-
-**Documents are updated as work happens, not written once.** Maintenance rules — `TEAM.md` §6 and §8:
-
-* **any member fixes inaccuracies directly** if they find a verified error — a number does not
-  reproduce, a file is missing, a rule contradicts its neighbor. This is normal practice, not
-  overstepping: silently working around a broken rule is worse than fixing it;
-* **improvements are also welcome**, provided they are verified and derived from a real case. Only
-  one thing is off-limits: editing a rule that constrains **you personally** — there you are an
-  interested party;
-* **a member's proposal** must come with an incident or a measurement, never just "it would be more
-  convenient";
-* **recorded the same day** — a technique left in chat dies with the session;
-* **superseded rules are marked inline** next to the previous wording, not erased: they were valid
-  for their time;
-* **a diagram is updated together with the text** it summarizes — every diagram states what it
-  summarizes and when it was last verified.
+> **Note on Examples:** `PLAYBOOK.md` and select procedures preserve anonymized case examples from real operational incidents (without private repository names or domain-locked rules). A rule without a concrete incident becomes a platitude; an example illustrates a pattern, whereas a project-specific prescription is a defect in the charter.
 
 ---
 
 ## Rights and License
 
-**Author — Oleksandr Cherednyk. All rights to this material belong to him.**
+**Author — Oleksandr Cherednyk.** All rights to this material belong to the author.
 
-License — [MIT](./LICENSE). This is **permission to use, not a transfer of ownership**: take it,
-copy it, adapt it to your needs, including in closed-source and commercial projects. There is only
-one condition — **preserve the copyright notice** (`Copyright (c) 2026 Oleksandr Cherednyk`) in all
-copies and substantial portions. Remove it, and your use becomes unlawful.
-
-**What this does NOT permit:** claiming this text as your own, publishing it under another name, or
-selling it as your own original work.
-
-**Files populated for your project are yours.** The templates exist here specifically to spread into
-other repositories and take on a life of their own; you owe no accounting for them to anyone.
+Licensed under [MIT](./LICENSE). You may use, copy, and adapt this framework in open-source or commercial projects provided you **preserve the copyright notice** (`Copyright (c) 2026 Oleksandr Cherednyk`) in all copies and substantial portions. Project files populated from `templates/` belong entirely to their respective projects.

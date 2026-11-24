@@ -87,7 +87,7 @@ If the project produces content (texts, exercises, user-facing data) — **the r
 ## 7. Testbench and Devices
 
 * **how the live product is verified** (emulator, physical device, browser, desktop window) and how to spin it up;
-* **the irreversible scenario** — the one that cannot be casually redone (for us, installing a new build on top of an older build without clearing user data);
+* **the irreversible scenario** — the one that cannot be casually redone (for example, migrating live production schema or installing a new mobile build over existing user data without wiping storage);
 * **environment traps** — pitfalls that have already cost time. Record them immediately, not "once enough pile up."
 
 ---

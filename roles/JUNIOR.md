@@ -29,7 +29,7 @@ Work where **the decision has already been made**, and the deliverable is thorou
 
 ## 3. What the Junior Never Takes — Regardless of Volume
 
-* **Judgment of any kind:** whether code is dead, whether a phrase sounds natural, whether a CEFR level is accurate, which of two sources is right — **never delegated downward even for a single line**;
+* **Judgment of any kind:** whether code is dead, whether copy sounds natural, how to classify an ambiguous business rule, or which of two external sources is right — **never delegated downward even for a single line**;
 * **"Investigate and propose"** — delegating judgment disguised as mechanics;
 * **Evaluating the quality** of anything whatsoever;
 * **Deciding where** to wire something in, **what** to delete, or **which** threshold to set.

@@ -80,14 +80,14 @@ Three actions, every cycle:
 ## 4. Statuses
 
 **Priority (`P0`…`P3`) sits next to the status and is changed only by the Team Lead, always with a date.**
-`P0` — visible to the learner/user right now · `P1` — blocks someone else's work or breaks a verification check · `P2` — normal · `P3` — future. **P0 never piles up:** more than three at once means either priorities are being inflated or work has stalled, and the Team Lead must report this to the owner.
+`P0` — visible to the user right now · `P1` — blocks someone else's work or breaks a verification check · `P2` — normal · `P3` — future. **P0 never piles up:** more than three at once means either priorities are being inflated or work has stalled, and the Team Lead must report this to the owner.
 
 | Status | Meaning | Action |
 |---|---|---|
 | `open` | stated and proven, no owner assigned yet | assign to a session or explain why it waits |
 | `in progress` | claimed, naming who took it and when | leave alone, await report |
 | `waiting on owner` | blocked on a decision that is not ours to make | consolidate into a single list and ask the owner at once |
-| `needs attention` | visible to the learner/user **right now** or breaks someone else's work | tackle ahead of everything else |
+| `needs attention` | visible to the user **right now** or breaks someone else's work | tackle ahead of everything else |
 | `future` | accepted as valid, but not for the current cycle | do not assign now, do not lose |
 | `unresolved` | we do not know what to do with this yet | state that out loud rather than hiding it under `open` |
 | `done` | closed and verified | move to `DONE.md` with date and author |
@@ -103,11 +103,11 @@ Three actions, every cycle:
 
 ```markdown
 ### <ID>. Short title — what specifically is wrong
-**Status:** P0 · needs attention · 2026-08-29 · found by `-69`, owned by `-44`
-**Plan:** P6 → P2          ← mandatory: who found it and whose workstream owns the fix. Without this, the card gets lost
+**Status:** P0 · needs attention · <YYYY-MM-DD> · found by <role>, owned by <role>
+**Plan:** <workstream-id> → <owner-workstream>   ← mandatory: prevents cards from getting lost
 **What:** one or two lines, without retelling the history.
 **How proven:** command, number, file. Without this, the entry is an opinion, not a finding.
-**Impact:** what it means for the learner/user or the team's work. If nothing — state so explicitly.
+**Impact:** what it means for the user or the team's work. If nothing — state so explicitly.
 **Next step:** concrete next action and whose territory it belongs to.
 ```
 

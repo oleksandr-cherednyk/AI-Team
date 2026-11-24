@@ -20,10 +20,10 @@
 # Templates live in templates/memory/; populated memory is project-specific.
 /memory/
 
-# Project passport: gates, content rules, territories, generators, and testbed.
-# Populated from templates/PROJECT.md.
+# Project passport & agent rules: populated from templates/PROJECT.md and templates/AGENTS.md.
 /PROJECT.md
 /PROJECT-*.md
+/AGENTS.md
 
 # Session and run reports / handoffs.
 /reports/
